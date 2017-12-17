@@ -206,7 +206,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-GraphQL Learn (4) - Execution"
+            <article id="post-GraphQL Learn (1) - Queries and Mutations"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -224,7 +224,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (4) - Execution/">GraphQL Learn (4) - Execution</a>
+      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (1) - Queries and Mutations/">GraphQL Learn (1) - Queries and Mutations</a>
     </h3>
   
 
@@ -234,12 +234,14 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。
-GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：
-12345678910111213141516type Query &#123;  human(id: ID!): Human&#125;type Human &#123;  name: String  appearsIn: [Episode]  starships: [Starship]&#125;enum Episode &#123;  NEWHOPE  EMPIRE  JEDI&#125;type Starship &#123;  name: String&#125;
+        在此页面上，你将详细了解如何查询GrahQL服务器。
+字段（Fields）最简单的，GraphQL是关于要求对象上的特定字段。我们先来看一个非常简单的查询，当我们运行它时得到结果：
+12345&#123;  hero &#123;    name  &#125;&#125;
+1234567&#123;  "data": &#123;    "hero": &#123;      "name": "R2-D2"    &#125;  &#125;&#125;
+可以看到，查询与结果的形状完全相同。这对于GraphQL是至关重要的，因为您总是收到您期望的内容，并且服务器确切知道客户端要求哪些字段。
     
 
-        <a href="/2017/08/15/GraphQL Learn (4) - Execution/" class="post-more waves-effect waves-button">
+        <a href="/2017/08/15/GraphQL Learn (1) - Queries and Mutations/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -355,7 +357,7 @@ GraphQL无法执行没有类型系统的查询，让我们使用类型系统例�
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-GraphQL Learn (1) - Queries and Mutations"
+            <article id="post-GraphQL Learn (4) - Execution"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -373,7 +375,7 @@ GraphQL无法执行没有类型系统的查询，让我们使用类型系统例�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (1) - Queries and Mutations/">GraphQL Learn (1) - Queries and Mutations</a>
+      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (4) - Execution/">GraphQL Learn (4) - Execution</a>
     </h3>
   
 
@@ -383,14 +385,12 @@ GraphQL无法执行没有类型系统的查询，让我们使用类型系统例�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        在此页面上，你将详细了解如何查询GrahQL服务器。
-字段（Fields）最简单的，GraphQL是关于要求对象上的特定字段。我们先来看一个非常简单的查询，当我们运行它时得到结果：
-12345&#123;  hero &#123;    name  &#125;&#125;
-1234567&#123;  "data": &#123;    "hero": &#123;      "name": "R2-D2"    &#125;  &#125;&#125;
-可以看到，查询与结果的形状完全相同。这对于GraphQL是至关重要的，因为您总是收到您期望的内容，并且服务器确切知道客户端要求哪些字段。
+        经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。
+GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：
+12345678910111213141516type Query &#123;  human(id: ID!): Human&#125;type Human &#123;  name: String  appearsIn: [Episode]  starships: [Starship]&#125;enum Episode &#123;  NEWHOPE  EMPIRE  JEDI&#125;type Starship &#123;  name: String&#125;
     
 
-        <a href="/2017/08/15/GraphQL Learn (1) - Queries and Mutations/" class="post-more waves-effect waves-button">
+        <a href="/2017/08/15/GraphQL Learn (4) - Execution/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
