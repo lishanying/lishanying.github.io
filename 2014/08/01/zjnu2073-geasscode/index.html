@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>内网2073 城主GeassCode | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="图论,tarjan,LCA">
+    <meta name="description" content="##Description GeassCode凭借自己在topcoder上的超凡表现，赢得了国王的喜爱，国王赏赐他一座城池。这座城池里有n个 村子，m条路连接这些村子。坐上城主的GeassCode决定要修路，他打算用最少的代价把所以的村子连在一起。据探子回报，有些村子之间虽然原来没有路 径，但是可以强行的去建一条路。G">
+<meta name="keywords" content="图论,tarjan,LCA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内网2073 城主GeassCode">
+<meta property="og:url" content="http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="##Description GeassCode凭借自己在topcoder上的超凡表现，赢得了国王的喜爱，国王赏赐他一座城池。这座城池里有n个 村子，m条路连接这些村子。坐上城主的GeassCode决定要修路，他打算用最少的代价把所以的村子连在一起。据探子回报，有些村子之间虽然原来没有路 径，但是可以强行的去建一条路。GeassCode想知道，如果强行在某两个村子之间建一条路，最后的总花费是多少？">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.727Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内网2073 城主GeassCode">
+<meta name="twitter:description" content="##Description GeassCode凭借自己在topcoder上的超凡表现，赢得了国王的喜爱，国王赏赐他一座城池。这座城池里有n个 村子，m条路连接这些村子。坐上城主的GeassCode决定要修路，他打算用最少的代价把所以的村子连在一起。据探子回报，有些村子之间虽然原来没有路 径，但是可以强行的去建一条路。GeassCode想知道，如果强行在某两个村子之间建一条路，最后的总花费是多少？">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">内网2073 城主GeassCode</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">内网2073 城主GeassCode</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2014-08-01T12:18:37.000Z" itemprop="datePublished" class="page-time">
+  2014-08-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-zjnu2073-geasscode"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">内网2073 城主GeassCode</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2014-08-01 20:18:37" datetime="2014-08-01T12:18:37.000Z"  itemprop="datePublished">2014-08-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>##Description</p>
+<p>GeassCode凭借自己在topcoder上的超凡表现，赢得了国王的喜爱，国王赏赐他一座城池。这座城池里有n个 村子，m条路连接这些村子。坐上城主的GeassCode决定要修路，他打算用最少的代价把所以的村子连在一起。据探子回报，有些村子之间虽然原来没有路 径，但是可以强行的去建一条路。GeassCode想知道，如果强行在某两个村子之间建一条路，最后的总花费是多少？</p>
+<a id="more"></a>
+<p>##Input</p>
+<p>输入一行三个整数n，m，表示有n个村子，m条可建路径。</p>
+<p>2..m+1行，每行3个整数a,b,c（a≠b），表示可以在a和b村庄建一条花费为c的路径。</p>
+<p>第m+2行一个整数q，表示有多少个询问。</p>
+<p>接下来q个询问，每行3个整数a,b,c（a≠b），表示如果可以另外在a和b村庄建一条花费为c的路径，最终需要多少花费？</p>
+<p>##Output</p>
+<p>对于每个询问输出，输出最少的花费。</p>
+<p>##Sample Input<br>4 5 1 2 4 2 3 3 1 4 6 2 4 3 1 3 2 3 3 4 3 1 3 1 1 4 2</p>
+<p>##Sample Output<br>8 7 7</p>
+<p>##Hint<br>n的范围[2,50000],m的范围[2,100000],q的范围[1,50000]。</p>
+<p>输入的m条边保证可以把所有村庄连在一起。输入的边权范围[1,10<sup>6</sup>]</p>
+<p>##Source</p>
+<p>张超<br><br></p>
+<hr>
+<p>解法是如果可以在(u,v)上再加条边，则将最小生成树上的(u,v)节点最短路径中的最大边权与要加上这条边的替换。如果新的花费比旧的花费少，则取新的花费。否则什么也不换，取旧的花费。</p>
+<p>如何求树上两点之间的最短路径中的最大边权呢？</p>
+<p>可以按照这篇文章所述建一个类似于哈夫曼树，将点作为叶子，边的权值作为祖先构造一个N+N的树：<a href="http://blog.sina.com.cn/s/blog_51cea4040100ss3n.html" target="_blank" rel="noopener">click here</a></p>
+<p>这样写的很容易错，尤其要区分两颗树的规模，我在这上面错了很久。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;map&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;set&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;stack&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;queue&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;string&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstdio&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;vector&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cctype&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cassert&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;utility&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;numeric&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstring&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;iostream&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;algorithm&amp;gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pr pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MP make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SI(x) set&amp;lt;x&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VI(x) vector&amp;lt;x&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MI(x,y) map&amp;lt;x,y&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SRI(x) set&amp;lt;x&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VRI(x) vector&amp;lt;x&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MRI(x,y) map&amp;lt;x,y&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> S second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clrQ(x) while(!x.empty)x.pop();</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clrA(x,y) memset(x,y,sizeof(x));</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined (_WIN32) || defined (__WIN32) || defined (WIN32) || defined (__WIN32__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL __int64</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = ~<span class="number">0u</span> &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> LL lnf = ~<span class="number">0u</span>ll &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 50005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 100005</span></span><br><span class="line"><span class="keyword">int</span> n, m ;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Graph</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, v, w;</span><br><span class="line">    <span class="keyword">bool</span> mark;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&amp;lt;(Graph othr) <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> w &amp;lt; othr.w;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; g[M];</span><br><span class="line"><span class="comment">//UnionSet</span></span><br><span class="line"><span class="keyword">int</span> p[N + N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initUset</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt;= n; i++)</span><br><span class="line">        p[i] = i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">uFind</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x == p[x] ? p[x] : p[x] = uFind(p[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">uMerge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">//y合并到x</span></span><br><span class="line">    <span class="keyword">int</span> fx = uFind(x);</span><br><span class="line">    <span class="keyword">int</span> fy = uFind(y);</span><br><span class="line">    <span class="keyword">if</span> (fx != fy) p[fy] = fx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Edge Graph</span></span><br><span class="line"><span class="keyword">int</span> head[N + N], pos;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, nxt;</span><br><span class="line">&#125; e[N + N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initEdge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">    pos = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    e[pos].v = v;</span><br><span class="line">    e[pos].nxt = head[u];</span><br><span class="line">    head[u] = pos++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> size;</span><br><span class="line"><span class="built_in">vector</span>&amp;lt;pr&amp;lt;<span class="keyword">int</span>, <span class="keyword">int</span>&amp;gt; &amp;gt; query[N];</span><br><span class="line"><span class="keyword">int</span> qw[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="keyword">int</span> lca[N];</span><br><span class="line"><span class="keyword">int</span> val[N + N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> solved = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[u]; ~i; i = e[i].nxt) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = e[i].v;</span><br><span class="line">        solved += dfs(v);</span><br><span class="line">        <span class="keyword">if</span> (size == solved) <span class="keyword">return</span> solved;</span><br><span class="line">        uMerge(u, v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(~val[u])<span class="keyword">return</span> solved;</span><br><span class="line">    vis[u] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; (<span class="keyword">int</span>) query[u].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = query[u][i].F;</span><br><span class="line">        <span class="keyword">if</span> (vis[v]) &#123;</span><br><span class="line">            solved++;</span><br><span class="line">            lca[query[u][i].S] = uFind(v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> solved;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    initUset(n);</span><br><span class="line">    clrA(vis, <span class="number">0</span>);</span><br><span class="line">    dfs(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rebuild</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    clrA(val, <span class="number">-1</span>);</span><br><span class="line">    initUset(n + n);</span><br><span class="line">    initEdge();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (g[i].mark == <span class="literal">false</span>) <span class="keyword">continue</span>;</span><br><span class="line">        val[++n] = g[i].w;</span><br><span class="line">        <span class="keyword">int</span> fu = uFind(g[i].u);</span><br><span class="line">        <span class="keyword">int</span> fv = uFind(g[i].v);</span><br><span class="line">        p[fu] = n;</span><br><span class="line">        p[fv] = n;</span><br><span class="line">        add(n, fu);</span><br><span class="line">        add(n, fv);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;amp;n, &amp;amp;m)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= m; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;amp;g[i].u, &amp;amp;g[i].v, &amp;amp;g[i].w);</span><br><span class="line">            g[i].mark = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(g + <span class="number">1</span>, g + <span class="number">1</span> + m);</span><br><span class="line">        initUset(n);</span><br><span class="line">        LL sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> fx = uFind(g[i].u);</span><br><span class="line">            <span class="keyword">int</span> fy = uFind(g[i].v);</span><br><span class="line">            <span class="keyword">if</span> (fx != fy) &#123;</span><br><span class="line">                sum += g[i].w;</span><br><span class="line">                g[i].mark = <span class="literal">true</span>;</span><br><span class="line">                p[fy] = fx;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= n; i++)</span><br><span class="line">            query[i].clear();</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;amp;size);</span><br><span class="line">        <span class="keyword">int</span> u, v, w;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= size; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;amp;u, &amp;amp;v, &amp;amp;w);</span><br><span class="line">            qw[i] = w;</span><br><span class="line">            query[u].push_back(MP(v, i));</span><br><span class="line">            query[v].push_back(MP(u, i));</span><br><span class="line">        &#125;</span><br><span class="line">        rebuild();</span><br><span class="line">        tarjan();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= size; i++) &#123;</span><br><span class="line">            LL ans = sum - val[lca[i]] + qw[i];</span><br><span class="line">            <span class="built_in">printf</span>(LLS<span class="string">"\n"</span>, min(ans, sum));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实，可以直接在dfs的回溯过程中将子节点的max求出来。这样简单多了。感叹一句：并查集真神奇！<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;map&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;set&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;stack&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;queue&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;string&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstdio&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;vector&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cctype&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cassert&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;utility&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;numeric&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstring&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;iostream&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;algorithm&amp;gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pr pair&amp;lt;int,int&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MP make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SI(x) set&amp;lt;x &amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VI(x) vector&amp;lt;x &amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MI(x,y) map&amp;lt;x,y &amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SRI(x) set&amp;lt;x &amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VRI(x) vector&amp;lt;x &amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MRI(x,y) map&amp;lt;x,y &amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> S second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clrQ(x) while(!x.empty())x.pop();</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clrA(x,y) memset(x,y,sizeof(x));</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined (_WIN32) || defined (__WIN32) || defined (WIN32) || defined (__WIN32__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL __int64</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = ~<span class="number">0u</span> &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> LL lnf = ~<span class="number">0u</span>ll &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 50005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 100005</span></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Graph</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> u, v, w;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&amp;lt;(Graph othr) <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> w &amp;lt; othr.w;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; g[M];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Pair</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    Pair(<span class="keyword">int</span> x, <span class="keyword">int</span> y) :</span><br><span class="line">            x(x), y(y) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    ;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//Edge Graph</span></span><br><span class="line"><span class="keyword">int</span> head[N], pos;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, w, nxt;</span><br><span class="line">&#125; e[N &amp;lt;&amp;lt; <span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initEdge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">    pos = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    e[pos].v = v;</span><br><span class="line">    e[pos].w = w;</span><br><span class="line">    e[pos].nxt = head[u];</span><br><span class="line">    head[u] = pos++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//UnionSet</span></span><br><span class="line"><span class="keyword">int</span> p[N];</span><br><span class="line"><span class="keyword">int</span> pmax[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initUset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt;= n; i++)</span><br><span class="line">        p[i] = i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">uFind</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x != p[x]) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = p[x];</span><br><span class="line">        p[x] = uFind(p[x]);</span><br><span class="line">        pmax[x] = max(pmax[x], pmax[t]);</span><br><span class="line">        <span class="keyword">return</span> p[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">uMerge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">//y合并到x</span></span><br><span class="line">    <span class="keyword">int</span> fx = uFind(x);</span><br><span class="line">    <span class="keyword">int</span> fy = uFind(y);</span><br><span class="line">    <span class="keyword">if</span> (fx != fy) &#123;</span><br><span class="line">        p[fy] = fx;</span><br><span class="line">        pmax[fy] = max(pmax[fy], pmax[fx]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> size;</span><br><span class="line"><span class="built_in">vector</span>&amp;lt;Pair&amp;gt; query[N];</span><br><span class="line"><span class="built_in">vector</span>&amp;lt;Pair&amp;gt; mark[N];</span><br><span class="line"><span class="keyword">int</span> qw[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="keyword">int</span> lca[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[u]; ~i; i = e[i].nxt) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = e[i].v;</span><br><span class="line">        <span class="keyword">if</span> (v == fa) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(v, u);</span><br><span class="line">        pmax[v] = max(pmax[v], e[i].w);</span><br><span class="line">        uMerge(u, v);</span><br><span class="line">    &#125;</span><br><span class="line">    vis[u] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; (<span class="keyword">int</span>) query[u].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = query[u][i].x;</span><br><span class="line">        <span class="keyword">if</span> (vis[v]) &#123;</span><br><span class="line">            mark[uFind(v)].push_back(Pair(u, i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!mark[u].empty()) &#123;</span><br><span class="line">        <span class="keyword">for</span> (VI(Pair)it=mark[u].begin();it!=mark[u].end();++it) &#123;</span><br><span class="line">            <span class="keyword">int</span> uu = it-&amp;gt;x;</span><br><span class="line">            <span class="keyword">int</span> vv = query[it-&amp;gt;x][it-&amp;gt;y].x;</span><br><span class="line">            <span class="keyword">int</span> ss = query[it-&amp;gt;x][it-&amp;gt;y].y;</span><br><span class="line">            uFind(uu);</span><br><span class="line">            uFind(vv);</span><br><span class="line">            lca[ss] = max(pmax[uu], pmax[vv]);</span><br><span class="line">            size--;</span><br><span class="line">        &#125;</span><br><span class="line">        mark[u].clear();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findRoot</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> assert(<span class="literal">false</span>), <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    initUset();</span><br><span class="line">    clrA(vis, <span class="number">0</span>);</span><br><span class="line">    clrA(pmax, <span class="number">0</span>);</span><br><span class="line">    size = m;</span><br><span class="line">    dfs(findRoot(), <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;amp;n, &amp;amp;m)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= m; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;amp;g[i].u, &amp;amp;g[i].v, &amp;amp;g[i].w);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(g + <span class="number">1</span>, g + <span class="number">1</span> + m);</span><br><span class="line">        initUset();</span><br><span class="line">        initEdge();</span><br><span class="line">        LL sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= m; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> fx = uFind(g[i].u);</span><br><span class="line">            <span class="keyword">int</span> fy = uFind(g[i].v);</span><br><span class="line">            <span class="keyword">if</span> (fx != fy) &#123;</span><br><span class="line">                sum += g[i].w;</span><br><span class="line">                add(g[i].u, g[i].v, g[i].w);</span><br><span class="line">                add(g[i].v, g[i].u, g[i].w);</span><br><span class="line">                p[fy] = fx;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= n; i++) &#123;</span><br><span class="line">            query[i].clear();</span><br><span class="line">            mark[i].clear();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;amp;m);</span><br><span class="line">        <span class="keyword">int</span> u, v, w;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= m; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;amp;u, &amp;amp;v, &amp;amp;w);</span><br><span class="line">            qw[i] = w;</span><br><span class="line">            query[u].push_back(Pair(v, i));</span><br><span class="line">            query[v].push_back(Pair(u, i));</span><br><span class="line">        &#125;</span><br><span class="line">        tarjan();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= m; i++) &#123;</span><br><span class="line">            LL tmp = sum - lca[i] + qw[i];</span><br><span class="line">            <span class="built_in">printf</span>(LLS<span class="string">"\n"</span>, min(tmp, sum));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.727Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2014/08/01/zjnu2073-geasscode/" target="_blank" rel="external">http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">LCA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/&title=《内网2073 城主GeassCode》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/&title=《内网2073 城主GeassCode》 — Sailing&source=##Description
+GeassCode凭借自己在topcoder上的超凡表现，赢得了国王的喜爱，国王赏赐他一座城池。这座城池里有n个 村子，m条路..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《内网2073 城主GeassCode》 — Sailing&url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/08/10/github-tips/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">github使用札记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/08/01/poj1989-distance-queries/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">POJ1989 Distance Queries</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/&title=《内网2073 城主GeassCode》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/&title=《内网2073 城主GeassCode》 — Sailing&source=##Description
+GeassCode凭借自己在topcoder上的超凡表现，赢得了国王的喜爱，国王赏赐他一座城池。这座城池里有n个 村子，m条路..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《内网2073 城主GeassCode》 — Sailing&url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/01/zjnu2073-geasscode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aS3KDQAxFUe9/03ialA2+T6IHqC8jV2ygTwYq/V4vfB0f19m3Z7//vOvvL8+ec/MlQ4aMxzKOy+v6oARJDs2ffPoWGTJkbMAgryR4fhQScMnZZMiQIeOakYZsnlDKkCFDRocRpGul0lSGDBkyOkVs2nrrP3NJLS5DhowHMjpBcPXnJfMNGTJkPIpxhFdtYEmGlEfjkiFDxmwGD3DrkrxawJUhQ8bOjFpgJQE0zfFIgI67gzJkyBjBuP47ehwuhu9qz8mQIWM2Iy1QyUiy//v4LhkyZGzA4MkcSQdraWWadP77LEOGjNEMHihrWed14siDbNCMkyFDxjhGOmhMX08OQVpyP0YIMmTI2IBRS+DIwDKN+rX1DhkyZMxm8BI0PVy6bEHCOgrQMmTIGM3oF6L9RDNYrahtbciQIeOxjFo7Pujk4eQv/Td92RmRIUPGUMa95Wg6Fk1X0358K0OGjHEM3sZa0YDrr4vJkCFjB0a6zkUOxNtqvFhFqaQMGTK2YZBGP18UI+G1k4yeBlwZMmQMZfCjd1ps60YUMmTI2I2RLlukrfwaLBgJyJAhYxDjCK+0WcZXNNKGHVqzkCFDxghGLczxwjJt5PEithiyZciQ8VhG2kSrDRLuXR2TIUPGngxejtY6XbUxJ0fKkCFDBm+c8eKTh3UUuGXIkCGjvwwR3huPLmTIkLEBozMMIN+SMMqHDTJkyNiNwUvHoKQMk8LaXTJkyNiA8QYb3Q8sv0WJ2gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

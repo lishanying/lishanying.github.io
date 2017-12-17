@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sailing</title>
+  
+  <subtitle>Sailing&#39;s Home</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://lishangying.github.io/"/>
+  <updated>2017-11-22T17:13:31.657Z</updated>
+  <id>http://lishangying.github.io/</id>
+  
+  <author>
+    <name>Sailing</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GraphQL Learn (3) - Validation</title>
+    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(3)%20-%20Validation/"/>
+    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (3) - Validation/</id>
+    <published>2017-08-14T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.657Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过使用类型系统，可以预先确定GraphQL查询是否有效。 这样可以让服务器和客户端有效地通知开发人员在创建无效查询时，无需在运行时检查。&lt;/p&gt;
+&lt;p&gt;对于我们的星球大战示例，文件&lt;a href=&quot;https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsValidation-test.js&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;starWarsValidation-test.js&lt;/a&gt;包含许多无效的查询，可以用来测试当前实现的验证器。&lt;/p&gt;
+&lt;p&gt;首先，我们来看一个复杂的有效查询。 这是一个嵌套查询，类似于上一节的一个示例，但将重复的字段分解成一个片段：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hero &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    friends &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      friends &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fragment NameAndAppearances on Character &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  appearsIn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://lishangying.github.io/categories/Web/"/>
+    
+    
+      <category term="GraphQL" scheme="http://lishangying.github.io/tags/GraphQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GraphQL Learn (2) - Schemas and Types</title>
+    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(2)%20-%20Schemas%20and%20Types/"/>
+    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (2) - Schemas and Types/</id>
+    <published>2017-08-14T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.656Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在此页面上，您将了解有关GraphQL类型系统的所有知识，以及如何描述可查询哪些数据。 由于GraphQL可以与任何后端框架或编程语言一起使用，因此我们将远离实现特定的详细信息，仅讨论概念。&lt;/p&gt;
+&lt;h3 id=&quot;类型系统（Type-System）&quot;&gt;&lt;a href=&quot;#类型系统（Type-System）&quot; class=&quot;headerlink&quot; title=&quot;类型系统（Type System）&quot;&gt;&lt;/a&gt;类型系统（Type System）&lt;/h3&gt;&lt;p&gt;如果您以前看过GraphQL查询，那么你应该知道GraphQL查询语言基本上是在对象上选择字段。 所以在以下查询中：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hero &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    appearsIn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight json&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;&quot;data&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;&quot;hero&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;R2-D2&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;&quot;appearsIn&quot;&lt;/span&gt;: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;NEWHOPE&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;EMPIRE&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;JEDI&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://lishangying.github.io/categories/Web/"/>
+    
+    
+      <category term="GraphQL" scheme="http://lishangying.github.io/tags/GraphQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GraphQL Learn (4) - Execution</title>
+    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(4)%20-%20Execution/"/>
+    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/</id>
+    <published>2017-08-14T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.659Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。&lt;/p&gt;
+&lt;p&gt;GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;type Query &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  human(id: ID!): Human&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;type Human &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name: String&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  appearsIn: [Episode]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  starships: [Starship]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enum Episode &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  NEWHOPE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  EMPIRE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  JEDI&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;type Starship &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name: String&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://lishangying.github.io/categories/Web/"/>
+    
+    
+      <category term="GraphQL" scheme="http://lishangying.github.io/tags/GraphQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GraphQL Learn (1) - Queries and Mutations</title>
+    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(1)%20-%20Queries%20and%20Mutations/"/>
+    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (1) - Queries and Mutations/</id>
+    <published>2017-08-14T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.653Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在此页面上，你将详细了解如何查询GrahQL服务器。&lt;/p&gt;
+&lt;h2 id=&quot;字段（Fields）&quot;&gt;&lt;a href=&quot;#字段（Fields）&quot; class=&quot;headerlink&quot; title=&quot;字段（Fields）&quot;&gt;&lt;/a&gt;字段（Fields）&lt;/h2&gt;&lt;p&gt;最简单的，GraphQL是关于要求对象上的特定字段。我们先来看一个非常简单的查询，当我们运行它时得到结果：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hero &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;data&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;hero&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;R2-D2&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可以看到，查询与结果的形状完全相同。这对于GraphQL是至关重要的，因为您总是收到您期望的内容，并且服务器确切知道客户端要求哪些字段。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://lishangying.github.io/categories/Web/"/>
+    
+    
+      <category term="GraphQL" scheme="http://lishangying.github.io/tags/GraphQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GraphQL Learn (5) - Introspection</title>
+    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(5)%20-%20Introspection/"/>
+    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (5) - Introspection/</id>
+    <published>2017-08-14T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.661Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;查询GraphQL架构有关它支持的查询的信息通常很有用。 GraphQL允许我们使用内省系统来做到这一点！对于我们的星球大战例子来说，文件&lt;a href=&quot;https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsIntrospection-test.js&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;starWarsIntrospection-test.js&lt;/a&gt;包含许多查询内省系统的查询，并且是一个完整的按照规范实现的测试文件。&lt;/p&gt;
+&lt;p&gt;我们设计了类型系统，所以我们应该知道系统中可用的类型。但是如果不知道，我们还可以通过查询__schema字段来询问GraphQL。这个字段始终存在于根类型中。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://lishangying.github.io/categories/Web/"/>
+    
+    
+      <category term="GraphQL" scheme="http://lishangying.github.io/tags/GraphQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>体验I3之美</title>
+    <link href="http://lishangying.github.io/2017/03/20/beautifull-i3/"/>
+    <id>http://lishangying.github.io/2017/03/20/beautifull-i3/</id>
+    <published>2017-03-19T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.673Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://ol1kreips.qnssl.com/%E6%88%AA%E5%9B%BE_2017-03-13_18-50-11.png&quot; alt=&quot;enter description here&quot; title=&quot;截图_2017-03-13_18-50-11&quot;&gt;&lt;br&gt;先晒张日常桌面图。Gnome3用了半年了一直被其蹩脚的交互和层出不穷的Bug所折磨。虽然Gnome3很漂亮，很简洁，但是毕竟漂亮不能当饭吃。套餐这种东西虽然简单省事，但是终究不是为你所量身定制的，总有其中一样不合你口味。因此，我决定再次抛弃“开箱即用”的DE(Desktop Environment)，在WM(Window Manager)的基础上自己打造一套适合自己的桌面环境。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lishangying.github.io/categories/Linux/"/>
+    
+    
+      <category term="gnome" scheme="http://lishangying.github.io/tags/gnome/"/>
+    
+      <category term="i3wm" scheme="http://lishangying.github.io/tags/i3wm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斐波那契堆之Go实现</title>
+    <link href="http://lishangying.github.io/2017/03/01/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%A0%86%E4%B9%8BGo%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://lishangying.github.io/2017/03/01/斐波那契堆之Go实现/</id>
+    <published>2017-02-28T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.733Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个比二叉堆更高效的数据结构，但是实现起来非常复杂。本科的时候看《算法导论》的时候曾经研究过，不是很明白。今天终于对它有了一个比较清晰的了解。&lt;br&gt;&lt;img src=&quot;https://ol1kreips.qnssl.com/image.png&quot; alt=&quot;enter description here&quot; title=&quot;image.png&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ACM" scheme="http://lishangying.github.io/categories/ACM/"/>
+    
+    
+      <category term="algorithm" scheme="http://lishangying.github.io/tags/algorithm/"/>
+    
+      <category term="golang" scheme="http://lishangying.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网易云音乐新API简述</title>
+    <link href="http://lishangying.github.io/2017/02/08/netease-music-api/"/>
+    <id>http://lishangying.github.io/2017/02/08/netease-music-api/</id>
+    <published>2017-02-07T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.714Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。&lt;/p&gt;
+&lt;h2 id=&quot;Url&quot;&gt;&lt;a href=&quot;#Url&quot; class=&quot;headerlink&quot; title=&quot;Url&quot;&gt;&lt;/a&gt;Url&lt;/h2&gt;&lt;p&gt;估计会抓包的人都知道，Url中的api便成了weapi。比如手机登录：&lt;br&gt;原来是：&lt;code&gt;http://music.163.com/api/login/cellphone/&lt;/code&gt;&lt;br&gt;现在是：&lt;code&gt;http://music.163.com/weapi/login/cellphone/&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;加密算法&quot;&gt;&lt;a href=&quot;#加密算法&quot; class=&quot;headerlink&quot; title=&quot;加密算法&quot;&gt;&lt;/a&gt;加密算法&lt;/h2&gt;&lt;p&gt;核心过程如下：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; aesRsaEncrypt = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;text, pubKey, modulus, nonce&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; secKey = createSecretKey(&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;);  &lt;span class=&quot;comment&quot;&gt;// 随机生成16位加密密钥&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	params:  aesEncrypt(aesEncrypt(text, nonce), secKey),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	encSecKey: rsaEncrypt(secKey, pubKey, modulus)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://lishangying.github.io/categories/Web/"/>
+    
+    
+      <category term="网易云音乐" scheme="http://lishangying.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    
+      <category term="API" scheme="http://lishangying.github.io/tags/API/"/>
+    
+      <category term="Encryption" scheme="http://lishangying.github.io/tags/Encryption/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pandorabox之透明代理</title>
+    <link href="http://lishangying.github.io/2017/02/07/Pandorabox-transparent-proxy/"/>
+    <id>http://lishangying.github.io/2017/02/07/Pandorabox-transparent-proxy/</id>
+    <published>2017-02-06T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.665Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://ol1kreips.qnssl.com/PandoraBox.png&quot; alt=&quot;enter description here&quot; title=&quot;PandoraBox.png&quot;&gt;&lt;br&gt;先修改Lan接口，避免在无线中继的时候发生本地Lan接口与wwan接口发生冲突导致无法登陆路由器。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;网络 -&amp;gt; Lan -&amp;gt; IPv4地址， 设置为 192.168.33.1&lt;/code&gt;更改之后需要重新连接一下网络。&lt;/p&gt;
+&lt;p&gt;透明代理使用&lt;code&gt;shadowsocks-libev&lt;/code&gt;和&lt;code&gt;ChinDNS&lt;/code&gt;实现。使用ssh登陆路由器，安装所需软件。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh root@192.168.33.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opkg update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opkg install shadowsocks-libev luci-app-shadowsocks ChinaDNS luci-app-chinadns --force-checksum&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这个版本的软件源有点问题，所以直接&lt;code&gt;opkg install&lt;/code&gt;基本上都过不了&lt;code&gt;sha256sum&lt;/code&gt;检测，所以需要加上&lt;code&gt;--force-checksum&lt;/code&gt;参数强制忽略。两个luci界面都有zh-cn汉化包，为了节省路由器空间，就不装了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Openwrt" scheme="http://lishangying.github.io/categories/Openwrt/"/>
+    
+    
+      <category term="路由器" scheme="http://lishangying.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+      <category term="科学上网" scheme="http://lishangying.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="Shadowsocks" scheme="http://lishangying.github.io/tags/Shadowsocks/"/>
+    
+      <category term="ChinaDNS" scheme="http://lishangying.github.io/tags/ChinaDNS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tech Daily@1-20</title>
+    <link href="http://lishangying.github.io/2017/01/20/Xiaomi-Openwrt-&amp;&amp;-Git/"/>
+    <id>http://lishangying.github.io/2017/01/20/Xiaomi-Openwrt-&amp;&amp;-Git/</id>
+    <published>2017-01-19T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.666Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小米路由器mini（Xiaomi mini R1CM）刷Openwrt&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;scp /path/to/PandoraBox-xxxx.bin root@192.168.1.1:/tmp/PandoraBox.bin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mtd -r write /tmp/PandoraBox.bin firmware&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;從爬文中得知，小米路由器Mini 官方韌體是雙系統，由於 ROM 有16MB，官方韌體都小於8MB，所以會有一份備援系統（8MB+8MB），因此如果刷了大於 8MB 的第三方韌體的話，會覆蓋掉第二個分區的系統，導致未來刷回官方韌體時會有掉 SN 的問題，而且再也無法刷入 SSH，從此以後就只能乖乖用官方韌體，再也不能玩刷機，目前新版的 PandoraBox 韌體大約都在 10MB 左右，所以刷機還真要有點決心，除非完整備份小米路由器Mini 中所有分區的資料，才能在日後完整刷回官方韌體，當然，如果已經完全放棄官方韌體的話，這些問題都是不用考慮的。from -  &lt;a href=&quot;http://blog.icece.tw/MiWiFi-Mini-Flash-uboot&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://blog.icece.tw/MiWiFi-Mini-Flash-uboot&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Disable-middle-button-of-mouse&quot;&gt;&lt;a href=&quot;#Disable-middle-button-of-mouse&quot; class=&quot;headerlink&quot; title=&quot;Disable middle button of mouse&quot;&gt;&lt;/a&gt;Disable middle button of mouse&lt;/h2&gt;&lt;p&gt;Execute those commands:&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;xinput list&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;⎡ Virtual core pointer                    	id=2	[master pointer  (3)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;⎜   ↳ MI Dongle MI Wireless Mouse             	id=11	[slave  pointer  (2)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;⎜   ↳ MI Dongle MI Wireless Mouse             	id=12	[slave  pointer  (2)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;⎜   ↳ DLL0704:01 06CB:76AE Touchpad           	id=14	[slave  pointer  (2)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;⎜   ↳ PS/2 Synaptics TouchPad                 	id=17	[slave  pointer  (2)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;⎜   ↳ MiMouse                                 	id=21	[slave  pointer  (2)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xinput &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;-button-map 21 1 0 3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Tech Daily" scheme="http://lishangying.github.io/categories/Tech-Daily/"/>
+    
+    
+      <category term="openwrt" scheme="http://lishangying.github.io/tags/openwrt/"/>
+    
+      <category term="git" scheme="http://lishangying.github.io/tags/git/"/>
+    
+      <category term="go" scheme="http://lishangying.github.io/tags/go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Deepin初始化</title>
+    <link href="http://lishangying.github.io/2017/01/12/Kubernetes-&amp;-Deepin-Settings@1-12/"/>
+    <id>http://lishangying.github.io/2017/01/12/Kubernetes-&amp;-Deepin-Settings@1-12/</id>
+    <published>2017-01-11T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.662Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Infinality-and-Harfbuzz&quot;&gt;&lt;a href=&quot;#Infinality-and-Harfbuzz&quot; class=&quot;headerlink&quot; title=&quot;Infinality and Harfbuzz&quot;&gt;&lt;/a&gt;Infinality and Harfbuzz&lt;/h2&gt;&lt;p&gt;会发生冲突，这是今天Archlinux无法启动输入法界面的元凶。重新安装freetype2\fontconfig\cairo以替换infinality-bundle。&lt;/p&gt;
+&lt;h2 id=&quot;添加PPA出现GPG问题&quot;&gt;&lt;a href=&quot;#添加PPA出现GPG问题&quot; class=&quot;headerlink&quot; title=&quot;添加PPA出现GPG问题&quot;&gt;&lt;/a&gt;添加PPA出现GPG问题&lt;/h2&gt;&lt;h4 id=&quot;问题：&quot;&gt;&lt;a href=&quot;#问题：&quot; class=&quot;headerlink&quot; title=&quot;问题：&quot;&gt;&lt;/a&gt;问题：&lt;/h4&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&#39;/tmp/tmpyiw6jvck/pubring.gpg&#39;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /tmp/tmpyiw6jvck/trustdb.gpg：建立了信任度数据库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: 密钥 531EE72F4C9D234C：公钥“Launchpad webupd8”已导入&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: 合计被处理的数量：1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg:           已导入：1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: 找不到有效的 OpenPGP 数据。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lishangying.github.io/categories/Linux/"/>
+    
+    
+      <category term="deepin" scheme="http://lishangying.github.io/tags/deepin/"/>
+    
+      <category term="ppa" scheme="http://lishangying.github.io/tags/ppa/"/>
+    
+      <category term="octotree" scheme="http://lishangying.github.io/tags/octotree/"/>
+    
+      <category term="infinality fonts" scheme="http://lishangying.github.io/tags/infinality-fonts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Basic Algorithms in Go</title>
+    <link href="http://lishangying.github.io/2017/01/10/Basic%20Algorithms%20in%20Go/"/>
+    <id>http://lishangying.github.io/2017/01/10/Basic Algorithms in Go/</id>
+    <published>2017-01-09T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.648Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近学Go，感觉挺不错的。闲来无事用它写了几种常用的基础算法。&lt;/p&gt;
+&lt;h2 id=&quot;快排&quot;&gt;&lt;a href=&quot;#快排&quot; class=&quot;headerlink&quot; title=&quot;快排&quot;&gt;&lt;/a&gt;快排&lt;/h2&gt;&lt;p&gt;思想很简单，实现起来为了方便每次以left作为基准，也可以使用BFS来节省递归栈：&lt;br&gt;&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// QuickSort returns a sorted slice&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;QuickSort&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(arr []&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;len&lt;/span&gt;(arr) &amp;lt;= &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	left, right := &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;len&lt;/span&gt;(arr)&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; left &amp;lt; right &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; arr[left+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] &amp;gt; arr[left] &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			arr[left+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;], arr[right] = arr[right], arr[left+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			right--&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			arr[left+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;], arr[left] = arr[left], arr[left+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			left++&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	QuickSort(arr[:left])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	QuickSort(arr[left+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;:])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ACM" scheme="http://lishangying.github.io/categories/ACM/"/>
+    
+    
+      <category term="algorithm" scheme="http://lishangying.github.io/tags/algorithm/"/>
+    
+      <category term="golang" scheme="http://lishangying.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos初始化2</title>
+    <link href="http://lishangying.github.io/2017/01/04/CentOS2@1-4/"/>
+    <id>http://lishangying.github.io/2017/01/04/CentOS2@1-4/</id>
+    <published>2017-01-03T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.651Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;proxychains-ng&quot;&gt;&lt;a href=&quot;#proxychains-ng&quot; class=&quot;headerlink&quot; title=&quot;proxychains-ng&quot;&gt;&lt;/a&gt;proxychains-ng&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/rofl0r/proxychains-ng&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; proxychains-ng                                 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./configure --prefix=/usr --sysconfdir=/etc &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make install&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make install-config   &lt;span class=&quot;comment&quot;&gt;# 生成配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;http 10.100.100.136 4411&#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/proxychains.conf  &lt;span class=&quot;comment&quot;&gt;# 输入代理设置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lishangying.github.io/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="http://lishangying.github.io/tags/centos/"/>
+    
+      <category term="tmux" scheme="http://lishangying.github.io/tags/tmux/"/>
+    
+      <category term="prezto" scheme="http://lishangying.github.io/tags/prezto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes部署</title>
+    <link href="http://lishangying.github.io/2017/01/04/Kubernetes%E9%83%A8%E7%BD%B2@1-5/"/>
+    <id>http://lishangying.github.io/2017/01/04/Kubernetes部署@1-5/</id>
+    <published>2017-01-03T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.663Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;MEOW&quot;&gt;&lt;a href=&quot;#MEOW&quot; class=&quot;headerlink&quot; title=&quot;MEOW&quot;&gt;&lt;/a&gt;MEOW&lt;/h2&gt;&lt;p&gt;安装&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -L git.io/meowproxy | bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 建议安装目录 /usr/bin/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;复制自己的配置文件&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# in local computer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xclip -sel clipboard &amp;lt; ~/.meow/rc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# in CentOS server&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv ~/.meow/rc ~/.meow/rc.bak&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xclip -o -sel clipboard &amp;gt; ~/.meow/rc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Cloud Computing" scheme="http://lishangying.github.io/categories/Cloud-Computing/"/>
+    
+    
+      <category term="meow" scheme="http://lishangying.github.io/tags/meow/"/>
+    
+      <category term="docker" scheme="http://lishangying.github.io/tags/docker/"/>
+    
+      <category term="kubernetes" scheme="http://lishangying.github.io/tags/kubernetes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos初始化</title>
+    <link href="http://lishangying.github.io/2017/01/03/CentOS1@1-3/"/>
+    <id>http://lishangying.github.io/2017/01/03/CentOS1@1-3/</id>
+    <published>2017-01-03T08:21:43.000Z</published>
+    <updated>2017-11-22T17:13:31.649Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;换源&quot;&gt;&lt;a href=&quot;#换源&quot; class=&quot;headerlink&quot; title=&quot;换源&quot;&gt;&lt;/a&gt;换源&lt;/h2&gt;&lt;h3 id=&quot;备份&quot;&gt;&lt;a href=&quot;#备份&quot; class=&quot;headerlink&quot; title=&quot;备份&quot;&gt;&lt;/a&gt;备份&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;写入国内源-centos-7&quot;&gt;&lt;a href=&quot;#写入国内源-centos-7&quot; class=&quot;headerlink&quot; title=&quot;写入国内源(centos 7)&quot;&gt;&lt;/a&gt;写入国内源(centos 7)&lt;/h3&gt;&lt;p&gt;ustc： &lt;a href=&quot;https://lug.ustc.edu.cn/wiki/mirrors/help/centos&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://lug.ustc.edu.cn/wiki/mirrors/help/centos&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lishangying.github.io/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="http://lishangying.github.io/tags/centos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pygobject-tutorial-1</title>
+    <link href="http://lishangying.github.io/2016/11/08/pygobject-tutorial-1/"/>
+    <id>http://lishangying.github.io/2016/11/08/pygobject-tutorial-1/</id>
+    <published>2016-11-08T08:55:47.000Z</published>
+    <updated>2017-11-22T17:13:31.720Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h1&gt;&lt;p&gt;这章将会介绍GTK+比较重要的几个方面&lt;/p&gt;
+&lt;h2 id=&quot;主循环和信号&quot;&gt;&lt;a href=&quot;#主循环和信号&quot; class=&quot;headerlink&quot; title=&quot;主循环和信号&quot;&gt;&lt;/a&gt;主循环和信号&lt;/h2&gt;&lt;p&gt;就像大部分GUI库一样，GTK+使用了一种事件驱动的编程模型。当用户什么都没做，GTK+让主循环处于就绪状态并等待用户的输入。如果用户做了一些动作，比如鼠标事件，主循环就会被唤醒，然后将这个事件传递给GTK+程序。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://lishangying.github.io/categories/Python/"/>
+    
+    
+      <category term="python" scheme="http://lishangying.github.io/tags/python/"/>
+    
+      <category term="gtk" scheme="http://lishangying.github.io/tags/gtk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS DOM API分析</title>
+    <link href="http://lishangying.github.io/2016/11/02/dom-compatibility-note/"/>
+    <id>http://lishangying.github.io/2016/11/02/dom-compatibility-note/</id>
+    <published>2016-11-02T13:07:21.000Z</published>
+    <updated>2017-11-22T17:13:31.674Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Element-classList&quot;&gt;&lt;a href=&quot;#Element-classList&quot; class=&quot;headerlink&quot; title=&quot;Element.classList&quot;&gt;&lt;/a&gt;Element.classList&lt;/h2&gt;&lt;p&gt;返回DOMTokenList,IE version&amp;gt;=10不完全支持。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不支持classList.contains的第二个参数(force)&lt;/li&gt;
+&lt;li&gt;add和remove方法不支持多参数&lt;/li&gt;
+&lt;li&gt;SVG,MathML结点没有classList属性&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://lishangying.github.io/categories/Web/"/>
+    
+    
+      <category term="javascirpt" scheme="http://lishangying.github.io/tags/javascirpt/"/>
+    
+      <category term="dom" scheme="http://lishangying.github.io/tags/dom/"/>
+    
+      <category term="html" scheme="http://lishangying.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>neutron源码分析</title>
+    <link href="http://lishangying.github.io/2016/10/28/neutron-code/"/>
+    <id>http://lishangying.github.io/2016/10/28/neutron-code/</id>
+    <published>2016-10-28T06:52:02.000Z</published>
+    <updated>2017-11-22T17:13:31.715Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;消息总线&quot;&gt;&lt;a href=&quot;#消息总线&quot; class=&quot;headerlink&quot; title=&quot;消息总线&quot;&gt;&lt;/a&gt;消息总线&lt;/h2&gt;&lt;p&gt;Openstack各项目之间通过RESTful API进行通信；而项目内部不同服务进程则需要通过消息总线通信。关于消息总线的实现，包含在Openstack.oslo.messaging库中。&lt;/p&gt;
+&lt;h3 id=&quot;RPC&quot;&gt;&lt;a href=&quot;#RPC&quot; class=&quot;headerlink&quot; title=&quot;RPC&quot;&gt;&lt;/a&gt;RPC&lt;/h3&gt;&lt;p&gt;远程过程调用，一个服务进程可以调用其他远程服务进程的方法，有两种方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;call 远程方法会被同步执行，调用者会阻塞直到取得返回结果。&lt;/li&gt;
+&lt;li&gt;cast 远程方法会被异步执行，调用者需要通过其他方式查询这次远程调用的结果。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Cloud Computing" scheme="http://lishangying.github.io/categories/Cloud-Computing/"/>
+    
+    
+      <category term="openstack" scheme="http://lishangying.github.io/tags/openstack/"/>
+    
+      <category term="neutron" scheme="http://lishangying.github.io/tags/neutron/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo折腾笔记（二）博客优化与定制</title>
+    <link href="http://lishangying.github.io/2015/02/25/hexo-lightum-enhance/"/>
+    <id>http://lishangying.github.io/2015/02/25/hexo-lightum-enhance/</id>
+    <published>2015-02-25T14:57:00.000Z</published>
+    <updated>2017-11-22T17:13:31.704Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先我使用的是由&lt;a href=&quot;http://zipperary.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;zippera&lt;/a&gt;基于官方&lt;a href=&quot;https://github.com/hexojs/hexo-theme-light&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Light&lt;/a&gt;主题改进而来的&lt;a href=&quot;https://github.com/zippera/lightum&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lightum&lt;/a&gt;主题,其他主题可能稍有出入。&lt;/p&gt;
+&lt;p&gt;##速度优化&lt;br&gt;参考之前的文章：&lt;a href=&quot;http://kevinsfork.info/2015/02/25/hexo-speedup-instantclick/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;静态页面优化&lt;/a&gt;。然后使用了&lt;a href=&quot;https://github.com/gyk001/hexo-qiniu-sync&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo-qiniu-sync&lt;/a&gt;这个项目，将静态的图片以及css、js同步到了七牛云。（PS：主题模板中包含了两个不同版本的jquery，分别在head.ejs与after-footer.ejs中，随便删除一个。）&lt;/p&gt;
+&lt;p&gt;对于处于body区域的script、style的引用尽可能的加入data-no-instant属性，避免InstantClick重复加载。&lt;/p&gt;
+&lt;p&gt;##给instantclick加载进度条加上阴影效果&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-id&quot;&gt;#instantclick-bar&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-webkit-box-shadow&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8px&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;rgba&lt;/span&gt;(0, 0, 0, 0.56);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;box-shadow&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8px&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;rgba&lt;/span&gt;(0, 0, 0, 0.56);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;##加入Swiftype搜索&lt;br&gt;去&lt;a href=&quot;https://swiftype.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swiftype&lt;/a&gt;官网申请代码，然后修改search.ejs文件为：&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;search&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;st-search-input&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;placeholder&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;%= __(&#39;search&#39;) %&amp;gt;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://lishangying.github.io/categories/Hexo/"/>
+    
+    
+      <category term="html" scheme="http://lishangying.github.io/tags/html/"/>
+    
+      <category term="美化" scheme="http://lishangying.github.io/tags/%E7%BE%8E%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo折腾笔记（一）博客加速以及instantclick的兼容</title>
+    <link href="http://lishangying.github.io/2015/02/25/hexo-speedup-instantclick/"/>
+    <id>http://lishangying.github.io/2015/02/25/hexo-speedup-instantclick/</id>
+    <published>2015-02-25T12:18:23.000Z</published>
+    <updated>2017-11-22T17:13:31.705Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;del&gt;首先，Gitcafe的国内速度已经够快了，加不加速其实没多大区别,只不过是闲的蛋疼而已。&lt;/del&gt;&lt;br&gt;Gitcafe无故page不更新，所以又换回了github。&lt;/p&gt;
+&lt;h2 id=&quot;Hexo加速&quot;&gt;&lt;a href=&quot;#Hexo加速&quot; class=&quot;headerlink&quot; title=&quot;Hexo加速&quot;&gt;&lt;/a&gt;Hexo加速&lt;/h2&gt;&lt;p&gt;Hexo加速可以有以下几个方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用&lt;a href=&quot;http://www.bootcdn.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;BootCDN&lt;/a&gt;并将图片等资源储存至七牛云。可以使用此项目&lt;a href=&quot;https://github.com/gyk001/hexo-qiniu-sync&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;click here&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;使用&lt;a href=&quot;https://github.com/FlashSoft/hexo-console-optimize&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo optimize&lt;/a&gt;压缩优化HTML、CSS、JS、Image资源。&lt;/li&gt;
+&lt;li&gt;使用&lt;a href=&quot;http://instantclick.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;InstantClick&lt;/a&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;InstantClick是一款类似于&lt;a href=&quot;http://instantclick.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Turbolinks&lt;/a&gt;的js库，利用&lt;a href=&quot;https://github.com/defunkt/jquery-pjax&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pjax&lt;/a&gt;（pushState and Ajax)技术对网站进行优化，能够极大的提高访问速度。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://lishangying.github.io/categories/Hexo/"/>
+    
+    
+      <category term="html" scheme="http://lishangying.github.io/tags/html/"/>
+    
+      <category term="instantclick" scheme="http://lishangying.github.io/tags/instantclick/"/>
+    
+  </entry>
+  
+</feed>

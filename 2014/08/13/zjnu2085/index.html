@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>内网 2085马农 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="暴力">
+    <meta name="description" content="##Description 在观看完战马检阅之后，来自大草原的两兄弟决心成为超级“马农”，专门饲养战马。 兄弟两回到草原，将可以养马的区域，分为N*N的单位面积的正方形，并实地进行考察，归纳出了每个单位面积可以养马所获得的收益。接下来就要开始规划他们各自的马场了。 首先，两人的马场都必须是矩形区域。同时，为了方便两人互">
+<meta name="keywords" content="暴力">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内网 2085马农">
+<meta property="og:url" content="http://lishangying.github.io/2014/08/13/zjnu2085/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="##Description 在观看完战马检阅之后，来自大草原的两兄弟决心成为超级“马农”，专门饲养战马。 兄弟两回到草原，将可以养马的区域，分为N*N的单位面积的正方形，并实地进行考察，归纳出了每个单位面积可以养马所获得的收益。接下来就要开始规划他们各自的马场了。 首先，两人的马场都必须是矩形区域。同时，为了方便两人互相照应，也为了防止马匹互相走散，规定两个马场的矩形区域相邻，且只有一个交点。最后">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://acm.zjnu.edu.cn/JudgeOnline/userfiles/images/2085.jpg">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内网 2085马农">
+<meta name="twitter:description" content="##Description 在观看完战马检阅之后，来自大草原的两兄弟决心成为超级“马农”，专门饲养战马。 兄弟两回到草原，将可以养马的区域，分为N*N的单位面积的正方形，并实地进行考察，归纳出了每个单位面积可以养马所获得的收益。接下来就要开始规划他们各自的马场了。 首先，两人的马场都必须是矩形区域。同时，为了方便两人互相照应，也为了防止马匹互相走散，规定两个马场的矩形区域相邻，且只有一个交点。最后">
+<meta name="twitter:image" content="http://acm.zjnu.edu.cn/JudgeOnline/userfiles/images/2085.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">内网 2085马农</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">内网 2085马农</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2014-08-13T13:09:40.000Z" itemprop="datePublished" class="page-time">
+  2014-08-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-zjnu2085"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">内网 2085马农</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2014-08-13 21:09:40" datetime="2014-08-13T13:09:40.000Z"  itemprop="datePublished">2014-08-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>##Description<br> 在观看完战马检阅之后，来自大草原的两兄弟决心成为超级“马农”，专门饲养战马。</p>
+<p>兄弟两回到草原，将可以养马的区域，分为N*N的单位面积的正方形，并实地进行考察，归纳出了每个单位面积可以养马所获得的收益。接下来就要开始规划他们各自的马场了。</p>
+<p>首先，两人的马场都必须是矩形区域。同时，为了方便两人互相照应，也为了防止马匹互相走散，规定两个马场的矩形区域相邻，且只有一个交点。最后，互不认输的两人希望两个马场的收益相当，这样才不会影响他们兄弟的感情。</p>
+<p>现在，兄弟两找到你这位设计师，希望你给他们设计马场，问共有多少种设计方案。<br><a id="more"></a></p>
+<p>##Input</p>
+<p>第一行一个整数N，表示整个草原的大小为N*N。</p>
+<p>接下来N行，每行N个整数A(i,j)，表示第i行第j列的单位草地的收成。（注意：收益可能是负数，养马也不是包赚的，马匹也可能出现生病死亡等意外。）</p>
+<p>1&lt;=N&lt;=50<br>-1000&lt;A(i,j)&lt;1000</p>
+<p>##Output</p>
+<p> 输出符合两人要求的草原分配方案数。</p>
+<p>##Sample Input</p>
+<p>3 1 2 3 4 5 6 7 8 9</p>
+<p>##Sample Output</p>
+<p>2</p>
+<p>##Hint</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://acm.zjnu.edu.cn/JudgeOnline/userfiles/images/2085.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>##Source</p>
+<p>2014宁波初中 T2</p>
+<p><br></p>
+<hr>
+<p>宁波镇海中学的罗方炜给我们组的一场比赛。</p>
+<p>此题主要靠技巧。枚举中心点，然后用数组hash。注意数组清空复杂度很大，每次清空必定超时。应该用一个栈来记录更改的地方，直接赋0.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;map&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;set&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cmath&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;stack&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;queue&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;string&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstdio&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;vector&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cctype&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cassert&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;utility&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;numeric&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstring&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;iostream&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;algorithm&amp;gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pr pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PR pair&amp;lt;int,int&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MP make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SI(x) set&amp;lt;x&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VI(x) vector&amp;lt;x&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MI(x,y) map&amp;lt;x,y&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SRI(x) set&amp;lt;x&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VRI(x) vector&amp;lt;x&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MRI(x,y) map&amp;lt;x,y&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> S second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Sz(x) (int)x.size()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clrQ(x) while(!x.empty)x.pop();</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clr(x,y) memset(x,y,sizeof(x));</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined (_WIN32) || defined (__WIN32) || defined (WIN32) || defined (__WIN32__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL __int64</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = ~<span class="number">0u</span> &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> LL lnf = ~<span class="number">0u</span>ll &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="comment">/*start*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 55</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 2500000</span></span><br><span class="line"><span class="keyword">int</span> f[N][N],a[N][N];</span><br><span class="line"><span class="keyword">int</span> h[M&amp;lt;&amp;lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> st[N*N],top;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;amp;n))&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &amp;lt;= n; ++j) &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;amp;a[i][j]);</span><br><span class="line">                f[i][j]=f[i<span class="number">-1</span>][j]+f[i][j<span class="number">-1</span>]-f[i<span class="number">-1</span>][j<span class="number">-1</span>]+a[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res=top=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &amp;lt;= n; ++x) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">1</span>; y &amp;lt;= n; ++y) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= x; ++i) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &amp;lt;= y; ++j) &#123;</span><br><span class="line">                        st[top++]=f[x][y]-f[x][j<span class="number">-1</span>]-f[i<span class="number">-1</span>][y]+f[i<span class="number">-1</span>][j<span class="number">-1</span>]+M;</span><br><span class="line">                        h[st[top<span class="number">-1</span>]]++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = x+<span class="number">1</span>; i &amp;lt;= n; ++i) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = y+<span class="number">1</span>; j &amp;lt;= n; ++j) &#123;</span><br><span class="line">                        res+=h[f[i][j]-f[i][y]-f[x][j]+f[x][y]+M];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">while</span>(top)&#123;</span><br><span class="line">                    h[st[--top]]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &amp;lt;= n; ++i) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &amp;lt;= y; ++j) &#123;</span><br><span class="line">                        st[top++]=f[i][y]-f[x<span class="number">-1</span>][y]-f[i][j<span class="number">-1</span>]+f[x<span class="number">-1</span>][j<span class="number">-1</span>]+M;</span><br><span class="line">                        h[st[top<span class="number">-1</span>]]++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt; x; ++i) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = y+<span class="number">1</span>; j &amp;lt;= n; ++j) &#123;</span><br><span class="line">                        res+=h[f[x<span class="number">-1</span>][j]-f[x<span class="number">-1</span>][y]-f[i<span class="number">-1</span>][j]+f[i<span class="number">-1</span>][y]+M];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span>(top)&#123;</span><br><span class="line">                    h[st[--top]]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.730Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2014/08/13/zjnu2085/" target="_blank" rel="external">http://lishangying.github.io/2014/08/13/zjnu2085/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/暴力/">暴力</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/13/zjnu2085/&title=《内网 2085马农》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/13/zjnu2085/&title=《内网 2085马农》 — Sailing&source=##Description 在观看完战马检阅之后，来自大草原的两兄弟决心成为超级“马农”，专门饲养战马。
+兄弟两回到草原，将可以养马的区域，分为N*N的单..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/13/zjnu2085/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《内网 2085马农》 — Sailing&url=http://lishangying.github.io/2014/08/13/zjnu2085/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/13/zjnu2085/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/08/13/hdu-2874-connections-between-cities/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 2874 Connections between cities</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/08/12/zjnu2082/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">内网2082 字母</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/13/zjnu2085/&title=《内网 2085马农》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/13/zjnu2085/&title=《内网 2085马农》 — Sailing&source=##Description 在观看完战马检阅之后，来自大草原的两兄弟决心成为超级“马农”，专门饲养战马。
+兄弟两回到草原，将可以养马的区域，分为N*N的单..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/13/zjnu2085/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《内网 2085马农》 — Sailing&url=http://lishangying.github.io/2014/08/13/zjnu2085/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/13/zjnu2085/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3awW7rMAwEwP7/T+cBvRZRdykXr5VGpwCxY00ONEXy4yNer8/Vfv66kl9+d+UDCwMD488yXsu13u67x6+vSfD53jAwMO5hzELhOjiu78qfu74GAwMDoyUlwXEdfDEwMDD2A+4wdSt/BwMDA2N2iG0DaHtMzct2GBgYtzF+rjGw//lX9DcwMDD+K+NVrrasNmtV1rvCwMA4mrFuNybbbUcl8mNwW4DDwMC4gfFsAjc7aiaMqNyGgYFxEGN26t0ZEcsbnMUfhIGBcTQj+Top9M8Sx7bxEAV9DAyM4xhJuGwLYU8NahQkDAyMoxltwWtn/Cu5vr0XAwPjTkbSGGjTxDx05kW6tydyDAyM4xg74a9NJWepZ/Q7GBgY1zDyUYk8ELehfFjaw8DAOJqxMyK2E3Bn7dJijAMDA+MgxjrMzQbF8sNq/kdE7w0MDIxrGHkp/+cOq/UbAwMD42jGLC2LpsyCduaMl6etGBgYJzHaMYvZSESyua3DMAYGxqGMtjHZpnRtqa4dIMPAwLiHkRfL8s3lZbuE8U1wx8DAOJrRDjEkITgPynXhbB2UMTAwDmW8ypUfbvORrzwBfZt6YmBgHM3Y6QPOBsVyRptoYmBgnM2YJXZtvWs/h/3mKRgYGBcw2sLZLF1ri3fFUzAwMDCCI+hTmWn7AsDAwMBo08G2wbk/loGBgXEPI28GPBWOdxoD0YwbBgbGQYydA2Q0sFUW0fK7tvobGBgYf4PxDzY+qHaFp7iNAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

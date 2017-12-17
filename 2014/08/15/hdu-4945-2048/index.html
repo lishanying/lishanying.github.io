@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 4945 2048 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="DP">
+    <meta name="description" content="Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others)Total Submission(s): 590    Accepted Submission(s): 136 Problem Description  ">
+<meta name="keywords" content="DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 4945 2048">
+<meta property="og:url" content="http://lishangying.github.io/2014/08/15/hdu-4945-2048/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others)Total Submission(s): 590    Accepted Submission(s): 136 Problem Description   Teacher Mai is addicted to game 2048. B">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.679Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 4945 2048">
+<meta name="twitter:description" content="Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others)Total Submission(s): 590    Accepted Submission(s): 136 Problem Description   Teacher Mai is addicted to game 2048. B">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 4945 2048</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 4945 2048</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2014-08-15T08:56:19.000Z" itemprop="datePublished" class="page-time">
+  2014-08-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-hdu-4945-2048"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 4945 2048</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2014-08-15 16:56:19" datetime="2014-08-15T08:56:19.000Z"  itemprop="datePublished">2014-08-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong><span style="font-family: Arial; font-size: 12px; font-weight: bold; color: green;">Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others)<br>Total Submission(s): 590    Accepted Submission(s): 136<br></span></strong></p>
+<p><div class="panel_title" align="left">Problem Description</div></p>
+<div class="panel_content">
+
+<p>Teacher Mai is addicted to game 2048. But finally he finds it’s too hard to get 2048. So he wants to change the rule:</p>
+<p>You are given some numbers. Every time you can choose two numbers of the same value from them and merge these two numbers into their sum. And these two numbers disappear meanwhile.</p>
+<p>If we can get 2048 from a set of numbers with this operation, Teacher Mai think this multiset is good.</p>
+<p>You have n numbers, A<sub>1</sub>,…,A<sub>n</sub>. Teacher Mai ask you how many subsequences of A are good.</p>
+<p>The number can be very large, just output the number modulo 998244353.<br><a id="more"></a><br></p></div><p></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Input</div></p>
+<div class="panel_content">
+
+<p>There are multiple test cases, terminated by a line “0”.</p>
+<p>For each test case, the first line contains an integer n (1&lt;=n&lt;=10^5), the next line contains n integers a<sub>i</sub> (0&lt;=a<sub>i</sub>&lt;=2048).</p>
+<p></p></div><p></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Output</div></p>
+<p><div class="panel_content">For each test case, output one line “Case #k: ans”, where k is the case number counting from 1, ans is the number module 998244353.</div></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Sample Input</div></p>
+<p><div class="panel_content"></div></p>
+<p><div style="font-family: Courier New,Courier,monospace;">4 1024 512 256 256 4 1024 1024 1024 1024 5 1024 512 512 512 1 0</div><br></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Sample Output</div></p>
+<p><div class="panel_content"></div></p>
+<div style="font-family: Courier New,Courier,monospace;">
+
+<p>Case #1: 1 Case #2: 11 Case #3: 8</p>
+<p><div style="font-family: Times New Roman; font-size: 14px; background-color: f4fbff; border: #B7CBFF 1px dashed; padding: 6px;"></div></p>
+<p><div style="font-family: Arial; font-weight: bold; color: #7ca9ed; border-bottom: #B7CBFF 1px dashed;"><em>Hint</em></div><br>In the first case, we should choose all the numbers. In the second case, all the subsequences which contain more than one number are good.</p>
+<p></p></div><br>&nbsp;<p></p>
+<p><br></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Source</div></p>
+<p><div class="panel_content"><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%208&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener"> 2014 Multi-University Training Contest 8 </a></div></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Recommend</div></p>
+<p><div class="panel_content">hujie   |   We have carefully selected several similar problems for you:  <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4955" target="_blank" rel="noopener">4955</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4954" target="_blank" rel="noopener">4954</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4953" target="_blank" rel="noopener">4953</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4952" target="_blank" rel="noopener">4952</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4951" target="_blank" rel="noopener">4951</a></div><br><br></p>
+<hr>
+<p><div class="panel_content">貌似这几天第一次做的DP题啊。想象一下二进制就能明白——当子序列的2次幂数字之和大于等于2048时这个序列就是good序列了。正面dp要dp出2048~100000肯定要超时，而反面dp只需要dp出0~2047就够了。复杂度大大降低O（11＊2048*2048）。</div></p>
+<p><div class="panel_content">标程写的很厉害！尤其是逆元的处理！</div><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;map&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;set&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cmath&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;stack&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;queue&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;string&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstdio&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;vector&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cctype&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cassert&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;utility&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;numeric&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstring&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;iostream&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;algorithm&amp;gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pr pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PR pair&amp;lt;int,int&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MP make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SI(x) set&amp;lt;x&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VI(x) vector&amp;lt;x&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MI(x,y) map&amp;lt;x,y&amp;gt;::iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SRI(x) set&amp;lt;x&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VRI(x) vector&amp;lt;x&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MRI(x,y) map&amp;lt;x,y&amp;gt;::reverse_iterator</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> S second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Sz(x) (int)x.size()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clrQ(x) while(!x.empty)x.pop();</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clr(x,y) memset(x,y,sizeof(x));</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined (_WIN32) || defined (__WIN32) || defined (WIN32) || defined (__WIN32__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL __int64</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"I"</span> <span class="meta-string">"6"</span> <span class="meta-string">"4"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLS <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LLU <span class="meta-string">"%"</span> <span class="meta-string">"l"</span> <span class="meta-string">"l"</span> <span class="meta-string">"u"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL_MAX _I64_MAX</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = ~<span class="number">0u</span> &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> LL lnf = ~<span class="number">0u</span>ll &amp;gt;&amp;gt; <span class="number">1</span>;</span><br><span class="line"><span class="comment">/*start*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 998244353</span></span><br><span class="line"><span class="keyword">int</span> cnt[<span class="number">3010</span>];</span><br><span class="line">LL f[<span class="number">101000</span>], g[<span class="number">101000</span>];</span><br><span class="line"><span class="keyword">int</span> pn, n, __;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">13</span>][<span class="number">1025</span>]; <span class="comment">//表示取了2^0、2^1、2^2、……、2^i种元素，总和加起来等于j*2^(i+1)的所有情况</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getint</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> ok = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        <span class="keyword">int</span> c = getchar();</span><br><span class="line">        <span class="keyword">if</span> (c &amp;gt;= <span class="string">'0'</span> &amp;amp;&amp;amp; c &amp;lt;= <span class="string">'9'</span>) ret = (ret &amp;lt;&amp;lt; <span class="number">3</span>) + ret + ret + c - <span class="string">'0'</span>, ok = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ok) <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">powmod</span><span class="params">(LL b, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    LL res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (b %= MOD; x; x &amp;gt;&amp;gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (x &amp;amp; <span class="number">1</span>) res = res * b % MOD;</span><br><span class="line">        b = b * b % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt;= <span class="number">100000</span>; i++)</span><br><span class="line">        f[i] = f[i - <span class="number">1</span>] * i % MOD;</span><br><span class="line">    g[<span class="number">100000</span>] = powmod(f[<span class="number">100000</span>], MOD - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">99999</span>; i &amp;gt;= <span class="number">0</span>; i--)</span><br><span class="line">        g[i] = g[i + <span class="number">1</span>] * (i + <span class="number">1</span>) % MOD;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        n = getint();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &amp;lt;= <span class="number">2048</span>; k &amp;lt;&amp;lt;= <span class="number">1</span>)</span><br><span class="line">            cnt[k] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; n; i++) &#123;</span><br><span class="line">            cnt[getint()]++;</span><br><span class="line">        &#125;</span><br><span class="line">        pn = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &amp;lt;= <span class="number">2048</span>; k &amp;lt;&amp;lt;= <span class="number">1</span>)</span><br><span class="line">            pn += cnt[k];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, m = <span class="number">1024</span>; i &amp;lt;= <span class="number">11</span>; i++, m &amp;gt;&amp;gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &amp;lt;= m; j++) &#123;</span><br><span class="line">                dp[i][j] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ct = cnt[<span class="number">1</span>];</span><br><span class="line">        LL cof = f[ct];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt;= ct &amp;amp;&amp;amp; i &amp;lt; <span class="number">2048</span>; i++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][i &amp;gt;&amp;gt; <span class="number">1</span>] += g[ct - i] * g[i] % MOD;</span><br><span class="line">            <span class="keyword">if</span> (dp[<span class="number">0</span>][i &amp;gt;&amp;gt; <span class="number">1</span>] &amp;gt; MOD) dp[<span class="number">0</span>][i &amp;gt;&amp;gt; <span class="number">1</span>] -= MOD;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, m = <span class="number">1024</span>; i &amp;lt;= <span class="number">11</span>; i++, m &amp;gt;&amp;gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            ct = cnt[<span class="number">1</span> &amp;lt;&amp;lt; i];</span><br><span class="line">            cof = cof * f[ct] % MOD;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &amp;lt; m; j++) &#123; </span><br><span class="line">                <span class="keyword">if</span> (dp[i - <span class="number">1</span>][j]) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &amp;lt;= ct &amp;amp;&amp;amp; j + k &amp;lt; m; k++) &#123;<span class="comment">//不要把满足good的序列转移上去。</span></span><br><span class="line">                        dp[i][(j + k) &amp;gt;&amp;gt; <span class="number">1</span>] += dp[i - <span class="number">1</span>][j] * g[k] % MOD * g[ct - k] % MOD;</span><br><span class="line">                        <span class="keyword">if</span> (dp[i][(j + k) &amp;gt;&amp;gt; <span class="number">1</span>] &amp;gt; MOD) dp[i][(j + k) &amp;gt;&amp;gt; <span class="number">1</span>] -= MOD;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> ans = (powmod(<span class="number">2</span>, pn) - dp[<span class="number">11</span>][<span class="number">0</span>] * cof) % MOD</span><br><span class="line">                * powmod(<span class="number">2</span>, n - pn)%MOD;</span><br><span class="line">        <span class="keyword">if</span> (ans &amp;lt; <span class="number">0</span>) ans += MOD;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: %d\n"</span>, ++__, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.679Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2014/08/15/hdu-4945-2048/" target="_blank" rel="external">http://lishangying.github.io/2014/08/15/hdu-4945-2048/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/&title=《HDU 4945 2048》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/&title=《HDU 4945 2048》 — Sailing&source=Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/O..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/15/hdu-4945-2048/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 4945 2048》 — Sailing&url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/08/15/hdu-4952-number-transformation/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 4952 Number Transformation</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/08/14/herbustluftwm-config/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">我的HerbstluftWM</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/&title=《HDU 4945 2048》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/&title=《HDU 4945 2048》 — Sailing&source=Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/O..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/15/hdu-4945-2048/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 4945 2048》 — Sailing&url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/15/hdu-4945-2048/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGElEQVR42u3aO3LDMAwFQN//0kqbRvIDIBWGllXGdiiuCg5+n0+8jn/r7JPk92e/TPa8YWFgYPws47hc8wf0MPnZMDAw3sOYb51ctZNvv5wZAwMD43Lr/PHVcBMDAwPjCUYSUF4jMTAwMCZJbH70SZL8eC6OgYHxg4xJyezpvx/pb2BgYPwU4yiufJ9eUtpbGBgYuxnz0thd7YQ8xT1NjzEwMFYzqhdorxmZHPeugh0GBsYmRi90S0K6yQ7l14SBgbGaUb1G80vwicu3EOFiYGAsYkxKbNWSWZLWXn9++rIwMDBWMybXZTM/ji/T6qAYBgbGGxjJj3oHTULPJMUtkDAwMNYx7g3dJtd3D4+BgbGb0SvT51dkPmyRB5rRtAgGBsY6Ri9pnCe98//FwMB4G6O6XbV5kJf7yy8LAwNjNSMpbPWOm5fnqk2CL99iYGCsY0wGI/KS/aToHyXJGBgYqxnV8laviJYAJmAMDIw3MPKWYTU1nbQnk0DzS3sAAwNjHSNpavaSzLxh2eNhYGC8jZHX53ptzhxWLudhYGAsZRzFlbcQ8pAub0h8yb8xMDCWMvKVNzJ7yXA+YNEb9cDAwPh1RrU9WU1u7xogw8DAwKgOeOWjGPkAxwSJgYGBkbQn87CyOlgWPQsDAwNjXPqvDlJUG5wYGBhvYOTNgCo7v0ZHiTEGBsZqRnXEoZlkFkt1+egYBgbGasYfI0ZqmBEUWuYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

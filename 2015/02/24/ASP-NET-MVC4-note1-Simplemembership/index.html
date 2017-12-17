@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>ASP.NET MVC4笔记（一） 扩展Simplemembership | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C#,asp.net mvc4,simplemembership">
+    <meta name="description" content="1234567891011121314151617181920using System.Web.Mvc;namespace MvcClassManageSystem.ActionFilters&amp;#123;    public class LogStateFilterAttribute : ActionFilte">
+<meta name="keywords" content="C#,asp.net mvc4,simplemembership">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP.NET MVC4笔记（一） 扩展Simplemembership">
+<meta property="og:url" content="http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="1234567891011121314151617181920using System.Web.Mvc;namespace MvcClassManageSystem.ActionFilters&amp;#123;    public class LogStateFilterAttribute : ActionFilterAttribute    &amp;#123;        public override">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ASP.NET MVC4笔记（一） 扩展Simplemembership">
+<meta name="twitter:description" content="1234567891011121314151617181920using System.Web.Mvc;namespace MvcClassManageSystem.ActionFilters&amp;#123;    public class LogStateFilterAttribute : ActionFilterAttribute    &amp;#123;        public override">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ASP.NET MVC4笔记（一） 扩展Simplemembership</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ASP.NET MVC4笔记（一） 扩展Simplemembership</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-02-24T02:45:07.000Z" itemprop="datePublished" class="page-time">
+  2015-02-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-ASP-NET-MVC4-note1-Simplemembership"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ASP.NET MVC4笔记（一） 扩展Simplemembership</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-02-24 10:45:07" datetime="2015-02-24T02:45:07.000Z"  itemprop="datePublished">2015-02-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">using System.Web.Mvc;</span><br><span class="line"></span><br><span class="line">namespace MvcClassManageSystem.ActionFilters</span><br><span class="line">&#123;</span><br><span class="line">    public class LogStateFilterAttribute : ActionFilterAttribute</span><br><span class="line">    &#123;</span><br><span class="line">        public override void OnActionExecuting(ActionExecutingContext filterContext)</span><br><span class="line">        &#123;</span><br><span class="line">            base.OnActionExecuting(filterContext);</span><br><span class="line">            //string controller = filterContext.RouteData.Values[&quot;controller&quot;].ToString();</span><br><span class="line">            //string action = filterContext.RouteData.Values[&quot;action&quot;].ToString();</span><br><span class="line">            //System.Diagnostics.Debug.WriteLine(&quot;OnAction:&quot; + controller + &quot;/&quot; + action);</span><br><span class="line"></span><br><span class="line">            if (WebMatrix.WebData.WebSecurity.IsAuthenticated == true)</span><br><span class="line">            &#123;</span><br><span class="line">                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new &#123; Controller = &quot;Home&quot;, action = &quot;Index&quot; &#125;));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static class WebUtility</span><br><span class="line">    &#123;</span><br><span class="line">        private static SimpleMembershipProvider membership = (SimpleMembershipProvider)Membership.Provider;</span><br><span class="line">        public static void CreateUserAndAccount(UserProfile userProfile, string Password)</span><br><span class="line">        &#123;</span><br><span class="line">            WebSecurity.CreateUserAndAccount(userProfile.UserName, Password, new</span><br><span class="line">            &#123;</span><br><span class="line">                //TO DO 数据库/模型更改之后别忘记修改此处！！！</span><br><span class="line">                ClassId = userProfile.ClassId,</span><br><span class="line">                UserExtraInfo_Phone = userProfile.UserExtraInfo.Phone,</span><br><span class="line">                UserExtraInfo_Gender = userProfile.UserExtraInfo.Gender,</span><br><span class="line">                UserExtraInfo_BirthDay = userProfile.UserExtraInfo.BirthDay,</span><br><span class="line">                UserExtraInfo_UserDesc = userProfile.UserExtraInfo.UserDesc</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        public static void DeleteUserAndAccount(string UserName)</span><br><span class="line">        &#123;</span><br><span class="line">            membership.DeleteAccount(UserName);</span><br><span class="line">            Roles.RemoveUserFromRoles(UserName, Roles.GetRolesForUser(UserName));</span><br><span class="line">            membership.DeleteUser(UserName, true);</span><br><span class="line">        &#125;</span><br><span class="line">        public static void ResetPassword(string UserName, string NewPassword)</span><br><span class="line">        &#123;</span><br><span class="line">            WebSecurity.ResetPassword(WebSecurity.GeneratePasswordResetToken(UserName, 1), NewPassword);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">using System.Web.Mvc;</span><br><span class="line">namespace MvcClassManageSystem.Filters</span><br><span class="line">&#123;</span><br><span class="line">    public class MyAuthorizeAttribute : AuthorizeAttribute</span><br><span class="line">    &#123;</span><br><span class="line">        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)</span><br><span class="line">        &#123;</span><br><span class="line">            base.HandleUnauthorizedRequest(filterContext);</span><br><span class="line">            if (filterContext.HttpContext.User.Identity.IsAuthenticated)</span><br><span class="line">            &#123;</span><br><span class="line">                filterContext.Result = new RedirectResult(&quot;/Account/AccessError&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">using System.Data.Entity;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Web.Security;</span><br><span class="line">using WebMatrix.WebData;</span><br><span class="line">namespace MvcClassManageSystem.Models</span><br><span class="line">&#123;</span><br><span class="line">    public class InitSecurityDb : DropCreateDatabaseAlways&lt;DBManager&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        protected override void Seed(DBManager context)</span><br><span class="line">        &#123;</span><br><span class="line">            WebSecurity.InitializeDatabaseConnection(&quot;DefaultConnection&quot;, &quot;UserProfile&quot;, &quot;UserId&quot;, &quot;UserName&quot;, autoCreateTables: true);</span><br><span class="line">            var roles = (SimpleRoleProvider)Roles.Provider;</span><br><span class="line"> </span><br><span class="line">            string[] RolesList = new string[] &#123; &quot;Admin&quot;, &quot;Teacher&quot;, &quot;Student&quot; &#125;;</span><br><span class="line">            foreach (var item in RolesList)</span><br><span class="line">            &#123;</span><br><span class="line">                if (!roles.RoleExists(item))</span><br><span class="line">                &#123;</span><br><span class="line">                    roles.CreateRole(item);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            //设置初始班级</span><br><span class="line">            int ClassIndex = 0;</span><br><span class="line">            using (var db = new DBManager())</span><br><span class="line">            &#123;</span><br><span class="line">                var ret = db.ClassProfiles.SingleOrDefault(m =&gt; m.ClassName.CompareTo(&quot;未知班级&quot;) == 0);</span><br><span class="line">                if (ret == null)</span><br><span class="line">                &#123;</span><br><span class="line">                    ret = db.ClassProfiles.Add(new ClassProfile</span><br><span class="line">                    &#123;</span><br><span class="line">                        ClassName = &quot;未知班级&quot;,</span><br><span class="line">                        Desc = &quot;班级未知或无意义&quot;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    db.SaveChanges();</span><br><span class="line">                &#125;</span><br><span class="line">                ClassIndex = ret.ClassId;</span><br><span class="line">            &#125;</span><br><span class="line">            if (!WebSecurity.UserExists(&quot;管理员&quot;))</span><br><span class="line">            &#123;</span><br><span class="line">                WebUtility.CreateUserAndAccount(new UserProfile()</span><br><span class="line">                &#123;</span><br><span class="line">                    UserName = &quot;管理员&quot;,</span><br><span class="line">                    ClassId = ClassIndex,</span><br><span class="line">                    UserExtraInfo = new UserExtraInfo()</span><br><span class="line">                    &#123;</span><br><span class="line">                        Phone = &quot;18267912632&quot;,</span><br><span class="line">                        Gender = MvcClassManageSystem.Models.Gender.男,</span><br><span class="line">                        BirthDay = new System.DateTime(1993, 9, 28),</span><br><span class="line">                        UserDesc = &quot;本站的管理员！&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, &quot;admin&quot;);</span><br><span class="line">                System.Web.Security.Roles.AddUserToRole(&quot;管理员&quot;, &quot;Admin&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> protected void Application_Start()</span><br><span class="line">        &#123;</span><br><span class="line">            Database.SetInitializer&lt;DBManager&gt;(new InitSecurityDb());</span><br><span class="line">            DBManager db = new DBManager();</span><br><span class="line">            db.Database.Initialize(true);</span><br><span class="line">            if (!WebSecurity.Initialized)</span><br><span class="line">            &#123;</span><br><span class="line">                WebSecurity.InitializeDatabaseConnection(&quot;DefaultConnection&quot;, &quot;UserProfile&quot;, &quot;UserId&quot;, &quot;UserName&quot;, autoCreateTables: true);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            AreaRegistration.RegisterAllAreas();</span><br><span class="line">            WebApiConfig.Register(GlobalConfiguration.Configuration);</span><br><span class="line">            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);</span><br><span class="line">            RouteConfig.RegisterRoutes(RouteTable.Routes);</span><br><span class="line">            BundleConfig.RegisterBundles(BundleTable.Bundles);</span><br><span class="line">            AuthConfig.RegisterAuth();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.645Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/" target="_blank" rel="external">http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asp-net-mvc4/">asp.net mvc4</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/simplemembership/">simplemembership</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/&title=《ASP.NET MVC4笔记（一） 扩展Simplemembership》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/&title=《ASP.NET MVC4笔记（一） 扩展Simplemembership》 — Sailing&source=1234567891011121314151617181920using System.Web.Mvc;namespace MvcClassManageS..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ASP.NET MVC4笔记（一） 扩展Simplemembership》 — Sailing&url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/02/24/ASP-NET-MVC4note2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ASP.NET MVC 4笔记（二）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/12/07/kde-to-mac/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">KDE的Mac向折腾指南</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/&title=《ASP.NET MVC4笔记（一） 扩展Simplemembership》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/&title=《ASP.NET MVC4笔记（一） 扩展Simplemembership》 — Sailing&source=1234567891011121314151617181920using System.Web.Mvc;namespace MvcClassManageS..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ASP.NET MVC4笔记（一） 扩展Simplemembership》 — Sailing&url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACv0lEQVR42u3awW7bMBAE0Pz/T6dATy0KJjO7ousATydDtig+Hkh6lh8f8fX5+zrd+ffbP++fvj398tRy0s7wwsPDwxt1/XSdXpNfX3f09Pv2qeNQ4uHh4V3jfb0YnF58emUy6bdLSL4U4eHh4b0Pr2i03ATnw4eHh4f3s3jJ//3822RDjIeHh/fOvCRKSLqSPJtvytv+4OHh4b2G12553+HzxfoeHh4e3qKqni8Vs0C2XRLqfuLh4eFd4LVHo/IIY79BbwfiIx9LPDw8vAVvEx/MjlvNNu55KPzXZzw8PLwLvFkBLD9SMDvItT8Ktqrv4eHh4cW8zRZ5s+Fuc9d6WPHw8PAe5SWw9uDU5rjVLDI+3sHDw8O7wEvCgjxcSLbdq7x5VnjDw8PDu8DbRAMtoB2OfEDreh0eHh7egrcpg+0XhpwXbaDx8PDwXsLLi1WbTudPbUpldXqNh4eHV/JmG+VZkWzWQn6IAQ8PD+81vM1knUe9s3Zmke43h67w8PDwHuVtNtN5XDt7y8P1PTw8PLw1Ly+GtYeoctIwL5llLXh4eHgLXj7dtxNxHmHst9p4eHh4r+flMcSemkcMbVzyQMqCh4eHF/DyJWG25c2DjE3QEP0/wMPDw3uItw9JZyWx/F35klDk03h4eHgL3uzAUx4HPBthtFEyHh4e3j3eZipPfp8MQRuFtEUyPDw8vGd5+SSedGV2RGC2nET9wcPDw7vGewr8bNxQrGynp/Dw8PAe5X2WVxs9REejRneiPuDh4eFd4LUTbv6ats18CNrFDA8PD+8Gr10M9qFtXtBKSlzf9BYPDw/vGi9ZDJLyVb4A5LBhyoKHh4f3o3htnDGLNqINPR4eHt5/5eWN7iPXZAiiNvHw8PCu8fJCfr5IJEcK8jB3mEPj4eHhXeDNCmD5NN3W4trN+j7IwMPDw4t5vwCz9rGGIzKdkwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

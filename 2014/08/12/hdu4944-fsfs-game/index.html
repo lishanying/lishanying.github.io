@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU4944 FSF’s game | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数论">
+    <meta name="description" content="Time Limit: 9000/4500 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others)Total Submission(s): 166    Accepted Submission(s): 76 Problem Description ">
+<meta name="keywords" content="数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU4944 FSF’s game">
+<meta property="og:url" content="http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="Time Limit: 9000/4500 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others)Total Submission(s): 166    Accepted Submission(s): 76 Problem Description FSF has programmed a game.In this game,">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU4944 FSF’s game">
+<meta name="twitter:description" content="Time Limit: 9000/4500 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others)Total Submission(s): 166    Accepted Submission(s): 76 Problem Description FSF has programmed a game.In this game,">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU4944 FSF’s game</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU4944 FSF’s game</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2014-08-12T12:59:32.000Z" itemprop="datePublished" class="page-time">
+  2014-08-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-hdu4944-fsfs-game"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU4944 FSF’s game</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2014-08-12 20:59:32" datetime="2014-08-12T12:59:32.000Z"  itemprop="datePublished">2014-08-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong><span style="font-family: Arial; font-size: 12px; font-weight: bold; color: green;">Time Limit: 9000/4500 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others)<br>Total Submission(s): 166    Accepted Submission(s): 76<br></span></strong></p>
+<p><div class="panel_title" align="left">Problem Description</div></p>
+<p><div class="panel_content">FSF has programmed a game.<br>In this game, players need to divide a rectangle into several same squares.<br>The length and width of rectangles are integer, and of course the side length of squares are integer.</div></p>
+<p>After division, players can get some coins.<br>If players successfully divide a AxB rectangle(length: A, width: B) into KxK squares(side length: K), they can get A<em>B/ gcd(A/K,B/K) gold coins.<br>In a level, you can’t get coins twice with same method.<br>(For example, You can get 6 coins from 2x2(A=2,B=2) rectangle. When K=1, A</em>B/gcd(A/K,B/K)=2; When K=2, A<em>B/gcd(A/K,B/K)=4; 2+4=6; )<br><a id="more"></a><br>There are N</em>(N+1)/2 levels in this game, and every level is an unique rectangle. (1x1 , 2x1, 2x2, 3x1, …, Nx(N-1), NxN)</p>
+<p>FSF has played this game for a long time, and he finally gets all the coins in the game.<br>Unfortunately ,he uses an UNSIGNED 32-BIT INTEGER variable to count the number of coins.<br>This variable may overflow.<br>We want to know what the variable will be.<br>(In other words, the number of coins mod 2^32)</p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Input</div></p>
+<p><div class="panel_content">There are multiply test cases.</div></p>
+<p>The first line contains an integer T(T&lt;=500000), the number of test cases</p>
+<p>Each of the next T lines contain an integer N(N&lt;=500000).</p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Output</div></p>
+<p><div class="panel_content">Output a single line for each test case.</div></p>
+<p>For each test case, you should output “Case #C: “. first, where C indicates the case number and counts from 1.</p>
+<p>Then output the answer, the value of that UNSIGNED 32-BIT INTEGER variable.</p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Sample Input</div></p>
+<p><div class="panel_content"></div></p>
+<p><div style="font-family: Courier New,Courier,monospace;">3 1 3 100</div><br></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Sample Output</div></p>
+<p><div class="panel_content"></div></p>
+<p><div style="font-family: Courier New,Courier,monospace;">Case #1: 1<br>Case #2: 30<br>Case #3: 15662489</div></p>
+<p><div style="font-family: Times New Roman; font-size: 14px; background-color: f4fbff; border: #B7CBFF 1px dashed; padding: 6px;"></div></p>
+<p><div style="font-family: Arial; font-weight: bold; color: #7ca9ed; border-bottom: #B7CBFF 1px dashed;"><em>Hint</em></div><br>In the second test case, there are six levels(1x1,1x2,1x3,2x2,2x3,3x3) Here is the details for this game: 1x1: 1(K=1); 1x2: 2(K=1); 1x3: 3(K=1); 2x2: 2(K=1), 4(K=2); 2x3: 6(K=1); 3x3: 3(K=1), 9(K=3); 1+2+3+2+4+6+3+9=30<br><em> </em><br></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Author</div></p>
+<p><div class="panel_content">UESTC</div></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Source</div></p>
+<p><div class="panel_content"><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%207&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener"> 2014 Multi-University Training Contest 7 </a></div></p>
+<p><div class="panel_bottom"></div><br>&nbsp;</p>
+<p><div class="panel_title" align="left">Recommend</div></p>
+<p><div class="panel_content">We have carefully selected several similar problems for you:  <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4943" target="_blank" rel="noopener">4943</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4942" target="_blank" rel="noopener">4942</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4941" target="_blank" rel="noopener">4941</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4940" target="_blank" rel="noopener">4940</a> <a href="http://acm.hdu.edu.cn/showproblem.php?pid=4939" target="_blank" rel="noopener">4939</a></div></p>
+<p><div class="panel_content">N(LogN)的复杂度。</div><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstdio&amp;gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>&amp;lt;cstring&amp;gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 500001</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> f[N];</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> g[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &amp;lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; i * j &amp;lt; N; j++) &#123;</span><br><span class="line">            g[i * j] += (<span class="number">1L</span>L + j) * j / <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &amp;lt; N; i++) &#123;</span><br><span class="line">        f[i] = f[i - <span class="number">1</span>] + i * g[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;amp;T);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">1</span>; c &amp;lt;= T; c++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;amp;n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: %u\n"</span>, c, f[n]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.701Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2014/08/12/hdu4944-fsfs-game/" target="_blank" rel="external">http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/&title=《HDU4944 FSF’s game》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/&title=《HDU4944 FSF’s game》 — Sailing&source=Time Limit: 9000/4500 MS (Java/Others)    Memory Limit: 131072/131072 K (Java..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU4944 FSF’s game》 — Sailing&url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2014/08/12/zjnu2082/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">内网2082 字母</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2014/08/10/github-tips/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">github使用札记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/&title=《HDU4944 FSF’s game》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/&title=《HDU4944 FSF’s game》 — Sailing&source=Time Limit: 9000/4500 MS (Java/Others)    Memory Limit: 131072/131072 K (Java..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU4944 FSF’s game》 — Sailing&url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2014/08/12/hdu4944-fsfs-game/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3azW6EMAxF4Xn/l6bbShVwrp2pFOdkhRhU8rFw45/PB68LrLvnf98hz/x9ctmSIUPGtgyyObJp/vc5mH84GTJknMC4ez255neeQyoJ07f3ZciQIQOH1OeD4HMIliFDhoy1jDTUpkdJGTJkyKglsbzqRZLY9Oi5LBeXIUPGhox0c/95/ZX+hgwZMrZiXOHiBbX0aHg1lgwZMmYzeIAjBf3aIa8WcGXIkHEOgw94ka3z4Yy0wfCyKxkyZIxmpNsisP6vPCi/dDlkyJAxgvEczjrfBn25VZ9MhgwZxzA6ieWqIl16VJUhQ8YJjDRcBslkaSzjuW2A0lcZMmQMZRAML6Ktan8WD44yZMg4jJFua1VLMsXLkCFjNoMEWZ5w8hExHtyDaREZMmSMZvAguHZggrcQUOIqQ4aM0Yw02HXudN5YHLaQIUPG5ozai/mRLi3P1f4lyJAhYzZj7WBEvy3KQ/PLWJgMGTIGMfopZbELET7Py4IyZMiYyui0JPsjGum70AlXhgwZQxm15DM9CBLq4rk2GTJkDGKk198etkj7lTJkyJjKuMLFSekYR3o8jWfWZMiQsS2DrzQRJdvlJT9eCpQhQ8ZURhpkOaD25YoNThkyZBzA4IFvVTuzn8TKkCFDxipGOmzBmwe3W5EhQ4aM0qY7pTQ0QCZDhowDGLxYn5bSOk2CIDGWIUPGaAZPHdce72olvFZTU4YMGfsxfgBYdcdlPtQb/AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

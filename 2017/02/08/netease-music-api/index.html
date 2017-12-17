@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>网易云音乐新API简述 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="网易云音乐,API,Encryption">
+    <meta name="description" content="新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。 Url估计会抓包的人都知道，Url中的api便成了weapi。比如手机登录：原来是：http://music.163.com/api/login/cellphone/现在是：http://music.163.com/weapi">
+<meta name="keywords" content="网易云音乐,API,Encryption">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网易云音乐新API简述">
+<meta property="og:url" content="http://lishangying.github.io/2017/02/08/netease-music-api/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。 Url估计会抓包的人都知道，Url中的api便成了weapi。比如手机登录：原来是：http://music.163.com/api/login/cellphone/现在是：http://music.163.com/weapi/login/cellphone/ 加密算法核心过程如下：1234567 aes">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网易云音乐新API简述">
+<meta name="twitter:description" content="新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。 Url估计会抓包的人都知道，Url中的api便成了weapi。比如手机登录：原来是：http://music.163.com/api/login/cellphone/现在是：http://music.163.com/weapi/login/cellphone/ 加密算法核心过程如下：1234567 aes">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">网易云音乐新API简述</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">网易云音乐新API简述</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-07T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-02-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Url"><span class="post-toc-number">1.</span> <span class="post-toc-text">Url</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#加密算法"><span class="post-toc-number">2.</span> <span class="post-toc-text">加密算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些细节"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">一些细节</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-netease-music-api"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">网易云音乐新API简述</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-08 00:00:00" datetime="2017-02-07T16:00:00.000Z"  itemprop="datePublished">2017-02-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。</p>
+<h2 id="Url"><a href="#Url" class="headerlink" title="Url"></a>Url</h2><p>估计会抓包的人都知道，Url中的api便成了weapi。比如手机登录：<br>原来是：<code>http://music.163.com/api/login/cellphone/</code><br>现在是：<code>http://music.163.com/weapi/login/cellphone/</code></p>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p>核心过程如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> aesRsaEncrypt = <span class="function"><span class="keyword">function</span> (<span class="params">text, pubKey, modulus, nonce</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> secKey = createSecretKey(<span class="number">16</span>);  <span class="comment">// 随机生成16位加密密钥</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">	params:  aesEncrypt(aesEncrypt(text, nonce), secKey),</span><br><span class="line">	encSecKey: rsaEncrypt(secKey, pubKey, modulus)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	Text : <span class="string">"JSON.stringify(&#123;phone:xxx,password:"</span>md5 hashed Data<span class="string">",rememberLogin:"</span><span class="literal">true</span><span class="string">"&#125;)"</span> <span class="comment">//需要加密的post body</span></span><br><span class="line">	pubKey : <span class="string">"010001"</span></span><br><span class="line">	nonce : <span class="string">"0CoJUm6Qyw8W8jud"</span></span><br><span class="line">	modulus : <span class="string">"00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280104e0312ecbda92557c93870114af6c9d05c4f7f0c3685b7a46bee255932575cce10b424d813cfe4875d3e82047b97ddef52741d546b8e289dc6935b3ece0462db0a22b8e7"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一些细节"><a href="#一些细节" class="headerlink" title="一些细节"></a>一些细节</h3><ol>
+<li>AES加密的具体算法为:AES-128-CBC，输出格式为base64。</li>
+<li>AES加密时需要指定iv：<code>0102030405060708</code></li>
+<li>RSA加密输出为Hex格式，公钥是<code>{N:modulus,e:pubKey}</code></li>
+<li>我的Javascript实现：<a href="https://github.com/stkevintan/Cube/blob/master/src/model/Crypto.js" target="_blank" rel="noopener">Crypto</a></li>
+<li>RSA算法的JS实现方法参考：<a href="http://www.cnblogs.com/kxdhm/archive/2012/02/02/2336103.html" target="_blank" rel="noopener">http://www.cnblogs.com/kxdhm/archive/2012/02/02/2336103.html</a></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.714Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/02/08/netease-music-api/" target="_blank" rel="external">http://lishangying.github.io/2017/02/08/netease-music-api/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Encryption/">Encryption</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网易云音乐/">网易云音乐</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/02/08/netease-music-api/&title=《网易云音乐新API简述》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/02/08/netease-music-api/&title=《网易云音乐新API简述》 — Sailing&source=新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。
+Url估计会抓包的人都知道，Url中的api便成了weapi..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/02/08/netease-music-api/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《网易云音乐新API简述》 — Sailing&url=http://lishangying.github.io/2017/02/08/netease-music-api/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/02/08/netease-music-api/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/01/斐波那契堆之Go实现/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">斐波那契堆之Go实现</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/07/Pandorabox-transparent-proxy/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Pandorabox之透明代理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/02/08/netease-music-api/&title=《网易云音乐新API简述》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/02/08/netease-music-api/&title=《网易云音乐新API简述》 — Sailing&source=新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。
+Url估计会抓包的人都知道，Url中的api便成了weapi..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/02/08/netease-music-api/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《网易云音乐新API简述》 — Sailing&url=http://lishangying.github.io/2017/02/08/netease-music-api/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/02/08/netease-music-api/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHklEQVR42u3aS47DIBBFUe9/02QBke37qBCJ4jJqtboNh0GpPlwXXgMs8vd3X/7+r2vFkiFDxrYMcjh+FLLX3e7PsJdLkSFDxgEMEgqfoxz5DbkOvq8MGTJkPH+OHJ1kcZXrkyFDhgzC4KE2rUNlyJAhY66IJaUpab2RYnVhLS5DhowNGWmb7J8/L5lvyJAhYyvGCNdzwldJFkdhyZAhozeDB7i5BhlJBOcCrgwZMs5h8AdeqxttcwH64jNSGTJkbMvg7fi5hxf1VhoP2TJkyOjKIAfiQTm4OZBcBiFbhgwZrRkkLJIQTBLNNLCSk6B5rAwZMhox0ucR9anpXMka7ChDhoymjEqxmgbWSuL4QpIhQ0ZTBg92lUFmPa18OYkMGTLaMUgrLU0Z60VsHO5lyJBxACNN735VmvKAjtpqMmTIaM0gG8w9y6gfNHhsIUOGjNaMuYCblpq8ocZDrQwZMk5g8LBIylH+hXQX/ihEhgwZvRkcwzeuh2x+KTJkyOjNSJO59NkWx5Bruj2JDBkyjmGkmMpQc64kRgFXhgwZTRk8i/zPY4t4XilDhoymjBGueqDkpIAqQ4aM1gy+SCGahmbe8uNjAxkyZHRl8JFkZZxZvzIZMmTISAPf8vZZGvplyJAhA48H6lQ0sCSTVRkyZBzPSA/NC9S0LShDhoxzGLxZT5r7lSEBvwIZMmScw+ClY7oBTwrXjRlkyJCxOeMDkrNBzxh6EsoAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

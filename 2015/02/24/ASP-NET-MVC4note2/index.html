@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>ASP.NET MVC 4笔记（二） | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C#,asp.net mvc4">
+    <meta name="description" content="有Timestamp修饰的表在修改已有的记录是一定要将该字段复制，也就是说一定要在Edit网页里面添加一行：@Html.HiddenFor(model =&amp;gt; model.RowVersion)  WebSecurity.CreateAccount必须在Userprofile里面先创建账户。System.D">
+<meta name="keywords" content="C#,asp.net mvc4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP.NET MVC 4笔记（二）">
+<meta property="og:url" content="http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="有Timestamp修饰的表在修改已有的记录是一定要将该字段复制，也就是说一定要在Edit网页里面添加一行：@Html.HiddenFor(model =&amp;gt; model.RowVersion)  WebSecurity.CreateAccount必须在Userprofile里面先创建账户。System.Diagnostics.Debug.WriteLine(&amp;quot;OnAction:&amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ASP.NET MVC 4笔记（二）">
+<meta name="twitter:description" content="有Timestamp修饰的表在修改已有的记录是一定要将该字段复制，也就是说一定要在Edit网页里面添加一行：@Html.HiddenFor(model =&amp;gt; model.RowVersion)  WebSecurity.CreateAccount必须在Userprofile里面先创建账户。System.Diagnostics.Debug.WriteLine(&amp;quot;OnAction:&amp;">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ASP.NET MVC 4笔记（二）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ASP.NET MVC 4笔记（二）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-02-24T02:50:00.000Z" itemprop="datePublished" class="page-time">
+  2015-02-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-ASP-NET-MVC4note2"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ASP.NET MVC 4笔记（二）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-02-24 10:50:00" datetime="2015-02-24T02:50:00.000Z"  itemprop="datePublished">2015-02-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ol>
+<li>有Timestamp修饰的表在修改已有的记录是一定要将该字段复制，也就是说一定要在Edit网页里面添加一行：<pre><code>@Html.HiddenFor(model =&gt; model.RowVersion)
+</code></pre></li>
+<li>WebSecurity.CreateAccount必须在Userprofile里面先创建账户。<pre><code>System.Diagnostics.Debug.WriteLine(&quot;OnAction:&quot; + controller + &quot;/&quot; + action);
+</code></pre></li>
+<li>转换string数组到int数组<pre><code>int[] HostsList = Array.ConvertAll&lt;string, int&gt;(Request[&quot;HostsId&quot;].Split(&apos;,&apos;), u =&gt; int.Parse(u));
+</code></pre></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.647Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/02/24/ASP-NET-MVC4note2/" target="_blank" rel="external">http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asp-net-mvc4/">asp.net mvc4</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/&title=《ASP.NET MVC 4笔记（二）》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/&title=《ASP.NET MVC 4笔记（二）》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ASP.NET MVC 4笔记（二）》 — Sailing&url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/02/24/shadowsocks-account/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Shadowsocks免费账号网址集</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/02/24/ASP-NET-MVC4-note1-Simplemembership/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ASP.NET MVC4笔记（一） 扩展Simplemembership</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/&title=《ASP.NET MVC 4笔记（二）》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/&title=《ASP.NET MVC 4笔记（二）》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ASP.NET MVC 4笔记（二）》 — Sailing&url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2015/02/24/ASP-NET-MVC4note2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aQW4CMQwFUO5/aSp1VYlO+LYBtcnLCjFoMm8WxrF9u8Xr/r0eP//85nGtr65/c3vHwsDA+LeMfJvH3yeM/EWs93pCxcDAOICRB9l8m4R09ULzZ8PAwMC42mAdsqsJZR6aMTAwMHq36wXWPOnEwMDA6JXDesH3VcdjDAyM0xiTxsC7P3+ov4GBgfGHGffWSjZLUsZe2e6XO2NgYGzNSEppk9mGpHg3bxJgYGDszaiW5ntFt/lB98mTY2BgHMBIyu7zdmM1KBcaAxgYGIcx1oDJ+Ff11SSjHpcBFwMDYzvGZJCremSttgGahTYMDIyNGNVtkhCZh9EXH3QxMDCOYUwKYb1mZx7oMTAwTmZMDpA5vsfuJZQYGBg7MfLBr/xQWkXOxzswMDBOYEyal5OyWpLwRWwMDIytGTmpWiarjmL0hjMwMDBOYKxDXhL+kqu9XZLWJgYGxgmM3iBFXkqbtDmbySIGBsbWjKRkP08Kc0DvPhgYGLsy8kJ/860EgJedwjEwMA5g5K2CecEu3zd6BgwMjK0Z1YZl3s6sNkHnfwwYGBj7Me7FVS26VcNu9UCLgYFxAiNf8/GveUJZThAxMDA2YlQbh72xieT7XpMAAwPjHEa1JZkki72Rr2ZjFQMDA2OQ/FXxzYEPDAwMjOJBNDmm9hoGT3oaGBgYWzOqx9HmmGkxmEZ9VwwMjAMY1cbA+nHzBLE6upE3VjEwMDZifAHv8WC+GaKWVwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

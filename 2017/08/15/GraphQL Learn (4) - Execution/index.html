@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>GraphQL Learn (4) - Execution | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GraphQL">
+    <meta name="description" content="经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。 GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分： 12345678910111213141516type Query &amp;#12">
+<meta name="keywords" content="GraphQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GraphQL Learn (4) - Execution">
+<meta property="og:url" content="http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。 GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分： 12345678910111213141516type Query &amp;#123;  human(id: ID!): Human&amp;#125;type Human &amp;#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-22T17:13:31.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GraphQL Learn (4) - Execution">
+<meta name="twitter:description" content="经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。 GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分： 12345678910111213141516type Query &amp;#123;  human(id: ID!): Human&amp;#125;type Human &amp;#">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GraphQL Learn (4) - Execution</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GraphQL Learn (4) - Execution</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-14T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-08-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#根字段和解析器（Root-fields-amp-resolvers）"><span class="post-toc-number">1.</span> <span class="post-toc-text">根字段和解析器（Root fields & resolvers）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异步解析器（Asynchronous-resolvers）"><span class="post-toc-number">2.</span> <span class="post-toc-text">异步解析器（Asynchronous resolvers）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#微型解析器（Trivial-resolvers）"><span class="post-toc-number">3.</span> <span class="post-toc-text">微型解析器（Trivial resolvers）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标量强转（Scalar-coercion）"><span class="post-toc-number">4.</span> <span class="post-toc-text">标量强转（Scalar coercion）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表解析器（List-resolvers）"><span class="post-toc-number">5.</span> <span class="post-toc-text">列表解析器（List resolvers）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#产出结果（Producing-the-result）"><span class="post-toc-number">6.</span> <span class="post-toc-text">产出结果（Producing the result）</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-GraphQL Learn (4) - Execution"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GraphQL Learn (4) - Execution</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-15 00:00:00" datetime="2017-08-14T16:00:00.000Z"  itemprop="datePublished">2017-08-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。</p>
+<p>GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">type Query &#123;</span><br><span class="line">  human(id: ID!): Human</span><br><span class="line">&#125;</span><br><span class="line">type Human &#123;</span><br><span class="line">  name: String</span><br><span class="line">  appearsIn: [Episode]</span><br><span class="line">  starships: [Starship]</span><br><span class="line">&#125;</span><br><span class="line">enum Episode &#123;</span><br><span class="line">  NEWHOPE</span><br><span class="line">  EMPIRE</span><br><span class="line">  JEDI</span><br><span class="line">&#125;</span><br><span class="line">type Starship &#123;</span><br><span class="line">  name: String</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>为了解释执行查询语句时系统发生了什么，我们用下面的例子了跑一遍：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># &#123; &quot;graphiql&quot;: true &#125;</span><br><span class="line">&#123;</span><br><span class="line">  human(id: 1002) &#123;</span><br><span class="line">    name</span><br><span class="line">    appearsIn</span><br><span class="line">    starships &#123;</span><br><span class="line">      name</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"data"</span>: &#123;</span><br><span class="line">    <span class="attr">"human"</span>: &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Han Solo"</span>,</span><br><span class="line">      <span class="attr">"appearsIn"</span>: [</span><br><span class="line">        <span class="string">"NEWHOPE"</span>,</span><br><span class="line">        <span class="string">"EMPIRE"</span>,</span><br><span class="line">        <span class="string">"JEDI"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"starships"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Millenium Falcon"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Imperial shuttle"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>您可以将GraphQL查询中的每个字段视为返回下一个类型的类型函数或方法。 事实上，这正是GraphQL的工作原理。 每个类型的每个字段由GraphQL服务器开发人员提供的称为解析器 <em>resolver</em> 的函数支持。 当一个字段被执行时，相应的解析器被调用以产生下一个值。</p>
+<p>如果一个字段产生一个标量值，如字符串或数字，则执行完成。 但是，如果一个字段产生一个对象值，则该查询将应用于他的子字段。 这样一直迭代到标量值。 GraphQL查询始终以标量值结束。</p>
+<h2 id="根字段和解析器（Root-fields-amp-resolvers）"><a href="#根字段和解析器（Root-fields-amp-resolvers）" class="headerlink" title="根字段和解析器（Root fields &amp; resolvers）"></a>根字段和解析器（Root fields &amp; resolvers）</h2><p>每个GraphQL服务器的最顶层是一个特殊的类型，表示GraphQL API中所有可能入口点，通常称为根类型（Root type）或查询类型(Query type)。</p>
+<p>在这个例子中，我们的查询类型提供了一个接受参数<code>id</code> 的<code>human</code>字段。此字段的解析函数可能通过访问数据库来构造并返回一个<code>Human</code>对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Query: &#123;</span><br><span class="line">  human(obj, args, context) &#123;</span><br><span class="line">    <span class="keyword">return</span> context.db.loadHumanByID(args.id).then(</span><br><span class="line">      userData =&gt; <span class="keyword">new</span> Human(userData)</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该示例使用JavaScript编写，但是GraphQL服务器可以使用许多<a href="http://graphql.org/code/" target="_blank" rel="noopener">不同的语言</a>构建。 解析器函数接收三个参数：</p>
+<ul>
+<li><code>obj</code> 前一个对象，对于查询类型（Query type）中的字段来说不常用。</li>
+<li><code>args</code> GraphQL提供的参数。</li>
+<li><code>context</code> 提供给每个解析器并保存重要的上下文信息（如当前登录的用户、访问数据库）的值。<h2 id="异步解析器（Asynchronous-resolvers）"><a href="#异步解析器（Asynchronous-resolvers）" class="headerlink" title="异步解析器（Asynchronous resolvers）"></a>异步解析器（Asynchronous resolvers）</h2>我们来仔细看看这个解析器函数发生了什么：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">human(obj, args, context) &#123;</span><br><span class="line">  <span class="keyword">return</span> context.db.loadHumanByID(args.id).then(</span><br><span class="line">    userData =&gt; <span class="keyword">new</span> Human(userData)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>context</code>用于提供对数据库的访问，通过GraphQL查询提供的参数<code>id</code>来向数据库查询数据。 由于数据库查询是异步操作，所以返回一个Promise。 在JavaScript中，Promises用于处理异步值，但是在许多语言中都存在相同的概念，通常称为 <em>Futures</em> ， <em>Tasks</em> 或 <em>Deferred</em> 。 当数据库返回时，我们可以构造并返回一个新的 <em>Human</em> 对象。</p>
+<p>另外，虽然解析器函数需要留意Promises的使用，但是GraphQL查询不会。 在执行期间，GraphQL将等待Promises/Futures和Tasks完成，然后继续，并以最佳并发方式执行此操作。</p>
+<h2 id="微型解析器（Trivial-resolvers）"><a href="#微型解析器（Trivial-resolvers）" class="headerlink" title="微型解析器（Trivial resolvers）"></a>微型解析器（Trivial resolvers）</h2><p>至此，我们已经得到了<code>Human</code>对象，GraphQL将在这个对象内所要求的字段中继续执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Human: &#123;</span><br><span class="line">  name(obj, args, context) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj.name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>GraphQL服务由类型系统组成，它能够帮助服务确定下一步做什么的。 即使在<code>human</code>字段返回之前，GraphQL知道下一步将是解决<code>Human</code>中的字段，因为类型系统告诉<code>human</code>字段将返回一个<code>Human</code>。</p>
+<p>上面代码中的名称解析是很直接的。 调用名称解析函数，然后obj参数来自于上一个字段返回的新的<code>Human</code>对象。 我们期望<code>Human</code>对象有一个<code>name</code>属性，我们可以直接读取并返回。</p>
+<p>实际上，许多GraphQL库可以让你省略这个简单的解决方案，一个约定：假如一个字段没有提供解析函数，那么应该读取和返回同名的属性。</p>
+<h2 id="标量强转（Scalar-coercion）"><a href="#标量强转（Scalar-coercion）" class="headerlink" title="标量强转（Scalar coercion）"></a>标量强转（Scalar coercion）</h2><p>当<code>name</code>字段正在解析时，<code>appearsIn</code>和<code>starships</code>字段也可以同时进行解析。 <code>appearsIn</code>字段也可以有一个微型解析器，但是让我们进一步了解一下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Human: &#123;</span><br><span class="line">  appearsIn(obj) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj.appearsIn <span class="comment">// returns [ 4, 5, 6 ]</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>请注意，我们的类型系统声明<code>appearsIn</code>将返回一直枚举值中的一个，但此函数却返回数字！实际上，如果我们查看结果，我们将看到正在返回适当的枚举值。 这是怎么回事？</p>
+<p>这是标量强转的一个例子。 类型系统知道期望的类型并将解析器函数返回的值转换为API约定中的内容。 在例子中，我们的服务器上可能会定义一个Enum，它在内部使用数字比如4,5和6，但在GraphQL类型系统中将它们表示为枚举值。</p>
+<h2 id="列表解析器（List-resolvers）"><a href="#列表解析器（List-resolvers）" class="headerlink" title="列表解析器（List resolvers）"></a>列表解析器（List resolvers）</h2><p>之前我们已经看到了<code>appearsIn</code>字段返回列表的情况，因为这是系统期望的类型，列表中的每个项将被被强转为对应的枚举类型。 当<code>starships</code>解析时会发生什么？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Human: &#123;</span><br><span class="line">  starships(obj, args, context) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj.starshipIDs.map(</span><br><span class="line">      id =&gt; context.db.loadStarshipByID(id).then(</span><br><span class="line">        shipData =&gt; <span class="keyword">new</span> Starship(shipData)</span><br><span class="line">      )</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该字段的解析器不是单单返回一个Promise，它返回了一个Promises列表。 <code>Human</code>对象有他们驾驶的<code>Starships</code>的id列表，但是我们需要通过所有这些id来获得真正的<code>Starship</code>对象。</p>
+<p>GraphQL将在继续之前同时等待所有这些Promises，并且当剩下一个对象列表时，它将同时继续加载每个这些项目上的<code>name</code>字段。</p>
+<h2 id="产出结果（Producing-the-result）"><a href="#产出结果（Producing-the-result）" class="headerlink" title="产出结果（Producing the result）"></a>产出结果（Producing the result）</h2><p>当每个字段被解析时，结果值被放置到键值映射中，字段名称（或别名）作为键，解析出来的值作为值，这这过程从查询底部叶子节点的字段往上直到原始字段的根查询类型。 总而言之，它们产生一个镜像的原始查询结构，然后可以将其发送（通常为JSON）到请求的客户端。</p>
+<p>我们来看看最初的查询，看看这些解析函数如何产生一个结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># &#123; &quot;graphiql&quot;: true &#125;</span><br><span class="line">&#123;</span><br><span class="line">  human(id: 1002) &#123;</span><br><span class="line">    name</span><br><span class="line">    appearsIn</span><br><span class="line">    starships &#123;</span><br><span class="line">      name</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"data"</span>: &#123;</span><br><span class="line">    <span class="attr">"human"</span>: &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Han Solo"</span>,</span><br><span class="line">      <span class="attr">"appearsIn"</span>: [</span><br><span class="line">        <span class="string">"NEWHOPE"</span>,</span><br><span class="line">        <span class="string">"EMPIRE"</span>,</span><br><span class="line">        <span class="string">"JEDI"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"starships"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Millenium Falcon"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"name"</span>: <span class="string">"Imperial shuttle"</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T17:13:31.659Z" itemprop="dateUpdated">2017-11-23 01:13:31</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/15/GraphQL Learn (4) - Execution/" target="_blank" rel="external">http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GraphQL/">GraphQL</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/&title=《GraphQL Learn (4) - Execution》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/&title=《GraphQL Learn (4) - Execution》 — Sailing&source=经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。
+GraphQL无法执行没有类型系统的查询，让我..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GraphQL Learn (4) - Execution》 — Sailing&url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/08/15/GraphQL Learn (2) - Schemas and Types/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">GraphQL Learn (2) - Schemas and Types</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/15/GraphQL Learn (1) - Queries and Mutations/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">GraphQL Learn (1) - Queries and Mutations</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/&title=《GraphQL Learn (4) - Execution》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/&title=《GraphQL Learn (4) - Execution》 — Sailing&source=经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。
+GraphQL无法执行没有类型系统的查询，让我..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GraphQL Learn (4) - Execution》 — Sailing&url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuklEQVR42u3awa6CQAwFUP7/p32btzPAbTuDmhxWxsAwBxNa2x5HfLxOjrMzzz6/X5uff3bHBQceHh7eoq2f3ex9K9drJt/07h49Ajw8PLxtvMkr/n2F/PzkweUPFw8PD+87eUnWmmw0T5Tx8PDwfp13HQbWFibyPeDh4eE9z0sS37MbT8oT1+Bqmo6Hh4f3DC/vIn3P5y39PTw8PLxxV71aqL0OG9WdTPb5vwIeHh7eBl7+wu0NS/VS9rUFXzw8PLy1vEnDPi8fTAq1o2IuHh4e3jZe7w9/rw1WHQXoBafRbfDw8PCCFXov62oRoVdrrSbcN5MReHh4eGPe2mR3Elqqq0WFYzw8PLxHeM9/kxR8m6NXeHh4eI/weu3/JGmufs5hN7UWPDw8vA286ms6H42q3iVfJxrYwsPDw9vGmxcj8jJuNflOmm2n4QEPDw9vA6+39Wr5oLpyHpCavyEeHh7egFe9IAHkw6aTsdfoWjw8PLxtvMkW85LraKPFDBkPDw9vNy950VfDRo+dnFkIMHh4eHgbeHNGkvgmhYlJq6xQa8HDw8Mb86pbzANAfu08SEStLzw8PLxFvGqBoDdqMCnIJoUMPDw8vM/y8mQ3Ka32hmKrxYubx4qHh4e3gddr6lfbYL1w0itPlP894OHh4RV5vYQ4wfSCxyQrjv4x4OHh4S3i9RLZajJ9BEcVv3h0AA8PD2/Mm4SH6jrVnRz508LDw8NbxHsVj8kjSAJGtTBxE1Tw8PDwNvB679jqAFYOqw4rHKsOPDw8vCKvVyTNh59WDRMkD/GmAYaHh4e3lJe0rKrNs0KbamkAO6q/Ax4eHt7jvOtCQF7mmJRCCtNkeHh4eB/iVcekqoMI83oCHh4e3m5e/srOk+nqiECCrI4y4OHh4e3gzQezEkDeDOsNBIzKHHh4eHjpDv8Az5fGm7xafHsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
