@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lishangying.github.io/"/>
-  <updated>2017-11-22T17:13:31.657Z</updated>
+  <updated>2017-12-16T16:44:33.574Z</updated>
   <id>http://lishangying.github.io/</id>
   
   <author>
@@ -17,18 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>GraphQL Learn (3) - Validation</title>
-    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(3)%20-%20Validation/"/>
-    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (3) - Validation/</id>
-    <published>2017-08-14T16:00:00.000Z</published>
-    <updated>2017-11-22T17:13:31.657Z</updated>
+    <title>《C和指针》基础</title>
+    <link href="http://lishangying.github.io/2017/12/13/%E3%80%8Ac%E5%92%8C%E6%8C%87%E9%92%88%E3%80%8B%E5%9F%BA%E7%A1%80/"/>
+    <id>http://lishangying.github.io/2017/12/13/《c和指针》基础/</id>
+    <published>2017-12-13T14:21:28.000Z</published>
+    <updated>2017-12-16T16:44:33.574Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;通过使用类型系统，可以预先确定GraphQL查询是否有效。 这样可以让服务器和客户端有效地通知开发人员在创建无效查询时，无需在运行时检查。&lt;/p&gt;
-&lt;p&gt;对于我们的星球大战示例，文件&lt;a href=&quot;https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsValidation-test.js&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;starWarsValidation-test.js&lt;/a&gt;包含许多无效的查询，可以用来测试当前实现的验证器。&lt;/p&gt;
-&lt;p&gt;首先，我们来看一个复杂的有效查询。 这是一个嵌套查询，类似于上一节的一个示例，但将重复的字段分解成一个片段：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hero &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    friends &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      friends &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fragment NameAndAppearances on Character &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  appearsIn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      
+      
+        &lt;p&gt;@(关键词)[数据|语句|操作符]&lt;/p&gt;
+&lt;h4 id=&quot;1-字符：普通、转义、三字母&quot;&gt;&lt;a href=&quot;#1-字符：普通、转义、三字母&quot; class=&quot;headerlink&quot; title=&quot;1.字符：普通、转义、三字母&quot;&gt;&lt;/a&gt;1.字符：普通、转义、三字母&lt;/h4&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="a" scheme="http://lishangying.github.io/tags/a/"/>
+    
+      <category term="b" scheme="http://lishangying.github.io/tags/b/"/>
+    
+      <category term="c" scheme="http://lishangying.github.io/tags/c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GraphQL Learn (4) - Execution</title>
+    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(4)%20-%20Execution/"/>
+    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/</id>
+    <published>2017-08-14T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.659Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。&lt;/p&gt;
+&lt;p&gt;GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;type Query &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  human(id: ID!): Human&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;type Human &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name: String&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  appearsIn: [Episode]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  starships: [Starship]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enum Episode &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  NEWHOPE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  EMPIRE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  JEDI&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;type Starship &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name: String&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -63,17 +88,18 @@
   </entry>
   
   <entry>
-    <title>GraphQL Learn (4) - Execution</title>
-    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(4)%20-%20Execution/"/>
-    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (4) - Execution/</id>
+    <title>GraphQL Learn (3) - Validation</title>
+    <link href="http://lishangying.github.io/2017/08/15/GraphQL%20Learn%20(3)%20-%20Validation/"/>
+    <id>http://lishangying.github.io/2017/08/15/GraphQL Learn (3) - Validation/</id>
     <published>2017-08-14T16:00:00.000Z</published>
-    <updated>2017-11-22T17:13:31.659Z</updated>
+    <updated>2017-11-22T17:13:31.657Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。&lt;/p&gt;
-&lt;p&gt;GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;type Query &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  human(id: ID!): Human&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;type Human &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name: String&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  appearsIn: [Episode]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  starships: [Starship]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enum Episode &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  NEWHOPE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  EMPIRE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  JEDI&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;type Starship &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name: String&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;p&gt;通过使用类型系统，可以预先确定GraphQL查询是否有效。 这样可以让服务器和客户端有效地通知开发人员在创建无效查询时，无需在运行时检查。&lt;/p&gt;
+&lt;p&gt;对于我们的星球大战示例，文件&lt;a href=&quot;https://github.com/graphql/graphql-js/blob/master/src/__tests__/starWarsValidation-test.js&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;starWarsValidation-test.js&lt;/a&gt;包含许多无效的查询，可以用来测试当前实现的验证器。&lt;/p&gt;
+&lt;p&gt;首先，我们来看一个复杂的有效查询。 这是一个嵌套查询，类似于上一节的一个示例，但将重复的字段分解成一个片段：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hero &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    friends &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      friends &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ...NameAndAppearances&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fragment NameAndAppearances on Character &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  appearsIn&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -126,6 +152,34 @@
     
     
       <category term="GraphQL" scheme="http://lishangying.github.io/tags/GraphQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你的名字</title>
+    <link href="http://lishangying.github.io/2017/08/11/yourname/"/>
+    <id>http://lishangying.github.io/2017/08/11/yourname/</id>
+    <published>2017-08-11T14:21:28.000Z</published>
+    <updated>2017-12-16T16:43:45.376Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+                    &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
+                   
+      
+    
+    </summary>
+    
+    
+      <category term="a" scheme="http://lishangying.github.io/tags/a/"/>
+    
+      <category term="b" scheme="http://lishangying.github.io/tags/b/"/>
+    
+      <category term="c" scheme="http://lishangying.github.io/tags/c/"/>
     
   </entry>
   
@@ -310,30 +364,6 @@
   </entry>
   
   <entry>
-    <title>Centos初始化2</title>
-    <link href="http://lishangying.github.io/2017/01/04/CentOS2@1-4/"/>
-    <id>http://lishangying.github.io/2017/01/04/CentOS2@1-4/</id>
-    <published>2017-01-03T16:00:00.000Z</published>
-    <updated>2017-11-22T17:13:31.651Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;proxychains-ng&quot;&gt;&lt;a href=&quot;#proxychains-ng&quot; class=&quot;headerlink&quot; title=&quot;proxychains-ng&quot;&gt;&lt;/a&gt;proxychains-ng&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/rofl0r/proxychains-ng&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; proxychains-ng                                 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./configure --prefix=/usr --sysconfdir=/etc &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make install&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make install-config   &lt;span class=&quot;comment&quot;&gt;# 生成配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;http 10.100.100.136 4411&#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/proxychains.conf  &lt;span class=&quot;comment&quot;&gt;# 输入代理设置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://lishangying.github.io/categories/Linux/"/>
-    
-    
-      <category term="centos" scheme="http://lishangying.github.io/tags/centos/"/>
-    
-      <category term="tmux" scheme="http://lishangying.github.io/tags/tmux/"/>
-    
-      <category term="prezto" scheme="http://lishangying.github.io/tags/prezto/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Kubernetes部署</title>
     <link href="http://lishangying.github.io/2017/01/04/Kubernetes%E9%83%A8%E7%BD%B2@1-5/"/>
     <id>http://lishangying.github.io/2017/01/04/Kubernetes部署@1-5/</id>
@@ -357,6 +387,30 @@
       <category term="docker" scheme="http://lishangying.github.io/tags/docker/"/>
     
       <category term="kubernetes" scheme="http://lishangying.github.io/tags/kubernetes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos初始化2</title>
+    <link href="http://lishangying.github.io/2017/01/04/CentOS2@1-4/"/>
+    <id>http://lishangying.github.io/2017/01/04/CentOS2@1-4/</id>
+    <published>2017-01-03T16:00:00.000Z</published>
+    <updated>2017-11-22T17:13:31.651Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;proxychains-ng&quot;&gt;&lt;a href=&quot;#proxychains-ng&quot; class=&quot;headerlink&quot; title=&quot;proxychains-ng&quot;&gt;&lt;/a&gt;proxychains-ng&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/rofl0r/proxychains-ng&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; proxychains-ng                                 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./configure --prefix=/usr --sysconfdir=/etc &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make install&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make install-config   &lt;span class=&quot;comment&quot;&gt;# 生成配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;http 10.100.100.136 4411&#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/proxychains.conf  &lt;span class=&quot;comment&quot;&gt;# 输入代理设置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://lishangying.github.io/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="http://lishangying.github.io/tags/centos/"/>
+    
+      <category term="tmux" scheme="http://lishangying.github.io/tags/tmux/"/>
+    
+      <category term="prezto" scheme="http://lishangying.github.io/tags/prezto/"/>
     
   </entry>
   
@@ -457,61 +511,6 @@
       <category term="openstack" scheme="http://lishangying.github.io/tags/openstack/"/>
     
       <category term="neutron" scheme="http://lishangying.github.io/tags/neutron/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo折腾笔记（二）博客优化与定制</title>
-    <link href="http://lishangying.github.io/2015/02/25/hexo-lightum-enhance/"/>
-    <id>http://lishangying.github.io/2015/02/25/hexo-lightum-enhance/</id>
-    <published>2015-02-25T14:57:00.000Z</published>
-    <updated>2017-11-22T17:13:31.704Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先我使用的是由&lt;a href=&quot;http://zipperary.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;zippera&lt;/a&gt;基于官方&lt;a href=&quot;https://github.com/hexojs/hexo-theme-light&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Light&lt;/a&gt;主题改进而来的&lt;a href=&quot;https://github.com/zippera/lightum&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lightum&lt;/a&gt;主题,其他主题可能稍有出入。&lt;/p&gt;
-&lt;p&gt;##速度优化&lt;br&gt;参考之前的文章：&lt;a href=&quot;http://kevinsfork.info/2015/02/25/hexo-speedup-instantclick/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;静态页面优化&lt;/a&gt;。然后使用了&lt;a href=&quot;https://github.com/gyk001/hexo-qiniu-sync&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo-qiniu-sync&lt;/a&gt;这个项目，将静态的图片以及css、js同步到了七牛云。（PS：主题模板中包含了两个不同版本的jquery，分别在head.ejs与after-footer.ejs中，随便删除一个。）&lt;/p&gt;
-&lt;p&gt;对于处于body区域的script、style的引用尽可能的加入data-no-instant属性，避免InstantClick重复加载。&lt;/p&gt;
-&lt;p&gt;##给instantclick加载进度条加上阴影效果&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-id&quot;&gt;#instantclick-bar&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-webkit-box-shadow&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8px&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;rgba&lt;/span&gt;(0, 0, 0, 0.56);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;box-shadow&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8px&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;rgba&lt;/span&gt;(0, 0, 0, 0.56);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;##加入Swiftype搜索&lt;br&gt;去&lt;a href=&quot;https://swiftype.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Swiftype&lt;/a&gt;官网申请代码，然后修改search.ejs文件为：&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;search&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;st-search-input&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;placeholder&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;%= __(&#39;search&#39;) %&amp;gt;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;form&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://lishangying.github.io/categories/Hexo/"/>
-    
-    
-      <category term="html" scheme="http://lishangying.github.io/tags/html/"/>
-    
-      <category term="美化" scheme="http://lishangying.github.io/tags/%E7%BE%8E%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo折腾笔记（一）博客加速以及instantclick的兼容</title>
-    <link href="http://lishangying.github.io/2015/02/25/hexo-speedup-instantclick/"/>
-    <id>http://lishangying.github.io/2015/02/25/hexo-speedup-instantclick/</id>
-    <published>2015-02-25T12:18:23.000Z</published>
-    <updated>2017-11-22T17:13:31.705Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;del&gt;首先，Gitcafe的国内速度已经够快了，加不加速其实没多大区别,只不过是闲的蛋疼而已。&lt;/del&gt;&lt;br&gt;Gitcafe无故page不更新，所以又换回了github。&lt;/p&gt;
-&lt;h2 id=&quot;Hexo加速&quot;&gt;&lt;a href=&quot;#Hexo加速&quot; class=&quot;headerlink&quot; title=&quot;Hexo加速&quot;&gt;&lt;/a&gt;Hexo加速&lt;/h2&gt;&lt;p&gt;Hexo加速可以有以下几个方面：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用&lt;a href=&quot;http://www.bootcdn.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;BootCDN&lt;/a&gt;并将图片等资源储存至七牛云。可以使用此项目&lt;a href=&quot;https://github.com/gyk001/hexo-qiniu-sync&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;click here&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;使用&lt;a href=&quot;https://github.com/FlashSoft/hexo-console-optimize&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;hexo optimize&lt;/a&gt;压缩优化HTML、CSS、JS、Image资源。&lt;/li&gt;
-&lt;li&gt;使用&lt;a href=&quot;http://instantclick.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;InstantClick&lt;/a&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;InstantClick是一款类似于&lt;a href=&quot;http://instantclick.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Turbolinks&lt;/a&gt;的js库，利用&lt;a href=&quot;https://github.com/defunkt/jquery-pjax&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pjax&lt;/a&gt;（pushState and Ajax)技术对网站进行优化，能够极大的提高访问速度。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://lishangying.github.io/categories/Hexo/"/>
-    
-    
-      <category term="html" scheme="http://lishangying.github.io/tags/html/"/>
-    
-      <category term="instantclick" scheme="http://lishangying.github.io/tags/instantclick/"/>
     
   </entry>
   

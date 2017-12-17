@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>《C和指针》基础 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="a,b,c">
+    <meta name="description" content="@(关键词)[数据|语句|操作符] 1.字符：普通、转义、三字母如图，三字母字符：                                                                                             三字母字符              2.标识符不能">
+<meta name="keywords" content="a,b,c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《C和指针》基础">
+<meta property="og:url" content="http://lishangying.github.io/2017/12/13/《c和指针》基础/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="@(关键词)[数据|语句|操作符] 1.字符：普通、转义、三字母如图，三字母字符：                                                                                             三字母字符              2.标识符不能以数字开头否则，下句就混乱了：1int 2 = 2; 3.const 只读变量">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p05jnww1u.bkt.gdipper.com/17-12-13/23053349.jpg">
+<meta property="og:updated_time" content="2017-12-16T16:44:33.574Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《C和指针》基础">
+<meta name="twitter:description" content="@(关键词)[数据|语句|操作符] 1.字符：普通、转义、三字母如图，三字母字符：                                                                                             三字母字符              2.标识符不能以数字开头否则，下句就混乱了：1int 2 = 2; 3.const 只读变量">
+<meta name="twitter:image" content="http://p05jnww1u.bkt.gdipper.com/17-12-13/23053349.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">《C和指针》基础</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">《C和指针》基础</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-13T14:21:28.000Z" itemprop="datePublished" class="page-time">
+  2017-12-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-字符：普通、转义、三字母"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.字符：普通、转义、三字母</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-标识符不能以数字开头"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.标识符不能以数字开头</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-const"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.const</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-枚举"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.枚举</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-字符串"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.字符串</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-typedef"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.typedef</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-赋值语句"><span class="post-toc-number">7.</span> <span class="post-toc-text">7.赋值语句</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-sizeof"><span class="post-toc-number">8.</span> <span class="post-toc-text">8.sizeof</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9-移位"><span class="post-toc-number">9.</span> <span class="post-toc-text">9.移位</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#10-整型大小取决于环境"><span class="post-toc-number">10.</span> <span class="post-toc-text">10.整型大小取决于环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11-数组长度"><span class="post-toc-number">11.</span> <span class="post-toc-text">11.数组长度</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#12-signed关键字"><span class="post-toc-number">12.</span> <span class="post-toc-text">12.signed关键字</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-《c和指针》基础"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">《C和指针》基础</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-13 22:21:28" datetime="2017-12-13T14:21:28.000Z"  itemprop="datePublished">2017-12-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>@(关键词)[数据|语句|操作符]</p>
+<h4 id="1-字符：普通、转义、三字母"><a href="#1-字符：普通、转义、三字母" class="headerlink" title="1.字符：普通、转义、三字母"></a>1.字符：普通、转义、三字母</h4><p>如图，三字母字符：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p05jnww1u.bkt.gdipper.com/17-12-13/23053349.jpg" alt="三字母字符" title="三字母字符">
+                </div>
+                <div class="image-caption">三字母字符</div>
+            </figure></p>
+<h4 id="2-标识符不能以数字开头"><a href="#2-标识符不能以数字开头" class="headerlink" title="2.标识符不能以数字开头"></a>2.标识符不能以数字开头</h4><p>否则，下句就混乱了：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="number">2</span> = <span class="number">2</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-const"><a href="#3-const" class="headerlink" title="3.const"></a>3.const</h4><ul>
+<li><strong>只读变量</strong> ：非常量，在内存中；</li>
+<li><strong>类型检查</strong> ：优于#define，主动进行不一致检查；</li>
+<li><strong>保护修改</strong> ：避免手误赋值；</li>
+<li><strong>函数重载</strong> ：c++；</li>
+<li><strong>指针相关</strong> ：避免手误赋值；<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* p;	    <span class="comment">//p可变，p指向的内容不可变</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span>* p; 		<span class="comment">//p可变，P指向的内容不可变</span></span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> p; 		<span class="comment">//p不可变,p指向的内容可变</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> p; <span class="comment">//p,p指向的内容均不可变</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-枚举"><a href="#4-枚举" class="headerlink" title="4.枚举"></a>4.枚举</h4><p>默认从0开始，可以是负数；<br>默认+1，可以间接；</p>
+<h4 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5.字符串"></a>5.字符串</h4><p>以NUL字节结尾，但并不属于字符串，并且占一个字节，如“Hello”在内存中占6个字节，H,e,l,l,o,和NUL；<br>NULL表示空指针；<br>NULL指向一个其值为0的指针。NULL和NUL都是整形，值也相同，所以他们互相可以换着使用；</p>
+<h4 id="6-typedef"><a href="#6-typedef" class="headerlink" title="6.typedef"></a>6.typedef</h4><p>用于给一个已经存在的数据类型重命名；<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span>* ptr_to_char;<span class="comment">//</span></span><br><span class="line">ptr_to_char a;			  <span class="comment">//声明a是一个指向字符的指针</span></span><br></pre></td></tr></table></figure></p>
+<p>数据类型重命名typedef优于define：后者无法正确处理指针类型；<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> d_ptr_to_char char*</span></span><br><span class="line">d_ptr_to_char a,b;<span class="comment">//a是指针，b是字符</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="7-赋值语句"><a href="#7-赋值语句" class="headerlink" title="7.赋值语句"></a>7.赋值语句</h4><p>下列语句中认为a和x被赋予相同的值是不正确的：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=x=y+<span class="number">3</span></span><br></pre></td></tr></table></figure></p>
+<p>如果x是一个字符型变量，a和y是整型，那么a的值是截断后的值；</p>
+<h4 id="8-sizeof"><a href="#8-sizeof" class="headerlink" title="8.sizeof"></a>8.sizeof</h4><p>操作符，字节；</p>
+<pre><code class="c"><span class="keyword">sizeof</span>(数组名)=n*<span class="keyword">sizeof</span>(数组[<span class="number">0</span>]);
+<span class="keyword">sizeof</span>(<span class="keyword">int</span>);         <span class="comment">//取决于环境</span>
+<span class="keyword">sizeof</span>(a=b+<span class="number">1</span>);
+</code></pre>
+<h4 id="9-移位"><a href="#9-移位" class="headerlink" title="9.移位"></a>9.移位</h4><p>有符号值的右移位操作是不可移植的；<br>移位操作的位数不能是负数（异常）；</p>
+<h4 id="10-整型大小取决于环境"><a href="#10-整型大小取决于环境" class="headerlink" title="10.整型大小取决于环境"></a>10.整型大小取决于环境</h4><p>长整型至少应该和整型一样长，而整形至少应该比短整型一样长；</p>
+<h4 id="11-数组长度"><a href="#11-数组长度" class="headerlink" title="11.数组长度"></a>11.数组长度</h4><p>当传递一个数组时，可以无需指定数组的长度（如果需要长度，则需要再增加一个长度的参数）；</p>
+<pre><code class="c"><span class="function"><span class="keyword">int</span>  <span class="title">read</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> len)</span></span>;
+</code></pre>
+<h4 id="12-signed关键字"><a href="#12-signed关键字" class="headerlink" title="12.signed关键字"></a>12.signed关键字</h4><p>signed关键字一般只用于char类型，因为其他类型在缺省情况下都是有符号数；<br>至于char是否是signed，则因编译器而异。所以，char可能等于signed char，也可能等于unsigned char。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-16T16:44:33.574Z" itemprop="dateUpdated">2017-12-17 00:44:33</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/12/13/《c和指针》基础/" target="_blank" rel="external">http://lishangying.github.io/2017/12/13/《c和指针》基础/</a>
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/a/">a</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/b/">b</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/13/《c和指针》基础/&title=《《C和指针》基础》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/13/《c和指针》基础/&title=《《C和指针》基础》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/13/《c和指针》基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《C和指针》基础》 — Sailing&url=http://lishangying.github.io/2017/12/13/《c和指针》基础/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/13/《c和指针》基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/15/GraphQL Learn (4) - Execution/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">GraphQL Learn (4) - Execution</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/13/《c和指针》基础/&title=《《C和指针》基础》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/13/《c和指针》基础/&title=《《C和指针》基础》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/13/《c和指针》基础/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《《C和指针》基础》 — Sailing&url=http://lishangying.github.io/2017/12/13/《c和指针》基础/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/13/《c和指针》基础/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3aQW7jMBAEQP//0w6wyCEXy90zoteH0imwBYlFA+SkOY9HfD3/Xdef5Hf+/eTVt3+v6zfecOHh4eGNhv7qSgbRviXBXE9cMmY8PDy807zkca8Gev2CBHD9eb5J4OHh4X0bL2HMyt99IY6Hh4f3nby2OG5Dh5yEh4eH9w28ZHB5ADELefOt6EjWgoeHhxfz2pL3G/4+eL6Hh4eHtzhVz5fmE0v8ZoS/T8DDw8M7wJs1AeTxRLKgJ9OUT2vRs4CHh4e34LUv29eu+RS3978B4+Hh4R3gzWLZfQPW9Z1JEHxbjIuHh4d3+cb8OL8NEe490GrLbjw8PLxzvHxRzkvYdtGfRcZFMIGHh4d3K28WHyRVeR6/toFsUazj4eHhHeBdL9yzBqw8bkieuQl58fDw8M7x8mJ302qQTEd7Jx4eHt7nea0+jxVuKIVHcfBjs2/g4eHhle0C+fFSPoh8gursOQ6R8fDw8O7lzcrlNhRoB5pHyW9GjoeHh3eAl8cH19tGXmTnscJso8LDw8P7DG+2cBfZ8CicnS30b1oH8PDw8Na8zQtm7aT13C+OyvDw8PDO8dqidhYf3BX15qU2Hh4e3mleW/Jujqb2LQvRdODh4eEd420K31kZfW/Xw8sfAA8PD+8Arz2Mn20ks6I8/zaaXDw8PLwDvPpf/XiI7VBmTQPF+RgeHh7empc3TrWPzhf9BDCLd/Hw8PDO8TYxax5YPINruKddH4Ph4eHh3cR7llcbXrQbQBtMFPkKHh4e3k28WUgR7TZxu8C+3ao9VMPDw8Pb89oCd3bwv3lOW6YXux8eHh7egte2Ru0H1G4zdcqCh4eH98W89hBr3xBQxM14eHh4/5XXRr0noof6XXh4eHjHeJvDp1kJfqK1Cw8PD+8zvHYRb5GzaWobC4Yne3h4eHgd7wcpEu4DBs5irgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

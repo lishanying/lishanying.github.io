@@ -151,6 +151,110 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Pandorabox-transparent-proxy"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-07 00:00:00" datetime="2017-02-06T16:00:00.000Z"  itemprop="datePublished">2017-02-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Openwrt/">Openwrt</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/07/Pandorabox-transparent-proxy/">Pandorabox之透明代理</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        先修改Lan接口，避免在无线中继的时候发生本地Lan接口与wwan接口发生冲突导致无法登陆路由器。
+网络 -&gt; Lan -&gt; IPv4地址， 设置为 192.168.33.1更改之后需要重新连接一下网络。
+透明代理使用shadowsocks-libev和ChinDNS实现。使用ssh登陆路由器，安装所需软件。
+123ssh root@192.168.33.1opkg updateopkg install shadowsocks-libev luci-app-shadowsocks ChinaDNS luci-app-chinadns --force-checksum
+这个版本的软件源有点问题，所以直接opkg install基本上都过不了sha256sum检测，所以需要加上--force-checksum参数强制忽略。两个luci界面都有zh-cn汉化包，为了节省路由器空间，就不装了。
+    
+
+        <a href="/2017/02/07/Pandorabox-transparent-proxy/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ChinaDNS/">ChinaDNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shadowsocks/">Shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科学上网/">科学上网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/路由器/">路由器</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Xiaomi-Openwrt-&amp;&amp;-Git"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-20 00:00:00" datetime="2017-01-19T16:00:00.000Z"  itemprop="datePublished">2017-01-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Tech-Daily/">Tech Daily</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/01/20/Xiaomi-Openwrt-&&-Git/">Tech Daily@1-20</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        小米路由器mini（Xiaomi mini R1CM）刷Openwrt
+12scp /path/to/PandoraBox-xxxx.bin root@192.168.1.1:/tmp/PandoraBox.binmtd -r write /tmp/PandoraBox.bin firmware
+
+從爬文中得知，小米路由器Mini 官方韌體是雙系統，由於 ROM 有16MB，官方韌體都小於8MB，所以會有一份備援系統（8MB+8MB），因此如果刷了大於 8MB 的第三方韌體的話，會覆蓋掉第二個分區的系統，導致未來刷回官方韌體時會有掉 SN 的問題，而且再也無法刷入 SSH，從此以後就只能乖乖用官方韌體，再也不能玩刷機，目前新版的 PandoraBox 韌體大約都在 10MB 左右，所以刷機還真要有點決心，除非完整備份小米路由器Mini 中所有分區的資料，才能在日後完整刷回官方韌體，當然，如果已經完全放棄官方韌體的話，這些問題都是不用考慮的。from -  http://blog.icece.tw/MiWiFi-Mini-Flash-uboot
+
+Disable middle button of mouseExecute those commands:
+12345678910xinput list⎡ Virtual core pointer                    	id=2	[master pointer  (3)]⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]⎜   ↳ MI Dongle MI Wireless Mouse             	id=11	[slave  pointer  (2)]⎜   ↳ MI Dongle MI Wireless Mouse             	id=12	[slave  pointer  (2)]⎜   ↳ DLL0704:01 06CB:76AE Touchpad           	id=14	[slave  pointer  (2)]⎜   ↳ PS/2 Synaptics TouchPad                 	id=17	[slave  pointer  (2)]⎜   ↳ MiMouse                                 	id=21	[slave  pointer  (2)]xinput set-button-map 21 1 0 3
+    
+
+        <a href="/2017/01/20/Xiaomi-Openwrt-&&-Git/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openwrt/">openwrt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Kubernetes-&amp;-Deepin-Settings@1-12"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -247,53 +351,6 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-CentOS2@1-4"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-04 00:00:00" datetime="2017-01-03T16:00:00.000Z"  itemprop="datePublished">2017-01-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/04/CentOS2@1-4/">Centos初始化2</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        proxychains-ng1234567git clone https://github.com/rofl0r/proxychains-ngcd proxychains-ng                                 ./configure --prefix=/usr --sysconfdir=/etc makemake installmake install-config   # 生成配置文件echo 'http 10.100.100.136 4411' &gt;&gt; /etc/proxychains.conf  # 输入代理设置
-    
-
-        <a href="/2017/01/04/CentOS2@1-4/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prezto/">prezto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmux/">tmux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-Kubernetes部署@1-5"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -336,54 +393,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kubernetes/">kubernetes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meow/">meow</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-CentOS1@1-3"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-03 16:21:43" datetime="2017-01-03T08:21:43.000Z"  itemprop="datePublished">2017-01-03</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/03/CentOS1@1-3/">Centos初始化</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        换源备份1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-写入国内源(centos 7)ustc： https://lug.ustc.edu.cn/wiki/mirrors/help/centos
-    
-
-        <a href="/2017/01/03/CentOS1@1-3/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li></ul>
 
     </div>
     

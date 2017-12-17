@@ -151,7 +151,62 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-GraphQL Learn (3) - Validation"
+            <article id="post-《c和指针》基础"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-12-13 22:21:28" datetime="2017-12-13T14:21:28.000Z"  itemprop="datePublished">2017-12-13</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/12/13/《c和指针》基础/">《C和指针》基础</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        @(关键词)[数据|语句|操作符]
+1.字符：普通、转义、三字母如图，三字母字符：
+                
+                    
+                    
+                
+                三字母字符
+            
+2.标识符不能以数字开头否则，下句就混乱了：1int 2 = 2;
+3.const
+只读...
+    
+
+        <a href="/2017/12/13/《c和指针》基础/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/a/">a</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/b/">b</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-GraphQL Learn (4) - Execution"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -169,7 +224,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (3) - Validation/">GraphQL Learn (3) - Validation</a>
+      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (4) - Execution/">GraphQL Learn (4) - Execution</a>
     </h3>
   
 
@@ -179,13 +234,12 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        通过使用类型系统，可以预先确定GraphQL查询是否有效。 这样可以让服务器和客户端有效地通知开发人员在创建无效查询时，无需在运行时检查。
-对于我们的星球大战示例，文件starWarsValidation-test.js包含许多无效的查询，可以用来测试当前实现的验证器。
-首先，我们来看一个复杂的有效查询。 这是一个嵌套查询，类似于上一节的一个示例，但将重复的字段分解成一个片段：
-12345678910111213141516&#123;  hero &#123;    ...NameAndAppearances    friends &#123;      ...NameAndAppearances      friends &#123;        ...NameAndAppearances      &#125;    &#125;  &#125;&#125;fragment NameAndAppearances on Character &#123;  name  appearsIn&#125;
+        经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。
+GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：
+12345678910111213141516type Query &#123;  human(id: ID!): Human&#125;type Human &#123;  name: String  appearsIn: [Episode]  starships: [Starship]&#125;enum Episode &#123;  NEWHOPE  EMPIRE  JEDI&#125;type Starship &#123;  name: String&#125;
     
 
-        <a href="/2017/08/15/GraphQL Learn (3) - Validation/" class="post-more waves-effect waves-button">
+        <a href="/2017/08/15/GraphQL Learn (4) - Execution/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -251,7 +305,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-GraphQL Learn (4) - Execution"
+            <article id="post-GraphQL Learn (3) - Validation"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -269,7 +323,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (4) - Execution/">GraphQL Learn (4) - Execution</a>
+      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (3) - Validation/">GraphQL Learn (3) - Validation</a>
     </h3>
   
 
@@ -279,12 +333,13 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        经过验证，GraphQL查询由GraphQL服务器执行，然后返回一个与查询形状相同的结果，通常为JSON。
-GraphQL无法执行没有类型系统的查询，让我们使用类型系统例子来说明执行查询，这个例子是我们教程中使用的类型系统中的一部分：
-12345678910111213141516type Query &#123;  human(id: ID!): Human&#125;type Human &#123;  name: String  appearsIn: [Episode]  starships: [Starship]&#125;enum Episode &#123;  NEWHOPE  EMPIRE  JEDI&#125;type Starship &#123;  name: String&#125;
+        通过使用类型系统，可以预先确定GraphQL查询是否有效。 这样可以让服务器和客户端有效地通知开发人员在创建无效查询时，无需在运行时检查。
+对于我们的星球大战示例，文件starWarsValidation-test.js包含许多无效的查询，可以用来测试当前实现的验证器。
+首先，我们来看一个复杂的有效查询。 这是一个嵌套查询，类似于上一节的一个示例，但将重复的字段分解成一个片段：
+12345678910111213141516&#123;  hero &#123;    ...NameAndAppearances    friends &#123;      ...NameAndAppearances      friends &#123;        ...NameAndAppearances      &#125;    &#125;  &#125;&#125;fragment NameAndAppearances on Character &#123;  name  appearsIn&#125;
     
 
-        <a href="/2017/08/15/GraphQL Learn (4) - Execution/" class="post-more waves-effect waves-button">
+        <a href="/2017/08/15/GraphQL Learn (3) - Validation/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -336,54 +391,6 @@ GraphQL无法执行没有类型系统的查询，让我们使用类型系统例�
     
 
         <a href="/2017/08/15/GraphQL Learn (1) - Queries and Mutations/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GraphQL/">GraphQL</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-GraphQL Learn (5) - Introspection"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-15 00:00:00" datetime="2017-08-14T16:00:00.000Z"  itemprop="datePublished">2017-08-15</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/08/15/GraphQL Learn (5) - Introspection/">GraphQL Learn (5) - Introspection</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        查询GraphQL架构有关它支持的查询的信息通常很有用。 GraphQL允许我们使用内省系统来做到这一点！对于我们的星球大战例子来说，文件starWarsIntrospection-test.js包含许多查询内省系统的查询，并且是一个完整的按照规范实现的测试文件。
-我们设计了类型系统，所以我们应该知道系统中可用的类型。但是如果不知道，我们还可以通过查询__schema字段来询问GraphQL。这个字段始终存在于根类型中。
-    
-
-        <a href="/2017/08/15/GraphQL Learn (5) - Introspection/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
