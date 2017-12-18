@@ -151,6 +151,149 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-beautifull-i3"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-20 00:00:00" datetime="2017-03-19T16:00:00.000Z"  itemprop="datePublished">2017-03-20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/03/20/beautifull-i3/">体验I3之美</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        先晒张日常桌面图。Gnome3用了半年了一直被其蹩脚的交互和层出不穷的Bug所折磨。虽然Gnome3很漂亮，很简洁，但是毕竟漂亮不能当饭吃。套餐这种东西虽然简单省事，但是终究不是为你所量身定制的，总有其中一样不合你口味。因此，我决定再次抛弃“开箱即用”的DE(Desktop Environment)，在WM(Window Manager)的基础上自己打造一套适合自己的桌面环境。
+    
+
+        <a href="/2017/03/20/beautifull-i3/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gnome/">gnome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/i3wm/">i3wm</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-斐波那契堆之Go实现"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-01 00:00:00" datetime="2017-02-28T16:00:00.000Z"  itemprop="datePublished">2017-03-01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/03/01/斐波那契堆之Go实现/">斐波那契堆之Go实现</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        一个比二叉堆更高效的数据结构，但是实现起来非常复杂。本科的时候看《算法导论》的时候曾经研究过，不是很明白。今天终于对它有了一个比较清晰的了解。
+    
+
+        <a href="/2017/03/01/斐波那契堆之Go实现/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-netease-music-api"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-08 00:00:00" datetime="2017-02-07T16:00:00.000Z"  itemprop="datePublished">2017-02-08</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/08/netease-music-api/">网易云音乐新API简述</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        新API采用了略微修改过的AES和RSA加密，主要用在登陆接口上，对新API进行简单的分析。
+Url估计会抓包的人都知道，Url中的api便成了weapi。比如手机登录：原来是：http://music.163.com/api/login/cellphone/现在是：http://music.163.com/weapi/login/cellphone/
+加密算法核心过程如下：1234567 aesRsaEncrypt = function (text, pubKey, modulus, nonce) &#123;  const secKey = createSecretKey(16);  // 随机生成16位加密密钥  return &#123;	params:  aesEncrypt(aesEncrypt(text, nonce), secKey),	encSecKey: rsaEncrypt(secKey, pubKey, modulus)  &#125;&#125;
+    
+
+        <a href="/2017/02/08/netease-music-api/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Encryption/">Encryption</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网易云音乐/">网易云音乐</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Pandorabox-transparent-proxy"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -254,155 +397,12 @@ Disable middle button of mouseExecute those commands:
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-Kubernetes-&amp;-Deepin-Settings@1-12"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-12 00:00:00" datetime="2017-01-11T16:00:00.000Z"  itemprop="datePublished">2017-01-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/12/Kubernetes-&-Deepin-Settings@1-12/">Deepin初始化</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Infinality and Harfbuzz会发生冲突，这是今天Archlinux无法启动输入法界面的元凶。重新安装freetype2\fontconfig\cairo以替换infinality-bundle。
-添加PPA出现GPG问题问题：123456gpg: keybox '/tmp/tmpyiw6jvck/pubring.gpg' createdgpg: /tmp/tmpyiw6jvck/trustdb.gpg：建立了信任度数据库gpg: 密钥 531EE72F4C9D234C：公钥“Launchpad webupd8”已导入gpg: 合计被处理的数量：1gpg:           已导入：1gpg: 找不到有效的 OpenPGP 数据。
-    
-
-        <a href="/2017/01/12/Kubernetes-&-Deepin-Settings@1-12/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deepin/">deepin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/infinality-fonts/">infinality fonts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/octotree/">octotree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ppa/">ppa</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Basic Algorithms in Go"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-10 00:00:00" datetime="2017-01-09T16:00:00.000Z"  itemprop="datePublished">2017-01-10</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ACM/">ACM</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/10/Basic Algorithms in Go/">Basic Algorithms in Go</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        最近学Go，感觉挺不错的。闲来无事用它写了几种常用的基础算法。
-快排思想很简单，实现起来为了方便每次以left作为基准，也可以使用BFS来节省递归栈：123456789101112131415161718// QuickSort returns a sorted slicefunc QuickSort(arr []int) &#123;	if len(arr) &lt;= 1 &#123;		return	&#125;	left, right := 0, len(arr)-1	for left &lt; right &#123;		if arr[left+1] &gt; arr[left] &#123;			arr[left+1], arr[right] = arr[right], arr[left+1]			right--		&#125; else &#123;			arr[left+1], arr[left] = arr[left], arr[left+1]			left++		&#125;	&#125;	QuickSort(arr[:left])	QuickSort(arr[left+1:])&#125;
-    
-
-        <a href="/2017/01/10/Basic Algorithms in Go/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-CentOS2@1-4"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-04 00:00:00" datetime="2017-01-03T16:00:00.000Z"  itemprop="datePublished">2017-01-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/04/CentOS2@1-4/">Centos初始化2</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        proxychains-ng1234567git clone https://github.com/rofl0r/proxychains-ngcd proxychains-ng                                 ./configure --prefix=/usr --sysconfdir=/etc makemake installmake install-config   # 生成配置文件echo 'http 10.100.100.136 4411' &gt;&gt; /etc/proxychains.conf  # 输入代理设置
-    
-
-        <a href="/2017/01/04/CentOS2@1-4/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prezto/">prezto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmux/">tmux</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
 </nav>
 

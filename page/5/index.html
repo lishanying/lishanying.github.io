@@ -151,6 +151,158 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-pygobject-tutorial-1"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-08 16:55:47" datetime="2016-11-08T08:55:47.000Z"  itemprop="datePublished">2016-11-08</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/11/08/pygobject-tutorial-1/">pygobject-tutorial-1</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        基础这章将会介绍GTK+比较重要的几个方面
+主循环和信号就像大部分GUI库一样，GTK+使用了一种事件驱动的编程模型。当用户什么都没做，GTK+让主循环处于就绪状态并等待用户的输入。如果用户做了一些动作，比如鼠标事件，主循环就会被唤醒，然后将这个事件传递给GTK+程序。
+    
+
+        <a href="/2016/11/08/pygobject-tutorial-1/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gtk/">gtk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-dom-compatibility-note"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-02 21:07:21" datetime="2016-11-02T13:07:21.000Z"  itemprop="datePublished">2016-11-02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/11/02/dom-compatibility-note/">JS DOM API分析</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Element.classList返回DOMTokenList,IE version&gt;=10不完全支持。
+
+不支持classList.contains的第二个参数(force)
+add和remove方法不支持多参数
+SVG,MathML结点没有classList属性
+
+    
+
+        <a href="/2016/11/02/dom-compatibility-note/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascirpt/">javascirpt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-neutron-code"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-10-28 14:52:02" datetime="2016-10-28T06:52:02.000Z"  itemprop="datePublished">2016-10-28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Cloud-Computing/">Cloud Computing</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/10/28/neutron-code/">neutron源码分析</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        消息总线Openstack各项目之间通过RESTful API进行通信；而项目内部不同服务进程则需要通过消息总线通信。关于消息总线的实现，包含在Openstack.oslo.messaging库中。
+RPC远程过程调用，一个服务进程可以调用其他远程服务进程的方法，有两种方式：
+
+call 远程方法会被同步执行，调用者会阻塞直到取得返回结果。
+cast 远程方法会被异步执行，调用者需要通过其他方式查询这次远程调用的结果。
+
+    
+
+        <a href="/2016/10/28/neutron-code/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/neutron/">neutron</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openstack/">openstack</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-zhangxiaolong"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -248,172 +400,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-hexo-speedup-instantclick"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2015-02-25 20:18:23" datetime="2015-02-25T12:18:23.000Z"  itemprop="datePublished">2015-02-25</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2015/02/25/hexo-speedup-instantclick/">Hexo折腾笔记（一）博客加速以及instantclick的兼容</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        首先，Gitcafe的国内速度已经够快了，加不加速其实没多大区别,只不过是闲的蛋疼而已。Gitcafe无故page不更新，所以又换回了github。
-Hexo加速Hexo加速可以有以下几个方面：
-
-使用BootCDN并将图片等资源储存至七牛云。可以使用此项目click here。
-使用hexo optimize压缩优化HTML、CSS、JS、Image资源。
-使用InstantClick。
-
-InstantClick是一款类似于Turbolinks的js库，利用pjax（pushState and Ajax)技术对网站进行优化，能够极大的提高访问速度。
-    
-
-        <a href="/2015/02/25/hexo-speedup-instantclick/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instantclick/">instantclick</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-shadowsocks-account"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2015-02-24 16:26:42" datetime="2015-02-24T08:26:42.000Z"  itemprop="datePublished">2015-02-24</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/GFW/">GFW</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2015/02/24/shadowsocks-account/">Shadowsocks免费账号网址集</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        G+圈子很多这样的网站，大部分是由ss-panel这个开源项目建成。不知道他们是乐于分享还是另有目的。下面是列表：
-
-Shadow X(ss-panel作者)
-kuaishangSS
-pepsishadowsocks
-ChangZ
-ssserver
-
-另外推荐Linux下ss GUI客户端：shadowsocks-qt5
-
-    
-
-        <a href="/2015/02/24/shadowsocks-account/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ASP-NET-MVC4note2"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2015-02-24 10:50:00" datetime="2015-02-24T02:50:00.000Z"  itemprop="datePublished">2015-02-24</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ASP-NET/">ASP.NET</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2015/02/24/ASP-NET-MVC4note2/">ASP.NET MVC 4笔记（二）</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-有Timestamp修饰的表在修改已有的记录是一定要将该字段复制，也就是说一定要在Edit网页里面添加一行：@Html.HiddenFor(model =&gt; model.RowVersion)
-
-WebSecurity.CreateAccount必须在Userprofile里面先创建账户。System.Diagnostics.Debug.WriteLine(&quot;OnActio...
-    
-
-        <a href="/2015/02/24/ASP-NET-MVC4note2/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asp-net-mvc4/">asp.net mvc4</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/4/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/">下一页</a>
     </div>
 </nav>
 
