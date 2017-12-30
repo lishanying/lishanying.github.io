@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>间接访问 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++">
+    <meta name="description" content="间接访问的方式：引用+指针。  1. 引用 一句话总结：已存在对象的别名，且类型严格一致，至死不渝。  1.1 已存在对象（绑定时） 已存在：定义时，必须初始化//形式1:变量 int a = 2; int &amp;amp;b = a; //形式2：函数入参 int a = 2; int fun(int &amp;a">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="间接访问">
+<meta property="og:url" content="http://lishangying.github.io/2017/12/30/间接访问/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="间接访问的方式：引用+指针。  1. 引用 一句话总结：已存在对象的别名，且类型严格一致，至死不渝。  1.1 已存在对象（绑定时） 已存在：定义时，必须初始化//形式1:变量 int a = 2; int &amp;amp;b = a; //形式2：函数入参 int a = 2; int fun(int &amp;amp;b){} fun(a);   对象：绑定时，被绑定的不能是常量//错误:绑定时不能为常量">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-30T16:02:15.919Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="间接访问">
+<meta name="twitter:description" content="间接访问的方式：引用+指针。  1. 引用 一句话总结：已存在对象的别名，且类型严格一致，至死不渝。  1.1 已存在对象（绑定时） 已存在：定义时，必须初始化//形式1:变量 int a = 2; int &amp;amp;b = a; //形式2：函数入参 int a = 2; int fun(int &amp;amp;b){} fun(a);   对象：绑定时，被绑定的不能是常量//错误:绑定时不能为常量">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">间接访问</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">间接访问</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-30T08:50:28.000Z" itemprop="datePublished" class="page-time">
+  2017-12-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-引用"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 引用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-已存在对象（绑定时）"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 已存在对象（绑定时）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-类型严格一致（绑定时）"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.3 类型严格一致（绑定时）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-至死不渝（绑定后）"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.4 至死不渝（绑定后）</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-指针"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 指针</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-例子"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1  例子</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-指针值"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 指针值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-指针操作"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 指针操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-指针"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 指针</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-引用和指针的区别"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1  引用和指针的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-引用和指针的复合用法"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 引用和指针的复合用法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-间接访问"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">间接访问</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-30 16:50:28" datetime="2017-12-30T08:50:28.000Z"  itemprop="datePublished">2017-12-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<p><strong>间接访问的方式：引用+指针。</strong></p>
+<hr>
+<h3 id="1-引用"><a href="#1-引用" class="headerlink" title="1. 引用"></a>1. 引用</h3><hr>
+<p><strong><em>一句话总结：已存在对象的别名，且类型严格一致，至死不渝。</em></strong></p>
+<hr>
+<h4 id="1-1-已存在对象（绑定时）"><a href="#1-1-已存在对象（绑定时）" class="headerlink" title="1.1 已存在对象（绑定时）"></a>1.1 已存在对象（绑定时）</h4><ol>
+<li><strong>已存在</strong>：<strong><em>定义时</em></strong>，必须初始化<pre><code class="cpp"><span class="comment">//形式1:变量</span>
+<span class="keyword">int</span> a = <span class="number">2</span>;
+<span class="keyword">int</span> &amp;b = a;
+<span class="comment">//形式2：函数入参</span>
+<span class="keyword">int</span> a = <span class="number">2</span>;
+<span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> &amp;b)</span></span>{}
+fun(a);
+</code></pre>
+</li>
+<li><strong>对象</strong>：<strong><em>绑定时</em></strong>，被绑定的不能是常量<pre><code class="cpp"><span class="comment">//错误:绑定时不能为常量</span>
+<span class="keyword">int</span> &amp;b = <span class="number">2</span>;
+<span class="comment">//正确</span>
+<span class="keyword">int</span> a = <span class="number">0</span>;
+<span class="keyword">int</span> &amp;b =a;  <span class="comment">//绑定时为变量</span>
+b = <span class="number">2</span>;        <span class="comment">//这里已经绑定完了，已经是代表变量a了</span>
+</code></pre>
+####1. 2 别名（绑定后）</li>
+<li><strong>代表替换</strong>：<strong><em>绑定之后</em></strong>，就可以换成原来的对象在那个位置<pre><code class="cpp"><span class="comment">//绑定</span>
+<span class="keyword">int</span> a = <span class="number">2</span>;
+<span class="keyword">int</span> &amp;b = a;
+<span class="comment">//代表形式1:</span>
+b = <span class="number">4</span>;        <span class="comment">//相当于a = 4;</span>
+<span class="comment">//代表形式2：</span>
+<span class="keyword">int</span> &amp;c = b; <span class="comment">//相当于int &amp;c = a;</span>
+</code></pre>
+</li>
+<li><strong>不占内存空间</strong>：<strong><em>绑定之后</em></strong>，只是一个代表符号<pre><code class="cpp"><span class="comment">//下列三行一共占用了两个int的内存大小(a)和（c）</span>
+<span class="keyword">int</span> a = <span class="number">2</span>;
+<span class="keyword">int</span> &amp;b = a;
+<span class="keyword">int</span> c = <span class="number">4</span>;
+</code></pre>
+<h4 id="1-3-类型严格一致（绑定时）"><a href="#1-3-类型严格一致（绑定时）" class="headerlink" title="1.3 类型严格一致（绑定时）"></a>1.3 类型严格一致（绑定时）</h4></li>
+<li><strong><em>引用和被绑定的对象的类型必须严格一致</em></strong><pre><code class="cpp"><span class="keyword">int</span> a = <span class="number">2</span>;
+<span class="keyword">double</span> &amp;b = a;<span class="comment">//错误：类型不一致</span>
+</code></pre>
+<h4 id="1-4-至死不渝（绑定后）"><a href="#1-4-至死不渝（绑定后）" class="headerlink" title="1.4 至死不渝（绑定后）"></a>1.4 至死不渝（绑定后）</h4></li>
+<li>一般在初始化变量时，初始值会被拷贝到新建的对象中，但是在定义引用时，程序把引用和它的初始值绑定在一起，而不是将初始值拷贝给引用。</li>
+<li><strong><em>一旦初始化完成，引用将和它的初始值对象就一直绑定在一起。</em></strong></li>
+<li>因为无法令引用重新绑定到另外一个对象，因此引用定义时必须初始化。</li>
+</ol>
+<h3 id="2-指针"><a href="#2-指针" class="headerlink" title="2. 指针"></a>2. 指针</h3><h4 id="2-1-例子"><a href="#2-1-例子" class="headerlink" title="2.1  例子"></a>2.1  例子</h4><pre><code class="cpp"><span class="comment">//</span>
+</code></pre>
+<h4 id="2-2-指针值"><a href="#2-2-指针值" class="headerlink" title="2.2 指针值"></a>2.2 指针值</h4><ol>
+<li>指向一个对象</li>
+<li>指向紧邻对象所占空间的下一个位置</li>
+<li>空指针，意味着指针没有指向任何对象</li>
+<li>无效指针，上述之外的其他值</li>
+</ol>
+<h4 id="2-3-指针操作"><a href="#2-3-指针操作" class="headerlink" title="2.3 指针操作"></a>2.3 指针操作</h4><ol>
+<li><strong>赋值</strong>：<br>不赋值：函数外设置为0，初始化，但未指向任何对象；函数内，未定义，比较危险；<br>赋值常数；<br>赋值变量的地址；<br>赋值其他指针；<br>```cpp<br>int i= 42；<br>int <em>p1 = 0;    //初始化了，但未指向任何对象<br>int </em>p2 = &i;    //初始化了，指向变量i<br>int *p3;        //如果在块内，该值无法确定</li>
+</ol>
+<p>p3 = p2;<br>p2 = 0;            </p>
+<pre><code>**注意：**
+ **有没有赋值：**指针也是变量，有没有初始化，相当于看该指针变量是不是已经赋值了。 如果显示的赋值，那就是初始化了；如果没有赋值，再看是不是在块之外，外的默认赋值为0，内默认没有赋值，也就是没有初始化。
+**有没有赋合法的值：**至于有没有指向对象，需要看已经初始化的值是多少。如果是0，那就没有指向任何对象；否则，指向代表的地址的对象。
+
+2.   **判断**：
+**前提：**已经赋值，且是合法值
+与其他变量一样，指针内的值为0--假；非零--真；
+```cpp
+int i= 42；
+int *p1 = 0;    //初始化了，但未指向任何对象
+int *p2 = &amp;i;    //初始化了，指向变量i
+
+if(p1){}        //假
+if(p2){}        //真
+</code></pre><ol>
+<li><p><strong>对比</strong>：<br><strong>两个指针相等=&gt; 两个指针内存的地址相同</strong><br><strong><em><code>都为空；</code></em></strong><br><strong><em><code>都指向同一个对象；</code></em></strong><br><strong><em><code>都指向同一个对象的下一个地址；</code></em></strong><br><strong>两个指针不等=&gt; 两个指针内存的地址不同</strong></p>
+</li>
+<li><p><strong>空指针</strong>：<br>不指向任何对象；<br>用一个指针前一定要判空；<br>生成空指针的方法：赋值<strong><em>常量0</em></strong>，不能赋值<strong><em>变量0</em></strong></p>
+<pre><code class="cpp"><span class="comment">//正确用法：赋值常量0</span>
+<span class="keyword">int</span> *vp1 = <span class="literal">nullptr</span>;    <span class="comment">//推荐用法，相当于赋值0</span>
+<span class="keyword">int</span> *vp2 = <span class="number">0</span>;        <span class="comment">//</span>
+<span class="keyword">int</span> *vp3 = <span class="literal">NULL</span>;    <span class="comment">//包含#include cstdlib</span>
+<span class="comment">//错误用法：赋值变量0</span>
+<span class="keyword">int</span> a = <span class="number">0</span>;
+<span class="keyword">int</span> *vp4 = a;        <span class="comment">//错误！！！</span>
+</code></pre>
+</li>
+<li><p><strong>void* 指针</strong>：<br><strong>特点：</strong><br>可以存放任意类型的指针；<br>不能直接操作该指针，必须强转为对应的类型；<br>可作为函数的输入和输出；</p>
+<pre><code class="cpp"><span class="comment">//例子</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="3-指针"><a href="#3-指针" class="headerlink" title="3. 指针"></a>3. 指针</h3><h4 id="3-1-引用和指针的区别"><a href="#3-1-引用和指针的区别" class="headerlink" title="3.1  引用和指针的区别"></a>3.1  引用和指针的区别</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:center">是否为对象</th>
+<th style="text-align:center">必须赋处初值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>引用</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td>指针</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">no</td>
+</tr>
+</tbody>
+</table>
+<p>本质：<br>引用：因为绑定原对象，所以自己不是对象；因为不能转换指向，所以必须赋初值；<br>指针：与普通变量一样</p>
+<h4 id="3-2-引用和指针的复合用法"><a href="#3-2-引用和指针的复合用法" class="headerlink" title="3.2 引用和指针的复合用法"></a>3.2 引用和指针的复合用法</h4><ol>
+<li><strong>指向指针的引用</strong><br>```cpp<br>int i = 42;<br>int <em>p;<br>int </em>&amp;r = p;//r是一个对指针p的引用</li>
+</ol>
+<p>r = &i;        //相当于p = &i;<br><em>r = 43;    //相当于</em>p = 43;<br>```<br><strong>注意：</strong><br>int <em>&amp; r = p;先认定是一个引用，然后类型是int </em>，然后改引用绑定的对象是指针p，绑定后用p理解就好。</p>
+<ol>
+<li><strong>指向引用的指针</strong>：不存在<br>因为引用不是对象，而指针必须指向一个对象，所以没法创造出来！！！</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-30T16:02:15.919Z" itemprop="dateUpdated">2017-12-31 00:02:15</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/30/间接访问/&title=《间接访问》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/30/间接访问/&title=《间接访问》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/30/间接访问/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《间接访问》 — Sailing&url=http://lishangying.github.io/2017/12/30/间接访问/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/30/间接访问/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/30/const修饰符/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">const修饰符</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/30/声明和定义注意点/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">声明和定义注意点</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/30/间接访问/&title=《间接访问》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/30/间接访问/&title=《间接访问》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/30/间接访问/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《间接访问》 — Sailing&url=http://lishangying.github.io/2017/12/30/间接访问/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/30/间接访问/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3ay67CMAxF0f7/Twfpju6AmHPsBBFnZ4RKKVkdWH7keeQ1/tbs+v9v48/K/bP/WrBgwIBxLGOEK75HZ8+27uKn/w4DBowLGPFW4kCph0497Op7gwEDBox403pAVF6K8rJgwIABI8fYXdbCgAEDhl7E6mVqvFG9tbelFocBA8aBjNyjv/N543wDBgwYhzCGuXJPyA1BjV3BgAGjNSPX6qqMLY2iVIiujztzgAEDxuEM4wdC2M2VtaWmGwwYMJoy9Ifa4S91RCNODacvAgYMGK0Zq7pY7pihXr5uacbBgAHjJxl6KpY7/qWnmKUiFgYMGK0ZucKysnW3cDVSQxgwYDRl5AaWehDUxwx6oim122DAgNGUsWroWL/uHu+AAQNGb4bbrHeLUjfg6uW0NImFAQNGI0Zl6KgfiVAOZOijyg+vEgYMGI0YcTPLHTcqYdRNN+12GwwYMNoxcj9wA64+tswdEYMBA8Y9jNwRh8rBr1VBGQYMGDcw9C3qJe6qAYNxBA0GDBhNGWsj9Ko0MQ7Bb+6EAQPGZYwhrFzB6YZjo4SGAQNGa4YbZHNFaSVB1GtVGDBgdGUMc+UOZ6waUk5fCgwYMFozKuNGtzOvjwHcBBQGDBg3MPSStXK9zoMBAwaMSrPeTf7s2lo/bAEDBozrGXrLTAnEbkn84TkwYMCAYbbV3CRv2XgABgwYrRmVIjY3EnDB22txGDBg/DAjVzq6YCW462NLGwADBoxTGS+80NYsZMHvGQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

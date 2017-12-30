@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>const修饰符 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++">
+    <meta name="description" content="1. 修饰变量1.1 const变量与普通变量1.1.1 const变量与普通变量的赋值合法情况关键：没有差别，随意赋值| =左边是否const |=右边是否const     |是否合法||:————-:|:—————:|:—–:|| Y             | Y               | Y     |">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="const修饰符">
+<meta property="og:url" content="http://lishangying.github.io/2017/12/30/const修饰符/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="1. 修饰变量1.1 const变量与普通变量1.1.1 const变量与普通变量的赋值合法情况关键：没有差别，随意赋值| =左边是否const |=右边是否const     |是否合法||:————-:|:—————:|:—–:|| Y             | Y               | Y     || Y             | N               | Y">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-30T16:01:35.238Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="const修饰符">
+<meta name="twitter:description" content="1. 修饰变量1.1 const变量与普通变量1.1.1 const变量与普通变量的赋值合法情况关键：没有差别，随意赋值| =左边是否const |=右边是否const     |是否合法||:————-:|:—————:|:—–:|| Y             | Y               | Y     || Y             | N               | Y">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">const修饰符</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">const修饰符</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-30T12:50:28.000Z" itemprop="datePublished" class="page-time">
+  2017-12-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-修饰变量"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 修饰变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-const变量与普通变量"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 const变量与普通变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-1-const变量与普通变量的赋值合法情况"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1.1.1 const变量与普通变量的赋值合法情况</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-2-const变量与普通变量的2点区别"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">1.1.2 const变量与普通变量的2点区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-const与指针"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 const与指针</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-1-const-指针-对象的合法情况"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.2.1 const/指针/对象的合法情况</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-2-const-指针-对象的场景"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">1.2.2 const/指针/对象的场景</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-const与引用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 const与引用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-3-1-const-引用-对象的合法情况"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1.3.1 const/引用/对象的合法情况</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-2-const-指针-对象的场景-1"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">1.2.2 const/指针/对象的场景</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-修饰函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 修饰函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-例子"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1  例子</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-const修饰符"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">const修饰符</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-30 20:50:28" datetime="2017-12-30T12:50:28.000Z"  itemprop="datePublished">2017-12-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="1-修饰变量"><a href="#1-修饰变量" class="headerlink" title="1. 修饰变量"></a>1. 修饰变量</h3><h4 id="1-1-const变量与普通变量"><a href="#1-1-const变量与普通变量" class="headerlink" title="1.1 const变量与普通变量"></a>1.1 const变量与普通变量</h4><h5 id="1-1-1-const变量与普通变量的赋值合法情况"><a href="#1-1-1-const变量与普通变量的赋值合法情况" class="headerlink" title="1.1.1 const变量与普通变量的赋值合法情况"></a>1.1.1 const变量与普通变量的赋值合法情况</h5><p><strong>关键：没有差别，随意赋值</strong><br>| =左边是否const |=右边是否const     |是否合法|<br>|:————-:|:—————:|:—–:|<br>| Y             | Y               | Y     |<br>| Y             | N               | Y     |<br>| N             | Y               | Y     |<br>| N             | N               | Y     |</p>
+<pre><code class="cpp"><span class="keyword">int</span> i = <span class="number">42</span>;            <span class="comment">//正确</span>
+<span class="keyword">const</span> <span class="keyword">int</span> j = i;    <span class="comment">//正确</span>
+<span class="keyword">int</span> k = j;            <span class="comment">//正确</span>
+</code></pre>
+<h5 id="1-1-2-const变量与普通变量的2点区别"><a href="#1-1-2-const变量与普通变量的2点区别" class="headerlink" title="1.1.2 const变量与普通变量的2点区别"></a>1.1.2 const变量与普通变量的2点区别</h5><ol>
+<li><strong>只读变量</strong>：<strong><em>定义时，定义时必须初始化，且以后不能再更改其值</em></strong><pre><code class="cpp"><span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">42</span>;            <span class="comment">//正确</span>
+<span class="keyword">const</span> <span class="keyword">int</span> j = get_size(<span class="number">0</span>);    <span class="comment">//正确</span>
+<span class="keyword">const</span> <span class="keyword">int</span> k;                <span class="comment">//错误：定义时没有赋初值</span>
+i = <span class="number">43</span>;                        <span class="comment">//错误：之后修改其值</span>
+</code></pre>
+</li>
+<li><strong>有效范围</strong>：<strong><em>默认情况下，const对象只在本文件中有效</em></strong><blockquote>
+<p><strong>如果想在文件间共享该const对象，必须在变量的定义之前添加extern关键字</strong><br><strong>文件间共享的cosnt变量与文件间共享的普通变量区别在于：定义时额外extern修饰</strong></p>
+</blockquote>
+</li>
+</ol>
+<p>第一种：只在本文件中有效的const对象</p>
+<pre><code class="cpp"><span class="comment">//file_1.cpp定义并初始化了一个const对象，只能在该文件中有效</span>
+<span class="keyword">const</span> <span class="keyword">int</span> bufsize = gitsize();
+</code></pre>
+<p>第二种：在文件间共享的const对象</p>
+<pre><code class="cpp"><span class="comment">//file_1.cpp定义并初始化了一个const对象</span>
+<span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> bufsize = gitsize();
+<span class="comment">//file_1.h头文件中声明下</span>
+<span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">int</span> bufsize;<span class="comment">//表明该对象已经定义了，可以在其他文件中共享</span>
+</code></pre>
+<p>第三种：普通变量在文件间共享</p>
+<pre><code class="cpp"><span class="comment">//file_1.cpp定义并初始化了一个普通对象</span>
+<span class="keyword">int</span> bufsize = gitsize();
+<span class="comment">//file_1.h头文件中声明下</span>
+<span class="keyword">extern</span> <span class="keyword">int</span> bufsize;<span class="comment">//表明该对象已经定义了，可以在其他文件中共享</span>
+</code></pre>
+<h4 id="1-2-const与指针"><a href="#1-2-const与指针" class="headerlink" title="1.2 const与指针"></a>1.2 const与指针</h4><h5 id="1-2-1-const-指针-对象的合法情况"><a href="#1-2-1-const-指针-对象的合法情况" class="headerlink" title="1.2.1 const/指针/对象的合法情况"></a>1.2.1 const/指针/对象的合法情况</h5><p><strong>关键：对象是自私的</strong>A博爱，p咋的都行；A不博爱，p必须只爱A<br>| A是否被const修饰|指针是否被const修饰|是否合法|<br>|:————-:|:—————:|:—–:|<br>| Y             | Y               | Y     |<br>| Y             | N               | Y     |<br>| N             | Y               | Y     |<br>| N             | N               | N     |</p>
+<pre><code class="cpp"><span class="keyword">int</span> a1 = <span class="number">0</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> ca1 = <span class="number">0</span>;
+<span class="keyword">int</span> *p1;    
+<span class="keyword">const</span> <span class="keyword">int</span> *cp2;
+
+p1 = &amp;a1;        <span class="comment">//Y</span>
+p1 = &amp;ca1 ;        <span class="comment">//N</span>
+
+cp2 = &amp;a1;        <span class="comment">//Y</span>
+cp2 = &amp;ca1 ;    <span class="comment">//Y</span>
+</code></pre>
+<h5 id="1-2-2-const-指针-对象的场景"><a href="#1-2-2-const-指针-对象的场景" class="headerlink" title="1.2.2 const/指针/对象的场景"></a>1.2.2 const/指针/对象的场景</h5><p><strong>关键：const离指针符号近修饰指针–该指针只能指向该对象，不可以更改指向其他对象；离类型近修饰该对象–该对象不可以被该指针修改，单有可能被其他指针修改（前提是该对象非const）</strong></p>
+<ol>
+<li><strong>const 类型 *p = A </strong>：<strong><em>不能通过p修改A，但p可以指向B</em></strong><br>| A是否被const修饰|是否可通过p修改A|是否可通过其他指针修改A|<br>|:————-:|:————:|:—————–:|<br>| Y             | N            | N                 |<br>| N             | N            | Y                 |</li>
+<li><strong>类型 const *p = A </strong>：<strong>p可以指向A也可以指向B*</strong><br>| A是否被const修饰|是否可通过p修改A|是否可通过其他指针修改A|<br>|:————-:|:————:|:—————–:|<br>| Y             | N            | N                 |<br>| N             | Y            | Y                 |</li>
+<li><strong>const 类型 const *p = A </strong>：<strong><em>不能通过p修改A，p只能指向A</em></strong><br>| A是否被const修饰|是否可通过p修改A|是否可通过其他指针修改A|<br>|:————-:|:————:|:—————–:|<br>| Y             | N            | N                 |<br>| N             | N            | Y                 |</li>
+</ol>
+<pre><code class="cpp"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14</span>;
+<span class="keyword">double</span> *ptr = &amp;pi;            <span class="comment">//博爱的ptr不能指向不博爱的A</span>
+<span class="keyword">const</span> <span class="keyword">double</span> *cptr = &amp;pi;
+*cptr = <span class="number">42</span>;                    <span class="comment">//错误：即pi=42，因为pi是const的，不能被修改</span>
+</code></pre>
+<h4 id="1-3-const与引用"><a href="#1-3-const与引用" class="headerlink" title="1.3 const与引用"></a>1.3 const与引用</h4><h5 id="1-3-1-const-引用-对象的合法情况"><a href="#1-3-1-const-引用-对象的合法情况" class="headerlink" title="1.3.1 const/引用/对象的合法情况"></a>1.3.1 const/引用/对象的合法情况</h5><p><strong>关键：与指针的情况一样</strong><br>| A是否被const修饰|引用是否被const修饰|是否合法|<br>|:————-:|:—————:|:—–:|<br>| Y             | Y               | Y     |<br>| Y             | N               | Y     |<br>| N             | Y               | Y     |<br>| N             | N               | N     |</p>
+<h5 id="1-2-2-const-指针-对象的场景-1"><a href="#1-2-2-const-指针-对象的场景-1" class="headerlink" title="1.2.2 const/指针/对象的场景"></a>1.2.2 const/指针/对象的场景</h5><p><strong>关键：因为引用已经是绑定了对象，不在绑定其他对象，相当于自带cosnt * p的情况。所以，结合指针，与指针的2、3两种情况一样</strong></p>
+<ol>
+<li><strong>类型 &amp;r = A </strong>：<br>| A是否被const修饰|是否可通过r修改A|是否可通过其他引用修改A|<br>|:————-:|:————:|:—————–:|<br>| Y             | N            | N                 |<br>| N             | Y            | Y                 |</li>
+<li><strong>const 类型 &amp;r = A </strong>：<br>| A是否被const修饰|是否可通过r修改A|是否可通过其他引用修改A|<br>|:————-:|:————:|:—————–:|<br>| Y             | N            | N                 |<br>| N             | N            | Y                 |<h3 id="2-修饰函数"><a href="#2-修饰函数" class="headerlink" title="2. 修饰函数"></a>2. 修饰函数</h3><h4 id="2-1-例子"><a href="#2-1-例子" class="headerlink" title="2.1  例子"></a>2.1  例子</h4><pre><code class="cpp"><span class="comment">//</span>
+</code></pre>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-30T16:01:35.238Z" itemprop="dateUpdated">2017-12-31 00:01:35</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/30/const修饰符/&title=《const修饰符》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/30/const修饰符/&title=《const修饰符》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/30/const修饰符/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《const修饰符》 — Sailing&url=http://lishangying.github.io/2017/12/30/const修饰符/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/30/const修饰符/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/30/间接访问/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">间接访问</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/30/const修饰符/&title=《const修饰符》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/30/const修饰符/&title=《const修饰符》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/30/const修饰符/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《const修饰符》 — Sailing&url=http://lishangying.github.io/2017/12/30/const修饰符/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/30/const修饰符/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQY7CMAwFUO5/6Y40W6bw7bQj1XlZIaAlrwvj2H694nX8rvd3kvePk3V21funly0MDIzHMo6P652R/Njn7yf3z/eGgYGxDyPZSh4iP1OrwTr5A8DAwMBY2XSedGJgYGDcEXDXj6B5SoqBgYGR3C7ZeuGHi8fdy87iGBgYD2T0Erj/eX1jfwMDA+MhjGNhJcG0l0SWd4KBgTGa0SuW9QYmVsYvokCMgYExlJGEzmrSlt8zPxh/eZQYGBijGSutyrzclhfLLutvYGBgDGLkhfgcvF7/S9oShQswMDCGMqoDFivhtZpERoU2DAyMQYyV4bA8HOelvTygf5kcwcDAGMSo9hCq5fs8yevdAQMDYx9Gr4i/AsuRUdqKgYExmtELgtWrrirMNcfCMDAwBjHysloSdleGJ5pUDAyMDRgrwxA9xnprAQMDY2dGLwgexVVtjkbTbRgYGOMY5T5nXAJrlsx6R18MDIzRjDzXqqaV5cSuBcDAwNiHkQfc6hhELwQnd3j1ZsowMDAezsjHLPKi2x1sDAyMPRn5gEWvYVl9TNXKPwYGxmxGr5SfNzjzwY5eQ+KPqiEGBsY4Ri/Xqm49B1QbCRgYGPswekE2/07+UHpDHhgYGPswekMV6ylgNeifhngMDAyMVontjqNsM3vFwMDYhlFNB6tty+RgfErCwMDYgJEcYntH3DxY56U3DAyM3Ri9xkCviVjdev6gMTAwhjJ+ALND+ggZ0U9gAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
