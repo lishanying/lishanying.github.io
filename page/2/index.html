@@ -195,7 +195,7 @@
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
     </div>
     
@@ -231,17 +231,21 @@
 
     
         1.变量显示初始化
-表达式初始化：这里的表达式可以是：常量、其他变量、其他表达式、函数double p1 = 0;
+表达式初始化：这里的表达式可以是：常量、其他变量、其他表达式、函数
+
+double p1 = 0;
 double p2 = p1;
 double p3 = p1 * 4;
 double p4 = fun(p1);
 
 
-列表初始化：给变量p赋值为0有以下四种形式：//普通初始化
+列表初始化：给变量p赋值为0有以下四种形式：
+
+//普通初始化
 double p = 0;
 double p(0);
 //列表初始化
-double p = {0};...
+double p = ...
     
 
         <a href="/2017/12/30/变量初始化注意点/" class="post-more waves-effect waves-button">
@@ -251,7 +255,7 @@ double p = {0};...
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
     </div>
     
@@ -288,9 +292,11 @@ double p = {0};...
     
         1.字符型
 种类：char / signed char / unsigned char
-注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char2.有符号和无符号的类型转换
+注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char
+
+2.有符号和无符号的类型转换
 有符号转无符号：如果超出范围，结果是初始值对无符号类型表示数值总数取模后的余数
-无符号转有符号：如果超出范围，结果是未...
+无符号转有符号：如果超出范围，结果...
     
 
         <a href="/2017/12/30/有无符号变量注意点/" class="post-more waves-effect waves-button">
@@ -300,7 +306,7 @@ double p = {0};...
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
     </div>
     

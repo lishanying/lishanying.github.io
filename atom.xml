@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lishangying.github.io/"/>
-  <updated>2018-01-01T15:29:57.357Z</updated>
+  <updated>2018-01-01T15:46:19.417Z</updated>
   <id>http://lishangying.github.io/</id>
   
   <author>
@@ -17,32 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>控制语句</title>
-    <link href="http://lishangying.github.io/2018/01/01/%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://lishangying.github.io/2018/01/01/控制语句/</id>
-    <published>2018-01-01T14:50:28.000Z</published>
-    <updated>2018-01-01T15:29:57.357Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;1-switch中case最好加&quot;&gt;&lt;a href=&quot;#1-switch中case最好加&quot; class=&quot;headerlink&quot; title=&quot;1.switch中case最好加{}&quot;&gt;&lt;/a&gt;1.switch中case最好加{}&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;目的
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>命名的强制类型转换</title>
     <link href="http://lishangying.github.io/2018/01/01/%E5%91%BD%E5%90%8D%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
     <id>http://lishangying.github.io/2018/01/01/命名的强制类型转换/</id>
     <published>2018-01-01T14:50:28.000Z</published>
-    <updated>2018-01-01T14:44:35.091Z</updated>
+    <updated>2018-01-01T15:46:19.417Z</updated>
     
     <summary type="html">
     
@@ -55,7 +34,28 @@
     </summary>
     
     
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>控制语句</title>
+    <link href="http://lishangying.github.io/2018/01/01/%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://lishangying.github.io/2018/01/01/控制语句/</id>
+    <published>2018-01-01T14:50:28.000Z</published>
+    <updated>2018-01-01T15:47:58.757Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-switch中case最好加&quot;&gt;&lt;a href=&quot;#1-switch中case最好加&quot; class=&quot;headerlink&quot; title=&quot;1.switch中case最好加{}&quot;&gt;&lt;/a&gt;1.switch中case最好加{}&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;目的
+      
+    
+    </summary>
+    
+    
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
     
   </entry>
   
@@ -64,7 +64,7 @@
     <link href="http://lishangying.github.io/2018/01/01/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
     <id>http://lishangying.github.io/2018/01/01/表达式注意点/</id>
     <published>2018-01-01T12:50:28.000Z</published>
-    <updated>2018-01-01T14:37:05.618Z</updated>
+    <updated>2018-01-01T15:46:15.993Z</updated>
     
     <summary type="html">
     
@@ -76,7 +76,7 @@
     </summary>
     
     
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
     
   </entry>
   
@@ -85,7 +85,7 @@
     <link href="http://lishangying.github.io/2017/12/30/const%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
     <id>http://lishangying.github.io/2017/12/30/const修饰符/</id>
     <published>2017-12-30T12:50:28.000Z</published>
-    <updated>2017-12-30T16:01:35.238Z</updated>
+    <updated>2018-01-01T15:44:09.127Z</updated>
     
     <summary type="html">
     
@@ -97,7 +97,7 @@
     </summary>
     
     
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
     
   </entry>
   
@@ -106,7 +106,7 @@
     <link href="http://lishangying.github.io/2017/12/30/%E9%97%B4%E6%8E%A5%E8%AE%BF%E9%97%AE/"/>
     <id>http://lishangying.github.io/2017/12/30/间接访问/</id>
     <published>2017-12-30T08:50:28.000Z</published>
-    <updated>2017-12-30T16:02:15.919Z</updated>
+    <updated>2018-01-01T15:45:51.511Z</updated>
     
     <summary type="html">
     
@@ -122,7 +122,7 @@
     </summary>
     
     
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
     
   </entry>
   
@@ -131,7 +131,7 @@
     <link href="http://lishangying.github.io/2017/12/30/%E5%A3%B0%E6%98%8E%E5%92%8C%E5%AE%9A%E4%B9%89%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
     <id>http://lishangying.github.io/2017/12/30/声明和定义注意点/</id>
     <published>2017-12-30T08:30:28.000Z</published>
-    <updated>2017-12-30T16:02:50.394Z</updated>
+    <updated>2018-01-01T15:46:27.318Z</updated>
     
     <summary type="html">
     
@@ -144,7 +144,7 @@
     </summary>
     
     
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
     
   </entry>
   
@@ -153,7 +153,7 @@
     <link href="http://lishangying.github.io/2017/12/30/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
     <id>http://lishangying.github.io/2017/12/30/变量初始化注意点/</id>
     <published>2017-12-30T07:30:28.000Z</published>
-    <updated>2017-12-30T16:03:22.389Z</updated>
+    <updated>2018-01-01T15:46:08.497Z</updated>
     
     <summary type="html">
     
@@ -166,7 +166,7 @@
     </summary>
     
     
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
     
   </entry>
   
@@ -175,7 +175,7 @@
     <link href="http://lishangying.github.io/2017/12/30/%E6%9C%89%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%98%E9%87%8F%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
     <id>http://lishangying.github.io/2017/12/30/有无符号变量注意点/</id>
     <published>2017-12-30T06:50:28.000Z</published>
-    <updated>2017-12-30T16:03:57.095Z</updated>
+    <updated>2018-01-01T15:46:07.034Z</updated>
     
     <summary type="html">
     
@@ -188,7 +188,7 @@
     </summary>
     
     
-      <category term="C++" scheme="http://lishangying.github.io/tags/C/"/>
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
     
   </entry>
   

@@ -19,19 +19,19 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="C++">
-    <meta name="description" content="1.字符型 种类：char / signed char / unsigned char 注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char2.有符号和无符号的类型转换 有符号转无符号：如果超出范围，结果是初始值对">
-<meta name="keywords" content="C++">
+    <meta name="keywords" content="cpp">
+    <meta name="description" content="1.字符型 种类：char / signed char / unsigned char 注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char  2.有符号和无符号的类型转换 有符号转无符号：如果超出范围，结果是初始">
+<meta name="keywords" content="cpp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="有无符号变量注意点">
 <meta property="og:url" content="http://lishangying.github.io/2017/12/30/有无符号变量注意点/index.html">
 <meta property="og:site_name" content="Sailing">
-<meta property="og:description" content="1.字符型 种类：char / signed char / unsigned char 注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char2.有符号和无符号的类型转换 有符号转无符号：如果超出范围，结果是初始值对无符号类型表示数值总数取模后的余数 无符号转有符号：如果超出范围，结果是未定义的">
+<meta property="og:description" content="1.字符型 种类：char / signed char / unsigned char 注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char  2.有符号和无符号的类型转换 有符号转无符号：如果超出范围，结果是初始值对无符号类型表示数值总数取模后的余数 无符号转有符号：如果超出范围，结果是未定">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-30T16:03:57.095Z">
+<meta property="og:updated_time" content="2018-01-01T15:46:07.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有无符号变量注意点">
-<meta name="twitter:description" content="1.字符型 种类：char / signed char / unsigned char 注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char2.有符号和无符号的类型转换 有符号转无符号：如果超出范围，结果是初始值对无符号类型表示数值总数取模后的余数 无符号转有符号：如果超出范围，结果是未定义的">
+<meta name="twitter:description" content="1.字符型 种类：char / signed char / unsigned char 注意：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。因此，尽量不要用char  2.有符号和无符号的类型转换 有符号转无符号：如果超出范围，结果是初始值对无符号类型表示数值总数取模后的余数 无符号转有符号：如果超出范围，结果是未定">
     
         <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
     
@@ -157,7 +157,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-字符型"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.字符型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-有符号和无符号的类型转换"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.有符号和无符号的类型转换</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-字符型"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.字符型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-有符号和无符号的类型转换"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.有符号和无符号的类型转换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-有符号和无符号的运算"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.有符号和无符号的运算</span></a></li></ol>
         </nav>
     </aside>
     
@@ -182,33 +182,42 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h4 id="1-字符型"><a href="#1-字符型" class="headerlink" title="1.字符型"></a>1.字符型</h4><ol>
 <li><strong>种类</strong>：char / signed char / unsigned char</li>
-<li><strong>注意</strong>：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。<strong>因此，尽量不要用char</strong><h4 id="2-有符号和无符号的类型转换"><a href="#2-有符号和无符号的类型转换" class="headerlink" title="2.有符号和无符号的类型转换"></a>2.有符号和无符号的类型转换</h4></li>
-<li><strong>有符号转无符号</strong>：如果超出范围，结果是初始值对无符号类型表示数值总数取模后的余数</li>
-<li><strong>无符号转有符号</strong>：如果超出范围，结果是<strong>未定义的</strong><br>```cpp<br>bool b = 42;        //b的值为真<br>int i = b;            //i的值为1</li>
+<li><strong>注意</strong>：尽管类型有三种，但是字符的表现形式只有两种：有符号和无符号。char属于两面派，实际上会表现为上述两种的一种，具体由编译器决定。<strong>因此，尽量不要用char</strong></li>
 </ol>
-<p>i = 3.14;            //i的值为3<br>double pi = i;        //pi的值为3.0</p>
-<p>usigned char c1 = -1;//假设char占8bit，c1的值为255<br>signed char c2 = 256;//假设char占8bit，c2的值为未定义的</p>
-<pre><code>
-#### 3.有符号和无符号的运算
-1. **同种类型的有无符号算术运算**：***有符号{运算}无符号 =&gt;无符号***
-这里指的是同种类型的，因为同种类型的有无符号的两个数，无符号的数值表示的值更大
-``` cpp
-int u1 = 10;
-unsigned int u2 = -42;
-std::cout&lt;&lt; u1 + u1 &lt;&lt; std::endl;//输出84
-std::cout&lt;&lt; u1 + u2 &lt;&lt; std::endl;//如果int是32位，输出4294967264
-</code></pre><ol>
-<li><strong>同中类型的有无符号比较</strong>：<strong><em>特别是循环中常用的比较语句</em></strong><pre><code class="cpp"><span class="comment">//正确的</span>
+<h4 id="2-有符号和无符号的类型转换"><a href="#2-有符号和无符号的类型转换" class="headerlink" title="2.有符号和无符号的类型转换"></a>2.有符号和无符号的类型转换</h4><ol>
+<li><strong>有符号转无符号</strong>：如果超出范围，结果是初始值对无符号类型表示数值总数取模后的余数</li>
+<li><strong>无符号转有符号</strong>：如果超出范围，结果是<strong>未定义的</strong></li>
+</ol>
+<pre><code class="cpp"><span class="keyword">bool</span> b = <span class="number">42</span>;        <span class="comment">//b的值为真</span>
+<span class="keyword">int</span> i = b;            <span class="comment">//i的值为1</span>
+
+i = <span class="number">3.14</span>;            <span class="comment">//i的值为3</span>
+<span class="keyword">double</span> pi = i;        <span class="comment">//pi的值为3.0</span>
+
+usigned <span class="keyword">char</span> c1 = <span class="number">-1</span>;<span class="comment">//假设char占8bit，c1的值为255</span>
+<span class="keyword">signed</span> <span class="keyword">char</span> c2 = <span class="number">256</span>;<span class="comment">//假设char占8bit，c2的值为未定义的</span>
+</code></pre>
+<h4 id="3-有符号和无符号的运算"><a href="#3-有符号和无符号的运算" class="headerlink" title="3.有符号和无符号的运算"></a>3.有符号和无符号的运算</h4><ol>
+<li><strong>同种类型的有无符号算术运算</strong>：<strong><em>有符号{运算}无符号 =&gt;无符号</em></strong><br>这里指的是同种类型的，因为同种类型的有无符号的两个数，无符号的数值表示的值更大</li>
+</ol>
+<pre><code class="cpp"><span class="keyword">int</span> u1 = <span class="number">10</span>;
+<span class="keyword">unsigned</span> <span class="keyword">int</span> u2 = <span class="number">-42</span>;
+<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt; u1 + u1 &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;<span class="comment">//输出84</span>
+<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt; u1 + u2 &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;<span class="comment">//如果int是32位，输出4294967264</span>
+</code></pre>
+<ol>
+<li><strong>同中类型的有无符号比较</strong>：<strong><em>特别是循环中常用的比较语句</em></strong></li>
+</ol>
+<pre><code class="cpp"><span class="comment">//正确的</span>
 <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">10</span>;i &gt;= <span class="number">0</span>; --i){
- <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;
+    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;
 }
 <span class="comment">//错误:变量u永远不会小于0，循环条件一直成立</span>
 <span class="keyword">for</span>(usgned <span class="keyword">int</span> u = <span class="number">10</span>;u &gt;= <span class="number">0</span>; --u){
- <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;
+    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;
 }
 </code></pre>
-<strong>注意</strong>：用于循环条件比较的变量：<br>大于的形式，最好是有符号的；<br>小于的形式，最好是无符号的。</li>
-</ol>
+<p><strong>注意</strong>：用于循环条件比较的变量：<br>大于的形式，最好是有符号的；<br>小于的形式，最好是无符号的。</p>
 
         </div>
 
@@ -216,7 +225,7 @@ std::cout&lt;&lt; u1 + u2 &lt;&lt; std::endl;//如果int是32位，输出4294967
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-30T16:03:57.095Z" itemprop="dateUpdated">2017-12-31 00:03:57</time>
+    最后更新时间：<time datetime="2018-01-01T15:46:07.034Z" itemprop="dateUpdated">2018-01-01 23:46:07</time>
 </span><br>
 
 
@@ -235,7 +244,7 @@ std::cout&lt;&lt; u1 + u2 &lt;&lt; std::endl;//如果int是32位，输出4294967
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
 
             

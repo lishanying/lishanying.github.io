@@ -19,19 +19,19 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="C++">
-    <meta name="description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；错误案例： case 1://假设控制流绕过了该case     ">
-<meta name="keywords" content="C++">
+    <meta name="keywords" content="cpp">
+    <meta name="description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。 case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch； 错误案例： case 1://假设控制流绕过了该case   ">
+<meta name="keywords" content="cpp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="控制语句">
 <meta property="og:url" content="http://lishangying.github.io/2018/01/01/控制语句/index.html">
 <meta property="og:site_name" content="Sailing">
-<meta property="og:description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；错误案例： case 1://假设控制流绕过了该case     string file_name;//错误：控制流绕过一个隐式的初始化变量">
+<meta property="og:description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。 case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch； 错误案例： case 1://假设控制流绕过了该case     string file_name;//错误：控制流绕过一个隐式的初始化变量">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-01T15:29:57.357Z">
+<meta property="og:updated_time" content="2018-01-01T15:47:58.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="控制语句">
-<meta name="twitter:description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；错误案例： case 1://假设控制流绕过了该case     string file_name;//错误：控制流绕过一个隐式的初始化变量">
+<meta name="twitter:description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。 case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch； 错误案例： case 1://假设控制流绕过了该case     string file_name;//错误：控制流绕过一个隐式的初始化变量">
     
         <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
     
@@ -180,7 +180,9 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="1-switch中case最好加"><a href="#1-switch中case最好加" class="headerlink" title="1.switch中case最好加{}"></a>1.switch中case最好加{}</h4><p><strong>目的</strong>：<strong><em>防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。</em></strong><br>case加{}：在该case中定义的变量，有效范围为该case；<br>case不加{}：在该case中定义的变量，有效范围是switch；<br><strong>错误案例：</strong></p>
+            <h4 id="1-switch中case最好加"><a href="#1-switch中case最好加" class="headerlink" title="1.switch中case最好加{}"></a>1.switch中case最好加{}</h4><p><strong>目的</strong>：<strong><em>防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。</em></strong></p>
+<p>case加{}：在该case中定义的变量，有效范围为该case；<br>case不加{}：在该case中定义的变量，有效范围是switch；</p>
+<p><strong>错误案例：</strong></p>
 <pre><code class="cpp"><span class="keyword">case</span> <span class="number">1</span>:<span class="comment">//假设控制流绕过了该case</span>
     <span class="built_in">string</span> file_name;<span class="comment">//错误：控制流绕过一个隐式的初始化变量</span>
     <span class="keyword">int</span> ival = <span class="number">0</span>;    <span class="comment">//错误：控制流绕过一个显示的初始化变量</span>
@@ -192,7 +194,8 @@
     <span class="keyword">break</span>;
 </code></pre>
 <p>假设上述代码合法，则一旦控制流直接跳到分支2，也就同时略过了变量file_name和ival的初始化过程。<br>此时这两个变量为作用于之内，跟在分支2中的代码试图在尚未初始化的情况下使用他们，这显然是行不通的。</p>
-<p><strong>解决方案：</strong>如果某个case要定义并初始化一个变量，我们应该保证该变量在块内，防止其他case引用该变量。注意break在{}之外！<br><strong>正确案例：</strong></p>
+<p><strong>解决方案：</strong>如果某个case要定义并初始化一个变量，我们应该保证该变量在块内，防止其他case引用该变量。注意break在{}之外！</p>
+<p><strong>正确案例：</strong></p>
 <pre><code class="cpp"><span class="keyword">case</span> <span class="number">1</span>:
     {
         <span class="built_in">string</span> file_name = get_file_name();
@@ -201,17 +204,18 @@
 <span class="keyword">case</span> <span class="number">2</span>：
     <span class="keyword">if</span>(file_name.empty()){}<span class="comment">//错误：file_name不在作用于之内</span>
 </code></pre>
-<h4 id="2-范围for语句"><a href="#2-范围for语句" class="headerlink" title="2. 范围for语句"></a>2. 范围for语句</h4><p><strong>形式</strong>：<strong><em>for (declaration : expression) { statement}</em></strong><br><strong>注意事项</strong>：</p>
+<h4 id="2-范围for语句"><a href="#2-范围for语句" class="headerlink" title="2. 范围for语句"></a>2. 范围for语句</h4><p><strong>形式</strong>：<strong><em>for (declaration : expression) { statement}</em></strong></p>
+<p><strong>注意事项</strong>：</p>
 <ul>
 <li>expression必须是一个序列：数组、vector或者string等包含begin()和end()的</li>
 <li>每次迭代都会重新定义一个循环控制变量</li>
-<li>范围for中预存了end()，一旦序列中添加（删除）元素，end()函数可能就变得无效<pre><code class="cpp"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = {<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};
+<li>范围for中预存了end()，一旦序列中添加（删除）元素，end()函数可能就变得无效</li>
+</ul>
+<pre><code class="cpp"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = {<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};
 <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;r : v){<span class="comment">//这里循环变量用的是引用，只有这样才能对元素执行修改操作</span>
- r += <span class="number">2</span>;
+    r += <span class="number">2</span>;
 }
 </code></pre>
-</li>
-</ul>
 
         </div>
 
@@ -219,7 +223,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-01T15:29:57.357Z" itemprop="dateUpdated">2018-01-01 23:29:57</time>
+    最后更新时间：<time datetime="2018-01-01T15:47:58.757Z" itemprop="dateUpdated">2018-01-01 23:47:58</time>
 </span><br>
 
 
@@ -238,7 +242,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
 
             
@@ -293,14 +297,21 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/01/命名的强制类型转换/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">命名的强制类型转换</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/01/01/命名的强制类型转换/" id="post-next" class="post-nav-link">
+      <a href="/2018/01/01/表达式注意点/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">命名的强制类型转换</h4>
+        <h4 class="title">表达式注意点</h4>
       </a>
     </div>
   

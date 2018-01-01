@@ -19,16 +19,16 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="C++">
+    <meta name="keywords" content="cpp">
     <meta name="description" content="1.运算符的运算顺序1.1 有运算顺序只有4种： 逻辑与、逻辑或、条件运算符、逗号运算符因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。 1.2 无运算顺序的实际情况：求值按顺序（优先级、结合律），但是求因子没顺序！！！存在问题：同一个对象参与多个因子的求取，没法保证该对象的纯洁性解决">
-<meta name="keywords" content="C++">
+<meta name="keywords" content="cpp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="表达式注意点">
 <meta property="og:url" content="http://lishangying.github.io/2018/01/01/表达式注意点/index.html">
 <meta property="og:site_name" content="Sailing">
 <meta property="og:description" content="1.运算符的运算顺序1.1 有运算顺序只有4种： 逻辑与、逻辑或、条件运算符、逗号运算符因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。 1.2 无运算顺序的实际情况：求值按顺序（优先级、结合律），但是求因子没顺序！！！存在问题：同一个对象参与多个因子的求取，没法保证该对象的纯洁性解决方案：加括号例子： int a = 0; int *p = &amp;amp;a;  i">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-01T14:37:05.618Z">
+<meta property="og:updated_time" content="2018-01-01T15:46:15.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表达式注意点">
 <meta name="twitter:description" content="1.运算符的运算顺序1.1 有运算顺序只有4种： 逻辑与、逻辑或、条件运算符、逗号运算符因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。 1.2 无运算顺序的实际情况：求值按顺序（优先级、结合律），但是求因子没顺序！！！存在问题：同一个对象参与多个因子的求取，没法保证该对象的纯洁性解决方案：加括号例子： int a = 0; int *p = &amp;amp;a;  i">
@@ -244,12 +244,12 @@ n = p-&gt;size();
 <h4 id="8-sizeof运算符"><a href="#8-sizeof运算符" class="headerlink" title="8. sizeof运算符"></a>8. sizeof运算符</h4><ul>
 <li>对char或者类型为char的表达式执行sizeof，结果为1；</li>
 <li>对数组执行sizeof，得到该数组所占的空间大小；</li>
-<li>对string和vector执行sizeof，返回该对象的固定容器的字节数，并非当前元素个数的字节数；<pre><code class="cpp"><span class="comment">//根据数组a的大小，重新定义一个数组b</span>
+<li>对string和vector执行sizeof，返回该对象的固定容器的字节数，并非当前元素个数的字节数；</li>
+</ul>
+<pre><code class="cpp"><span class="comment">//根据数组a的大小，重新定义一个数组b</span>
 <span class="keyword">constexpr</span> <span class="keyword">size_t</span> sz = <span class="keyword">sizeof</span>(a)/(*a);<span class="comment">//这里用到了constexpr 哟！</span>
 <span class="keyword">int</span> b[sz];
 </code></pre>
-</li>
-</ul>
 
         </div>
 
@@ -257,7 +257,7 @@ n = p-&gt;size();
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-01T14:37:05.618Z" itemprop="dateUpdated">2018-01-01 22:37:05</time>
+    最后更新时间：<time datetime="2018-01-01T15:46:15.993Z" itemprop="dateUpdated">2018-01-01 23:46:15</time>
 </span><br>
 
 
@@ -276,7 +276,7 @@ n = p-&gt;size();
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
 
 
             
@@ -334,9 +334,9 @@ n = p-&gt;size();
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/01/01/命名的强制类型转换/" id="post-prev" class="post-nav-link">
+      <a href="/2018/01/01/控制语句/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">命名的强制类型转换</h4>
+        <h4 class="title">控制语句</h4>
       </a>
     </div>
   
