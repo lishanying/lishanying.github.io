@@ -13,25 +13,25 @@
     
     
     
-    <title>声明和定义注意点 | Sailing | Sailing&#39;s Home</title>
+    <title>命名的强制类型转换 | Sailing | Sailing&#39;s Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="C++">
-    <meta name="description" content="1.// //：////   //：//：//">
+    <meta name="description" content="1.常见的命名强制类型转换 通用表达式：cast_name(expression) 1.1 static_cast```cpp  ##### 1.2 dynamic_cast ```cpp 1.3 const_cast  1.4 reinterret_cast  2.警告 强制类型转换干扰了正常的类型检查，强烈建议不到">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="声明和定义注意点">
-<meta property="og:url" content="http://lishangying.github.io/2017/12/30/声明和定义注意点/index.html">
+<meta property="og:title" content="命名的强制类型转换">
+<meta property="og:url" content="http://lishangying.github.io/2018/01/01/命名的强制类型转换/index.html">
 <meta property="og:site_name" content="Sailing">
-<meta property="og:description" content="1.// //：////   //：//：//">
+<meta property="og:description" content="1.常见的命名强制类型转换 通用表达式：cast_name(expression) 1.1 static_cast```cpp  ##### 1.2 dynamic_cast ```cpp 1.3 const_cast  1.4 reinterret_cast  2.警告 强制类型转换干扰了正常的类型检查，强烈建议不到万不得已不要用！！！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-30T16:02:50.394Z">
+<meta property="og:updated_time" content="2018-01-01T14:44:35.091Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="声明和定义注意点">
-<meta name="twitter:description" content="1.// //：////   //：//：//">
+<meta name="twitter:title" content="命名的强制类型转换">
+<meta name="twitter:description" content="1.常见的命名强制类型转换 通用表达式：cast_name(expression) 1.1 static_cast```cpp  ##### 1.2 dynamic_cast ```cpp 1.3 const_cast  1.4 reinterret_cast  2.警告 强制类型转换干扰了正常的类型检查，强烈建议不到万不得已不要用！！！">
     
         <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
     
@@ -112,7 +112,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">声明和定义注意点</div>
+        <div class="flex-col header-title ellipsis">命名的强制类型转换</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -134,11 +134,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">声明和定义注意点</h1>
+        <h1 class="title">命名的强制类型转换</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-12-30T08:30:28.000Z" itemprop="datePublished" class="page-time">
-  2017-12-30
+                <time datetime="2018-01-01T14:50:28.000Z" itemprop="datePublished" class="page-time">
+  2018-01-01
 </time>
 
 
@@ -157,17 +157,17 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.//</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-常见的命名强制类型转换"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.常见的命名强制类型转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-static-cast"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 static_cast</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-3-const-cast"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.3 const_cast</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-4-reinterret-cast"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.4 reinterret_cast</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-警告"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.警告</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-声明和定义注意点"
+<article id="post-命名的强制类型转换"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">声明和定义注意点</h1>
+        <h1 class="post-card-title">命名的强制类型转换</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-12-30 16:30:28" datetime="2017-12-30T08:30:28.000Z"  itemprop="datePublished">2017-12-30</time>
+            <time class="post-time" title="2018-01-01 22:50:28" datetime="2018-01-01T14:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
 
             
 
@@ -180,14 +180,19 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="1"><a href="#1" class="headerlink" title="1.//"></a>1.//</h4><ol>
-<li><strong>//</strong>：<br>//<pre><code class="cpp"><span class="comment">//</span>
+            <h4 id="1-常见的命名强制类型转换"><a href="#1-常见的命名强制类型转换" class="headerlink" title="1.常见的命名强制类型转换"></a>1.常见的命名强制类型转换</h4><blockquote>
+<p>通用表达式：<strong><em>cast_name<type>(expression)</type></em></strong></p>
+<h5 id="1-1-static-cast"><a href="#1-1-static-cast" class="headerlink" title="1.1 static_cast"></a>1.1 static_cast</h5><p>```cpp</p>
+</blockquote>
+<pre><code>##### 1.2 dynamic_cast
+```cpp
+</code></pre><h5 id="1-3-const-cast"><a href="#1-3-const-cast" class="headerlink" title="1.3 const_cast"></a>1.3 const_cast</h5><pre><code class="cpp">
 </code></pre>
-</li>
-<li><strong>//</strong>：<br>//：<pre><code class="cpp"><span class="comment">//</span>
+<h5 id="1-4-reinterret-cast"><a href="#1-4-reinterret-cast" class="headerlink" title="1.4 reinterret_cast"></a>1.4 reinterret_cast</h5><pre><code class="cpp">
 </code></pre>
-</li>
-</ol>
+<h4 id="2-警告"><a href="#2-警告" class="headerlink" title="2.警告"></a>2.警告</h4><blockquote>
+<p>强制类型转换干扰了正常的类型检查，强烈建议不到万不得已不要用！！！</p>
+</blockquote>
 
         </div>
 
@@ -195,7 +200,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-30T16:02:50.394Z" itemprop="dateUpdated">2017-12-31 00:02:50</time>
+    最后更新时间：<time datetime="2018-01-01T14:44:35.091Z" itemprop="dateUpdated">2018-01-01 22:44:35</time>
 </span><br>
 
 
@@ -224,7 +229,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/30/声明和定义注意点/&title=《声明和定义注意点》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/&title=《命名的强制类型转换》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -234,22 +239,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/30/声明和定义注意点/&title=《声明和定义注意点》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/&title=《命名的强制类型转换》 — Sailing&source=A blog of Sailing" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/30/声明和定义注意点/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/01/命名的强制类型转换/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《声明和定义注意点》 — Sailing&url=http://lishangying.github.io/2017/12/30/声明和定义注意点/&via=http://lishangying.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《命名的强制类型转换》 — Sailing&url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/&via=http://lishangying.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/30/声明和定义注意点/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -272,18 +277,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/12/30/间接访问/" id="post-prev" class="post-nav-link">
+      <a href="/2018/01/01/控制语句/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">间接访问</h4>
+        <h4 class="title">控制语句</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/12/30/变量初始化注意点/" id="post-next" class="post-nav-link">
+      <a href="/2018/01/01/表达式注意点/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">变量初始化注意点</h4>
+        <h4 class="title">表达式注意点</h4>
       </a>
     </div>
   
@@ -338,7 +343,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2017/12/30/声明和定义注意点/&title=《声明和定义注意点》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/&title=《命名的强制类型转换》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -348,22 +353,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2017/12/30/声明和定义注意点/&title=《声明和定义注意点》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/&title=《命名的强制类型转换》 — Sailing&source=A blog of Sailing" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2017/12/30/声明和定义注意点/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/01/命名的强制类型转换/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《声明和定义注意点》 — Sailing&url=http://lishangying.github.io/2017/12/30/声明和定义注意点/&via=http://lishangying.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《命名的强制类型转换》 — Sailing&url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/&via=http://lishangying.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2017/12/30/声明和定义注意点/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/01/命名的强制类型转换/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -374,7 +379,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3aQW4DMQgF0Nz/0qnUVaUokw+YSRfPq6rJTP1cySDg8YjX83clnz7/rPw9r79/fc/1HkYLDw8Pr7X1d+saUP1ODkuo13vGw8PD2+bl131Cun7P2Wc/WPDw8PC+ystT2ySxToJHcqx4eHh4/5lXTY6rtYLecePh4eF9i5cUI3JAtbDbK3wcrrXg4eHhxbzedr/782J/Dw8PD2/QVa82sfKrOd/0c7Dw8PDwNnh58746HJA3t/JC7fU73x4THh4e3gKvWkrobat6oefHVy4o4+Hh4Q14k0Jtr1SRBIlTqTYeHh7eHm+SECdbTL6Zx65CoMLDw8Nb5iUN/mopITm43thW9CweHh7eAm9SeqiORuVts/yIoyYcHh4e3lFenrZWA0m1lpz/xUIJAw8PD+8WXl54nZD2ShsfAgMeHh7emHcsK4+Po5es9wIJHh4e3jZvMlbVu9CrJYmVOTI8PDy8Ii8p4Oab7qXdk2DT/I/h4eHhDXjzNLd30Vc/HQ0W4OHh4R3lnUqjkwQ3H8OqBoPyTAQeHh7eIV7erKoWUvMNTZL4wtAVHh4e3oB33WS6vr7zZ6PO2yC5/9B4w8PDw7uFl1/ryUWfp8V5ICkUMvDw8PCO8ja21Stq5IMF+WAWHh4e3jZvngRXU/BkOGASTvDw8PD2eNUhp3l7bFL2LRwuHh4e3gKvenGfak3lqXkeoqIpBjw8PLwxr9f+32tiJZd+4Z+Eh4eHt8xL1mR0oFd6mLTZ8PDw8DZ4vWu3WkTIN5cXaielZzw8PLw5r9fyn4xJnXpnFGzw8PDw1njVskIv/a0OJfTS9LcNMDw8PLzbefkRTMrBk6AyCgx4eHh4y7xkUGASBiZFigOBAQ8PDy/g5Q3+SQDIn+q9Bw8PD+8eXnOkaTAgVR0j6LXo8PDw8BZ4PwI7NcoAHY25AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqUlEQVR42u3aQU4DMQwFUO5/adgioQ7/2wl08WZVtUOaN0ixa/vjI74+v12vPv35+tUK7f3Pdx648PDw8BZbf97Ezy9o2a/eyd/P94yHh4d3mzc77p9P4+etvFq5pf5iwcPDw3sDXrvFNgjtE3E8PDy89+QlASNPiNsQgoeHh/cOvFni2/LaAkS7Gh4eHt7f8GbFhf99faW/h4eHh7fuqreHdfLpppFW7xYPDw/vAi8/cPfDUm1ReDZ0hYeHh/f3vLx8kKS8LWz2sH7ZCR4eHt4F3qa9NEu7ky3uh7fw8PDw7vFmA1V54TU/+jfJdBES8PDw8Ba82chUPkTVPunDf4uHh4d3gTf72Z8HgHbEalZ0iB4rHh4e3gVefhDnjajZ6zb5PkDFw8PDi3mb1lfUtg/KDfkYVj2whYeHh3eZ17am2iLFLACsyhB4eHh4F3j5QMBw1GkUGGb3F20wPDw8vAWvLbzmoWK/Tt6EG6bUeHh4eCNeu8SpdlfyaI6l7Hh4eHhHeW26PEug28ZY++nLB4SHh4d3jXeqLJuXa/MV2m/Hw8PDu83Le0azQYE24b4x5oWHh4d3ltemyHmhNl9tNrIQ/Uvw8PDwLvDam/JN3HgcB5pqeHh4eBd4swLuhn2jcIyHh4d3mxeJ48LE8ybab2xHV4tohoeHh7fmrZr0cTI9Y+R7G86U4eHh4Y14s/CQj1jlBeJNWBpGLTw8PLyY91les79KVshDVB5m8PDw8G7wNodvW1BIYHlK3Sb6eHh4eGd5s6X3ASBJx/PSRvGLAQ8PD+8QL+8ctYMCs3LDpjCBh4eH9568HNA2/mePEg8PD+/9efk7baF2lvTXEQYPDw9vzcvLCm1pID/o8yJInVLj4eHhHeW1P/Lz4ztvhu3LE0MYHh4eXsf7AtkOFtvNnR7CAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

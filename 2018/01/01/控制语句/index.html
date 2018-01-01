@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>控制语句 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++">
+    <meta name="description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；错误案例： case 1://假设控制流绕过了该case     ">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="控制语句">
+<meta property="og:url" content="http://lishangying.github.io/2018/01/01/控制语句/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；错误案例： case 1://假设控制流绕过了该case     string file_name;//错误：控制流绕过一个隐式的初始化变量">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-01T15:29:57.357Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="控制语句">
+<meta name="twitter:description" content="1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；错误案例： case 1://假设控制流绕过了该case     string file_name;//错误：控制流绕过一个隐式的初始化变量">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">控制语句</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">控制语句</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-01T14:50:28.000Z" itemprop="datePublished" class="page-time">
+  2018-01-01
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-switch中case最好加"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.switch中case最好加{}</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-范围for语句"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 范围for语句</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-控制语句"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">控制语句</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-01 22:50:28" datetime="2018-01-01T14:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="1-switch中case最好加"><a href="#1-switch中case最好加" class="headerlink" title="1.switch中case最好加{}"></a>1.switch中case最好加{}</h4><p><strong>目的</strong>：<strong><em>防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。</em></strong><br>case加{}：在该case中定义的变量，有效范围为该case；<br>case不加{}：在该case中定义的变量，有效范围是switch；<br><strong>错误案例：</strong></p>
+<pre><code class="cpp"><span class="keyword">case</span> <span class="number">1</span>:<span class="comment">//假设控制流绕过了该case</span>
+    <span class="built_in">string</span> file_name;<span class="comment">//错误：控制流绕过一个隐式的初始化变量</span>
+    <span class="keyword">int</span> ival = <span class="number">0</span>;    <span class="comment">//错误：控制流绕过一个显示的初始化变量</span>
+    <span class="keyword">int</span> jval;        <span class="comment">//正确：该变量没有初始化</span>
+    <span class="keyword">break</span>;
+<span class="keyword">case</span> <span class="number">2</span>:
+    jval = next_num();      <span class="comment">//正确：给jval赋一个值</span>
+    <span class="keyword">if</span>(file_name.empty()){} <span class="comment">//file_name在作用于中，但是没有初始化</span>
+    <span class="keyword">break</span>;
+</code></pre>
+<p>假设上述代码合法，则一旦控制流直接跳到分支2，也就同时略过了变量file_name和ival的初始化过程。<br>此时这两个变量为作用于之内，跟在分支2中的代码试图在尚未初始化的情况下使用他们，这显然是行不通的。</p>
+<p><strong>解决方案：</strong>如果某个case要定义并初始化一个变量，我们应该保证该变量在块内，防止其他case引用该变量。注意break在{}之外！<br><strong>正确案例：</strong></p>
+<pre><code class="cpp"><span class="keyword">case</span> <span class="number">1</span>:
+    {
+        <span class="built_in">string</span> file_name = get_file_name();
+    }
+    <span class="keyword">break</span>;<span class="comment">//注意break在{}之外！！！！！！！！</span>
+<span class="keyword">case</span> <span class="number">2</span>：
+    <span class="keyword">if</span>(file_name.empty()){}<span class="comment">//错误：file_name不在作用于之内</span>
+</code></pre>
+<h4 id="2-范围for语句"><a href="#2-范围for语句" class="headerlink" title="2. 范围for语句"></a>2. 范围for语句</h4><p><strong>形式</strong>：<strong><em>for (declaration : expression) { statement}</em></strong><br><strong>注意事项</strong>：</p>
+<ul>
+<li>expression必须是一个序列：数组、vector或者string等包含begin()和end()的</li>
+<li>每次迭代都会重新定义一个循环控制变量</li>
+<li>范围for中预存了end()，一旦序列中添加（删除）元素，end()函数可能就变得无效<pre><code class="cpp"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = {<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};
+<span class="keyword">for</span>(<span class="keyword">auto</span> &amp;r : v){<span class="comment">//这里循环变量用的是引用，只有这样才能对元素执行修改操作</span>
+ r += <span class="number">2</span>;
+}
+</code></pre>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-01T15:29:57.357Z" itemprop="dateUpdated">2018-01-01 23:29:57</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/01/控制语句/&title=《控制语句》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/01/控制语句/&title=《控制语句》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/01/控制语句/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《控制语句》 — Sailing&url=http://lishangying.github.io/2018/01/01/控制语句/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/01/控制语句/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/01/命名的强制类型转换/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">命名的强制类型转换</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/01/控制语句/&title=《控制语句》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/01/控制语句/&title=《控制语句》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/01/控制语句/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《控制语句》 — Sailing&url=http://lishangying.github.io/2018/01/01/控制语句/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/01/控制语句/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS27DMAxF0e5/0y7QUQe1eh8ptzB1NQoSx9bxgOBHHx94XV/r7vvvv64/k+vvnrVhyZAh47WMa7nW13A2vxu58oeny5Ah4wDGeivp1u+u51vne5MhQ4YMnhquA+IaSXgyZMiQkTJ2lbX/HHBlyJDxKgYvLNNv0jD6eC0uQ4aMFzLSwcBffn5wviFDhoyXMK5w7ZoepmH6l/vLkCFjNKOWwHXGlulhDpI+ypAh4xxG8AcQcNOydkPTTYYMGUMZ5DBWMfzhIQFPDW9fhAwZMkYzOkVprQRNU8lOaS1DhoxJDJLYdQ5y8YZdZ0QhQ4aMExhpyKsVwGnhGqSGMmTIGMpIB41p0Nw7GLi9vwwZMg5jpM2y4iwCPIVcL0OGjBMYJFDypK2/OfJSUBErQ4aMcQweZDspHW/q8WMZMmTIOJmx92BEGqZ54JYhQ8Y5jFpoS5O/tD2XviYZMmTMZjzXaONHMXjax1+TDBkyJjFqg8knGm081KKuoQwZMkYw0sSLg4PovkxPUeiXIUPGYYxaa4wcdU3DdzBIkCFDxmhGJ1HrlLudhZp6MmTIGMS4wsVDbackTp8rQ4aM2Yw0zPUHk7XtktAvQ4aM2QweZNOgzI9x8BJahgwZJzN4oz89pJWOPIuhX4YMGTLC4Nhpz/HmXTHgypAh4wAGL2t5kscPc2xIDWXIkPFaRlqUpj28dGyQJqYyZMiYzei0+2vNMoLsvDIZMmQMYnwC10gd80R8sNcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

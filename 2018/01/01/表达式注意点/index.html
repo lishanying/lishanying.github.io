@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>表达式注意点 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C++">
+    <meta name="description" content="1.运算符的运算顺序1.1 有运算顺序只有4种： 逻辑与、逻辑或、条件运算符、逗号运算符因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。 1.2 无运算顺序的实际情况：求值按顺序（优先级、结合律），但是求因子没顺序！！！存在问题：同一个对象参与多个因子的求取，没法保证该对象的纯洁性解决">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表达式注意点">
+<meta property="og:url" content="http://lishangying.github.io/2018/01/01/表达式注意点/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="1.运算符的运算顺序1.1 有运算顺序只有4种： 逻辑与、逻辑或、条件运算符、逗号运算符因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。 1.2 无运算顺序的实际情况：求值按顺序（优先级、结合律），但是求因子没顺序！！！存在问题：同一个对象参与多个因子的求取，没法保证该对象的纯洁性解决方案：加括号例子： int a = 0; int *p = &amp;amp;a;  i">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-01T14:37:05.618Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="表达式注意点">
+<meta name="twitter:description" content="1.运算符的运算顺序1.1 有运算顺序只有4种： 逻辑与、逻辑或、条件运算符、逗号运算符因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。 1.2 无运算顺序的实际情况：求值按顺序（优先级、结合律），但是求因子没顺序！！！存在问题：同一个对象参与多个因子的求取，没法保证该对象的纯洁性解决方案：加括号例子： int a = 0; int *p = &amp;amp;a;  i">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">表达式注意点</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">表达式注意点</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-01T12:50:28.000Z" itemprop="datePublished" class="page-time">
+  2018-01-01
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-运算符的运算顺序"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.运算符的运算顺序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-有运算顺序"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 有运算顺序</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-无运算顺序的"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 无运算顺序的</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-相等性测试与布尔字面值"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.相等性测试与布尔字面值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-i优于i"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. ++i优于i++</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-运算对象可按任意顺序求值"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 运算对象可按任意顺序求值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-成员访问运算符"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. 成员访问运算符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-条件运算符最好加括号"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. 条件运算符最好加括号</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-移位运算符的妙用"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 移位运算符的妙用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-sizeof运算符"><span class="post-toc-number">8.</span> <span class="post-toc-text">8. sizeof运算符</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-表达式注意点"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">表达式注意点</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-01 20:50:28" datetime="2018-01-01T12:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="1-运算符的运算顺序"><a href="#1-运算符的运算顺序" class="headerlink" title="1.运算符的运算顺序"></a>1.运算符的运算顺序</h4><h5 id="1-1-有运算顺序"><a href="#1-1-有运算顺序" class="headerlink" title="1.1 有运算顺序"></a>1.1 有运算顺序</h5><p><strong>只有4种：</strong> <strong><em>逻辑与、逻辑或、条件运算符、逗号运算符</em></strong><br>因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。</p>
+<h5 id="1-2-无运算顺序的"><a href="#1-2-无运算顺序的" class="headerlink" title="1.2 无运算顺序的"></a>1.2 无运算顺序的</h5><p><strong>实际情况：</strong>求值按顺序（优先级、结合律），但是<strong><em>求因子没顺序</em></strong>！！！<br><strong>存在问题：</strong>同一个对象参与多个因子的求取，没法保证该对象的纯洁性<br><strong>解决方案：</strong>加括号<br><strong>例子：</strong></p>
+<pre><code class="cpp"><span class="keyword">int</span> a = <span class="number">0</span>;
+<span class="keyword">int</span> *p = &amp;a;
+
+<span class="keyword">int</span> b = f(p)+g(p)*h(p);
+</code></pre>
+<p>上述例子：可以转化为int b = A+B<em>C；A=f(p)；B=g(p)；C=h(p)；<br>实际情况：A+B</em>C严格按照结合律和优先级运算；但是ABC的求取过程没有顺序，即函数fgh的执行顺序不固定<br>存在问题：因为fgh三个对同一个对象p执行了操作，没法保证原本的假设；<br>解决方案：严格加括号，比如：int b = f(p)+（（g(p)）*h(p)）;这样计算顺序就变成了：ghf了</p>
+<h4 id="2-相等性测试与布尔字面值"><a href="#2-相等性测试与布尔字面值" class="headerlink" title="2.相等性测试与布尔字面值"></a>2.相等性测试与布尔字面值</h4><p><strong>箴言</strong>：<strong><em>除非比较的对象是布尔对象，否则不要用布尔字面值true和false作为比较对象</em></strong><br><strong>原因</strong>：bool与int参与运算，会提升为int<br><strong>推荐</strong>：使用第一种例子<br><strong>例子一：</strong>推荐</p>
+<pre><code class="cpp"><span class="keyword">if</span>(val){}
+<span class="keyword">if</span>(!cal){}
+</code></pre>
+<p><strong>例子二：</strong>摒弃</p>
+<pre><code class="cpp"><span class="keyword">if</span>(<span class="literal">true</span> == val){}
+</code></pre>
+<p><strong>例子三：</strong></p>
+<pre><code class="cpp"><span class="keyword">if</span>(<span class="number">1</span> == val){}
+</code></pre>
+<p>第二种与第三种实际上是一样的，所以只有当val=1的时候，例子23才会成立，尽管val=2也不会成立<br><strong>注意：</strong><br>当然，如果项目组中宏定义了：#define TRUE (1 )，是可以使用的，这里说的不能参与比较的是c++自带的true（这里true=1,2,3,,,）</p>
+<h4 id="3-i优于i"><a href="#3-i优于i" class="headerlink" title="3. ++i优于i++"></a>3. ++i优于i++</h4><p><strong>原因</strong>：<br>++i：加1；返回结果值；保存加1值；<br>i++：保存原值；加1；返回结果值；保存加1值；<br>由此可见：如果我们不需要修改前的值，那么后置版本的操作就是一种浪费。</p>
+<p>对于整型和指针类型来说，编译器会对这种额外工作进行优化；但是对于相对复杂的迭代器类型，这种额外的工作就消耗巨大了。</p>
+<h4 id="4-运算对象可按任意顺序求值"><a href="#4-运算对象可按任意顺序求值" class="headerlink" title="4. 运算对象可按任意顺序求值"></a>4. 运算对象可按任意顺序求值</h4><p><strong>常见错误案例：</strong>将所有字符变为大写</p>
+<pre><code class="cpp"><span class="keyword">while</span> (beg != s.end() &amp;&amp; !<span class="built_in">isspace</span>(*beg)){
+    *beg = <span class="built_in">toupper</span>(*beg++);<span class="comment">//错误：该赋值语句未定义</span>
+}
+</code></pre>
+<p>存在问题：赋值运算符左右两端的运算对象都用到了beg，并且右侧的对象还改变了beg的值，所以该赋值语句是未定义的。<br><strong>正确案例：</strong>把解引用和递增分为两项任务来完成</p>
+<pre><code class="cpp"><span class="keyword">for</span> (<span class="keyword">auto</span> it = s.begin(); it != s.end() &amp;&amp; !<span class="built_in">isspace</span>(*it); ++it){
+    *it = <span class="built_in">toupper</span>(*it);
+}
+</code></pre>
+<h4 id="5-成员访问运算符"><a href="#5-成员访问运算符" class="headerlink" title="5. 成员访问运算符"></a>5. 成员访问运算符</h4><p><strong>ptr-&gt;mem 等价于 (*ptr).mem</strong></p>
+<pre><code class="cpp"><span class="built_in">string</span> s1 = <span class="string">"a string"</span>;
+<span class="built_in">string</span> *p = &amp;s1;
+n = (*p).size();
+n = p-&gt;size();
+</code></pre>
+<h4 id="6-条件运算符最好加括号"><a href="#6-条件运算符最好加括号" class="headerlink" title="6. 条件运算符最好加括号"></a>6. 条件运算符最好加括号</h4><p><strong>A？ B:C最好改成 （（A）?B:C）</strong><br><strong>原因：</strong>选择运算符的优先级比较低，如果不加括号的话，有可能被周边的运算符肢解！！！</p>
+<pre><code class="cpp"><span class="built_in">cout</span> &lt;&lt; ((grade &lt; <span class="number">60</span>)? <span class="string">"fail"</span> : <span class="string">"pass"</span>) &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//输出pass或者fail</span>
+<span class="built_in">cout</span> &lt;&lt; (grade &lt; <span class="number">60</span>)? <span class="string">"fail"</span> : <span class="string">"pass"</span> &lt;&lt; <span class="built_in">endl</span>;  <span class="comment">//输出1或者0</span>
+<span class="built_in">cout</span> &lt;&lt; grade &lt; <span class="number">60</span>? <span class="string">"fail"</span> : <span class="string">"pass"</span> &lt;&lt; <span class="built_in">endl</span>;    <span class="comment">//错误：试图比较cout和grade&lt;60</span>
+</code></pre>
+<p>第二条语句等价于</p>
+<pre><code class="cpp"><span class="built_in">cout</span> &lt;&lt; (grade &lt; <span class="number">60</span>);    <span class="comment">//输出1或0到cout</span>
+<span class="built_in">cout</span> ? <span class="string">"fail"</span> : <span class="string">"pass"</span>; <span class="comment">//根据cout的值是true或false产生对应的字面值</span>
+</code></pre>
+<p>第三条语句等价于</p>
+<pre><code class="cpp"><span class="built_in">cout</span> &lt;&lt; grade;                <span class="comment">//小于运算符的优先级低于移位运算符，所以先输出grade到cout</span>
+<span class="built_in">cout</span> &lt; <span class="number">60</span> ? <span class="string">"fail"</span> : <span class="string">"pass"</span>;<span class="comment">//然后比较cout和60</span>
+</code></pre>
+<h4 id="7-移位运算符的妙用"><a href="#7-移位运算符的妙用" class="headerlink" title="7. 移位运算符的妙用"></a>7. 移位运算符的妙用</h4><p><strong>检测某一个bit位是1还是0</strong></p>
+<pre><code class="cpp"><span class="keyword">bool</span> status = quzz &amp; (<span class="number">1U</span>L &lt;&lt; <span class="number">27</span>)；<span class="comment">//quzz的第27bit位是1还是0</span>
+</code></pre>
+<p>第二条语句等价于</p>
+<pre><code class="cpp"><span class="built_in">cout</span> &lt;&lt; (grade &lt; <span class="number">60</span>);    <span class="comment">//输出1或0到cout</span>
+<span class="built_in">cout</span> ? <span class="string">"fail"</span> : <span class="string">"pass"</span>; <span class="comment">//根据cout的值是true或false产生对应的字面值</span>
+</code></pre>
+<p>第三条语句等价于</p>
+<pre><code class="cpp"><span class="built_in">cout</span> &lt;&lt; grade;                <span class="comment">//小于运算符的优先级低于移位运算符，所以先输出grade到cout</span>
+<span class="built_in">cout</span> &lt; <span class="number">60</span> ? <span class="string">"fail"</span> : <span class="string">"pass"</span>;<span class="comment">//然后比较cout和60</span>
+</code></pre>
+<h4 id="8-sizeof运算符"><a href="#8-sizeof运算符" class="headerlink" title="8. sizeof运算符"></a>8. sizeof运算符</h4><ul>
+<li>对char或者类型为char的表达式执行sizeof，结果为1；</li>
+<li>对数组执行sizeof，得到该数组所占的空间大小；</li>
+<li>对string和vector执行sizeof，返回该对象的固定容器的字节数，并非当前元素个数的字节数；<pre><code class="cpp"><span class="comment">//根据数组a的大小，重新定义一个数组b</span>
+<span class="keyword">constexpr</span> <span class="keyword">size_t</span> sz = <span class="keyword">sizeof</span>(a)/(*a);<span class="comment">//这里用到了constexpr 哟！</span>
+<span class="keyword">int</span> b[sz];
+</code></pre>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-01T14:37:05.618Z" itemprop="dateUpdated">2018-01-01 22:37:05</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/01/表达式注意点/&title=《表达式注意点》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/01/表达式注意点/&title=《表达式注意点》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/01/表达式注意点/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《表达式注意点》 — Sailing&url=http://lishangying.github.io/2018/01/01/表达式注意点/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/01/表达式注意点/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/01/命名的强制类型转换/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">命名的强制类型转换</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/30/const修饰符/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">const修饰符</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/01/表达式注意点/&title=《表达式注意点》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/01/表达式注意点/&title=《表达式注意点》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/01/表达式注意点/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《表达式注意点》 — Sailing&url=http://lishangying.github.io/2018/01/01/表达式注意点/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/01/表达式注意点/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aOXaEQAwFwLn/pXHiwIFhviQI6K6OeB62IpC19OcTr+PPSn49TlZ+1eeJhYGB8VrGcbmqjCo1OU4+CgYGxg6MswdXH5PcM/9YybthYGBgnJ2Th8XrpBADAwPjuYAbpWuX97+uRjEwMDB6RWyvoO2VxA/W4hgYGC9kTILg08ePzDcwMDBexTiKq3pVHqx79/+9CgMDY2lGHuAmyF5yWd78gYGBsQ2jFzrz1v/16+bl7peuIQYGxtKMainbC9a9ttqXp2NgYCzKSAJZIeTdxKuOHzAwMNZmzB+fp5iT4Ft4TwwMjEUZ1aDWGwnkyWLygT55lw4DA+PljN6gsbpJ4jqI5yH+9BgDA2MDRjWBm/PytDL6CwYGxtKMvEztvWg+HJ0nrBgYGPsw8kK0mg4mZ1aHEBgYGPswqlu4el29pN1fLV//2TOCgYGxHOO22cK4lB216jAwMLZhTIaO8zPz1POf+2NgYCzNyOvBXvI32Zw6Ka0xMDDWY1TbW/e+xHz8gIGBsRsjHzrm27nmKWD0RAwMjG0Y17eYDADmH+VLuMfAwFiUcRRX3lCrtuSq9y9UzxgYGC9n5CvnXSedeUJZ3jOCgYGxNGPyitVhQJKr5gEdAwNjN0Yv8PWa+5P/AKcfCwMDA+OmArU32mwOBjAwMDDGtXLeSovSSgwMjA0Ydw0D8oDbC9AYGBh7MvLSsbqPo5oUJg270VATAwPjfYwfNZv6CM9xaNYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
