@@ -151,11 +151,11 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-命名的强制类型转换"
+            <article id="post-函数作为参数传递"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2018-01-01 22:50:28" datetime="2018-01-01T14:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
+        <time class="post-time" title="2018-01-10 22:50:28" datetime="2018-01-10T14:50:28.000Z"  itemprop="datePublished">2018-01-10</time>
 
         
 
@@ -167,7 +167,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/01/命名的强制类型转换/">命名的强制类型转换</a>
+      <a class="post-title-link" href="/2018/01/10/函数作为参数传递/">函数作为参数传递</a>
     </h3>
   
 
@@ -177,24 +177,15 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1.常见的命名强制类型转换
-通用表达式：cast_name(expression)
+        1.普通函数体现：一个函数作为另外一个函数的参数，进行函数传递，当然可以通过这种形式进行函数重载。
+方式1：函数类型将函数作为基本类型，形如int a，int 是类型，a是形参；int f(int, int )，int (int ，int)是类型，f是形参；缺点：该种类型的写法太繁琐
+#include&lt;iostream&gt;
+using namespace std;
 
-1.1 static_cast
-
-1.2 dynamic_cast
-
-1.3 const_cast
-
-1.4 reinterret_cast
-
-2.警告
-强制类型转换干扰了正常的类型检查，强烈建议不到万不得已不要用！！！
-
-
+int add...
     
 
-        <a href="/2018/01/01/命名的强制类型转换/" class="post-more waves-effect waves-button">
+        <a href="/2018/01/10/函数作为参数传递/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -244,6 +235,65 @@ case 1://假设控制流绕过了该case
     
 
         <a href="/2018/01/01/控制语句/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-命名的强制类型转换"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-01-01 22:50:28" datetime="2018-01-01T14:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/01/01/命名的强制类型转换/">命名的强制类型转换</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1.常见的命名强制类型转换
+通用表达式：cast_name(expression)
+
+1.1 static_cast
+
+1.2 dynamic_cast
+
+1.3 const_cast
+
+1.4 reinterret_cast
+
+2.警告
+强制类型转换干扰了正常的类型检查，强烈建议不到万不得已不要用！！！
+
+
+    
+
+        <a href="/2018/01/01/命名的强制类型转换/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -385,77 +435,12 @@ int k = j;      ...
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-间接访问"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-12-30 16:50:28" datetime="2017-12-30T08:50:28.000Z"  itemprop="datePublished">2017-12-30</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/12/30/间接访问/">间接访问</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-间接访问的方式：引用+指针。
-
-1. 引用
-一句话总结：已存在对象的别名，且类型严格一致，至死不渝。
-
-1.1 已存在对象（绑定时）
-已存在：定义时，必须初始化
-
-//形式1:变量
-int a = 2;
-int &amp;b = a;
-//形式2：函数入参
-int a = 2;
-int fun(int &amp;b){}
-fun(a);
-
-
-对象：绑定时，被绑定的不能是常量
-
-//错误:绑...
-    
-
-        <a href="/2017/12/30/间接访问/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </div>
 </nav>
 
