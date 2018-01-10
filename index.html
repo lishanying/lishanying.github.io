@@ -201,55 +201,6 @@ int add...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-控制语句"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-01-01 22:50:28" datetime="2018-01-01T14:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/01/控制语句/">控制语句</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。
-case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；
-错误案例：
-case 1://假设控制流绕过了该case
-    string file_name;//错误：控制流绕过一个隐式的初始化...
-    
-
-        <a href="/2018/01/01/控制语句/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-命名的强制类型转换"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -294,6 +245,55 @@ case 1://假设控制流绕过了该case
     
 
         <a href="/2018/01/01/命名的强制类型转换/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-控制语句"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-01-01 22:50:28" datetime="2018-01-01T14:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/01/01/控制语句/">控制语句</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1.switch中case最好加{}目的：防止跨过变量的初始化语句（包括隐式和显示）直接跳转到该变量作用于内的另一个位置。
+case加{}：在该case中定义的变量，有效范围为该case；case不加{}：在该case中定义的变量，有效范围是switch；
+错误案例：
+case 1://假设控制流绕过了该case
+    string file_name;//错误：控制流绕过一个隐式的初始化...
+    
+
+        <a href="/2018/01/01/控制语句/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>

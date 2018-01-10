@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Sailing">
 <meta property="og:description" content="1.普通函数体现：一个函数作为另外一个函数的参数，进行函数传递，当然可以通过这种形式进行函数重载。 方式1：函数类型将函数作为基本类型，形如int a，int 是类型，a是形参；int f(int, int )，int (int ，int)是类型，f是形参；缺点：该种类型的写法太繁琐 #include&amp;lt;iostream&amp;gt; using namespace std;  int add(in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-10T15:27:26.688Z">
+<meta property="og:updated_time" content="2018-01-10T15:31:55.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数作为参数传递">
 <meta name="twitter:description" content="1.普通函数体现：一个函数作为另外一个函数的参数，进行函数传递，当然可以通过这种形式进行函数重载。 方式1：函数类型将函数作为基本类型，形如int a，int 是类型，a是形参；int f(int, int )，int (int ，int)是类型，f是形参；缺点：该种类型的写法太繁琐 #include&amp;lt;iostream&amp;gt; using namespace std;  int add(in">
@@ -197,25 +197,7 @@ int F(int f(int,int),int a,int b){
     <span class="built_in">cout</span>&lt;&lt;F(add,<span class="number">1</span>,<span class="number">2</span>)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//3</span>
 }
 </code></pre>
-<h5 id="方式2：函数指针"><a href="#方式2：函数指针" class="headerlink" title="方式2：函数指针"></a><strong>方式2：</strong>函数指针</h5><p>用typedefine重新定义一种新类型</p>
-<pre><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-
-<span class="function"><span class="keyword">typedef</span> <span class="keyword">int</span> <span class="title">FuncType</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>; <span class="comment">//定义了FuncType这种函数数据类型</span>
-
-<span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>{
-    <span class="keyword">return</span> a+b;
-}
-
-<span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(FuncType tf,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>{<span class="comment">//</span>
-    <span class="keyword">return</span> tf(a,b);<span class="comment">//</span>
-}
-
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{
-    <span class="built_in">cout</span>&lt;&lt;F(add,<span class="number">1</span>,<span class="number">2</span>)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//3</span>
-}
-</code></pre>
-<h5 id="方式3：定义新类型"><a href="#方式3：定义新类型" class="headerlink" title="方式3：定义新类型"></a><strong>方式3：</strong>定义新类型</h5><p>用typedefine重新定义一种指针，该指针指向类型为int (int ,int)的函数。形参为p<br>注意，函数指针 = 函数名，所以，执行函数的时候，不用解指针！！！</p>
+<h5 id="方式2：函数指针"><a href="#方式2：函数指针" class="headerlink" title="方式2：函数指针"></a><strong>方式2：</strong>函数指针</h5><p>用typedefine重新定义一种指针，该指针指向类型为int (int ,int)的函数。形参为p<br>注意，函数指针 = 函数名，所以，执行函数的时候，不用解指针！！！</p>
 <pre><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span>
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
 
@@ -227,6 +209,24 @@ int F(int f(int,int),int a,int b){
 
 <span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(pf p,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>{<span class="comment">//</span>
     <span class="keyword">return</span> p(a,b);<span class="comment">//</span>
+}
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{
+    <span class="built_in">cout</span>&lt;&lt;F(add,<span class="number">1</span>,<span class="number">2</span>)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//3</span>
+}
+</code></pre>
+<h5 id="方式3：定义新类型"><a href="#方式3：定义新类型" class="headerlink" title="方式3：定义新类型"></a><strong>方式3：</strong>定义新类型</h5><p>用typedefine重新定义一种新类型</p>
+<pre><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+
+<span class="function"><span class="keyword">typedef</span> <span class="keyword">int</span> <span class="title">FuncType</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>; <span class="comment">//定义了FuncType这种函数数据类型</span>
+
+<span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>{
+    <span class="keyword">return</span> a+b;
+}
+
+<span class="function"><span class="keyword">int</span> <span class="title">F</span><span class="params">(FuncType tf,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>{<span class="comment">//</span>
+    <span class="keyword">return</span> tf(a,b);<span class="comment">//</span>
 }
 
 <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{
@@ -345,7 +345,7 @@ void sort(int a[], int n, int (*cmp)(int,int))
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-10T15:27:26.688Z" itemprop="dateUpdated">2018-01-10 23:27:26</time>
+    最后更新时间：<time datetime="2018-01-10T15:31:55.377Z" itemprop="dateUpdated">2018-01-10 23:31:55</time>
 </span><br>
 
 
@@ -424,9 +424,9 @@ void sort(int a[], int n, int (*cmp)(int,int))
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/01/01/控制语句/" id="post-next" class="post-nav-link">
+      <a href="/2018/01/01/命名的强制类型转换/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">控制语句</h4>
+        <h4 class="title">命名的强制类型转换</h4>
       </a>
     </div>
   

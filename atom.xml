@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lishangying.github.io/"/>
-  <updated>2018-01-10T15:27:26.688Z</updated>
+  <updated>2018-01-10T15:31:55.377Z</updated>
   <id>http://lishangying.github.io/</id>
   
   <author>
@@ -21,34 +21,13 @@
     <link href="http://lishangying.github.io/2018/01/10/%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/"/>
     <id>http://lishangying.github.io/2018/01/10/函数作为参数传递/</id>
     <published>2018-01-10T14:50:28.000Z</published>
-    <updated>2018-01-10T15:27:26.688Z</updated>
+    <updated>2018-01-10T15:31:55.377Z</updated>
     
     <summary type="html">
     
       
       
         &lt;h4 id=&quot;1-普通函数&quot;&gt;&lt;a href=&quot;#1-普通函数&quot; class=&quot;headerlink&quot; title=&quot;1.普通函数&quot;&gt;&lt;/a&gt;1.普通函数&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;体现&lt;/strong&gt;：&lt;strong&gt;&lt;em&gt;一个函数作为另外一个函数的参数，进行函数传递
-      
-    
-    </summary>
-    
-    
-      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>控制语句</title>
-    <link href="http://lishangying.github.io/2018/01/01/%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://lishangying.github.io/2018/01/01/控制语句/</id>
-    <published>2018-01-01T14:50:28.000Z</published>
-    <updated>2018-01-01T15:47:58.757Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;1-switch中case最好加&quot;&gt;&lt;a href=&quot;#1-switch中case最好加&quot; class=&quot;headerlink&quot; title=&quot;1.switch中case最好加{}&quot;&gt;&lt;/a&gt;1.switch中case最好加{}&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;目的
       
     
     </summary>
@@ -71,6 +50,27 @@
       
         &lt;h4 id=&quot;1-常见的命名强制类型转换&quot;&gt;&lt;a href=&quot;#1-常见的命名强制类型转换&quot; class=&quot;headerlink&quot; title=&quot;1.常见的命名强制类型转换&quot;&gt;&lt;/a&gt;1.常见的命名强制类型转换&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;通用表达式：&lt;strong
+      
+    
+    </summary>
+    
+    
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>控制语句</title>
+    <link href="http://lishangying.github.io/2018/01/01/%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://lishangying.github.io/2018/01/01/控制语句/</id>
+    <published>2018-01-01T14:50:28.000Z</published>
+    <updated>2018-01-01T15:47:58.757Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-switch中case最好加&quot;&gt;&lt;a href=&quot;#1-switch中case最好加&quot; class=&quot;headerlink&quot; title=&quot;1.switch中case最好加{}&quot;&gt;&lt;/a&gt;1.switch中case最好加{}&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;目的
       
     
     </summary>
