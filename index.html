@@ -151,6 +151,114 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-STATIC的作用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-01-12 23:50:28" datetime="2018-01-12T15:50:28.000Z"  itemprop="datePublished">2018-01-12</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/01/12/STATIC的作用/">STATIC的作用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1.隐藏当同时编译多个文件时：static的只在本文件中有效；所有未加static前缀的全局变量和函数都具有全局可见性；
+//file_1: a.c
+char a = 'A';               // global variable
+void msg()
+{
+     printf("Hello\n");
+}
+
+//file_2: main.c
+int main()
+{
+     ...
+    
+
+        <a href="/2018/01/12/STATIC的作用/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-全局_静态_局部变量的前世今生"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-01-12 22:50:28" datetime="2018-01-12T14:50:28.000Z"  itemprop="datePublished">2018-01-12</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/01/12/全局_静态_局部变量的前世今生/">全局/静态/局部变量的前世今生</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+ 描述一个人的生平，大底这么形容：哪儿的人，咋出生的，活了多久，行的多远。变量也是如此：内存分布，初始化，生命周期，作用域。
+1.全局变量
+内存分布：全局数据区
+初始化：默认初始化
+生命周期：程序运行期一直存在
+作用域：全局作用域（全局变量只需在一个源文件中定义，就可以作用于所有的源文件。）其他文件中要使用必须用extern 关键字声明要引用的全局变量。
+注意：如果在两个文件中都定义了相同...
+    
+
+        <a href="/2018/01/12/全局_静态_局部变量的前世今生/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-函数作为参数传递"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -294,133 +402,6 @@ case 1://假设控制流绕过了该case
     
 
         <a href="/2018/01/01/控制语句/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-表达式注意点"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-01-01 20:50:28" datetime="2018-01-01T12:50:28.000Z"  itemprop="datePublished">2018-01-01</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/01/表达式注意点/">表达式注意点</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        1.运算符的运算顺序1.1 有运算顺序只有4种： 逻辑与、逻辑或、条件运算符、逗号运算符因此，这四种运算符的运算表达式多复杂，均按照指定的顺序，依次执行每个位置的表达式。
-1.2 无运算顺序的实际情况：求值按顺序（优先级、结合律），但是求因子没顺序！！！存在问题：同一个对象参与多个因子的求取，没法保证该对象的纯洁性解决方案：加括号例子：
-int a = 0;
-int *p = &amp;a;...
-    
-
-        <a href="/2018/01/01/表达式注意点/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-const修饰符"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-12-30 20:50:28" datetime="2017-12-30T12:50:28.000Z"  itemprop="datePublished">2017-12-30</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/12/30/const修饰符/">const修饰符</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        1. 修饰变量1.1 const变量与普通变量1.1.1 const变量与普通变量的赋值合法情况关键：没有差别，随意赋值
-
-
-
-=左边是否const
-=右边是否const
-是否合法
-
-
-
-
-Y
-Y
-Y
-
-
-Y
-N
-Y
-
-
-N
-Y
-Y
-
-
-N
-N
-Y
-
-
-
-int i = 42;            //正确
-const int j = i;    //正确
-int k = j;      ...
-    
-
-        <a href="/2017/12/30/const修饰符/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>

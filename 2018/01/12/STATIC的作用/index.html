@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>STATIC的作用 | Sailing | Sailing&#39;s Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="cpp">
+    <meta name="description" content="1.隐藏当同时编译多个文件时：static的只在本文件中有效；所有未加static前缀的全局变量和函数都具有全局可见性； //file_1: a.c char a = &apos;A&apos;;               // global variable void msg() {      printf(&qu">
+<meta name="keywords" content="cpp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STATIC的作用">
+<meta property="og:url" content="http://lishangying.github.io/2018/01/12/STATIC的作用/index.html">
+<meta property="og:site_name" content="Sailing">
+<meta property="og:description" content="1.隐藏当同时编译多个文件时：static的只在本文件中有效；所有未加static前缀的全局变量和函数都具有全局可见性； //file_1: a.c char a = &apos;A&apos;;               // global variable void msg() {      printf(&quot;Hello\n&quot;); }  //file_2: main.c int main() {      ext">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-12T14:51:26.720Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STATIC的作用">
+<meta name="twitter:description" content="1.隐藏当同时编译多个文件时：static的只在本文件中有效；所有未加static前缀的全局变量和函数都具有全局可见性； //file_1: a.c char a = &apos;A&apos;;               // global variable void msg() {      printf(&quot;Hello\n&quot;); }  //file_2: main.c int main() {      ext">
+    
+        <link rel="alternate" type="application/atom+xml" title="Sailing" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Sailing</h5>
+          <a href="mailto:18810691321@163.com" title="18810691321@163.com" class="mail">18810691321@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://lishangying.github.io" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">STATIC的作用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">STATIC的作用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-12T15:50:28.000Z" itemprop="datePublished" class="page-time">
+  2018-01-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-隐藏"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.隐藏</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-持久"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 持久</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-默认初始化为0"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 默认初始化为0</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-STATIC的作用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">STATIC的作用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-12 23:50:28" datetime="2018-01-12T15:50:28.000Z"  itemprop="datePublished">2018-01-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="1-隐藏"><a href="#1-隐藏" class="headerlink" title="1.隐藏"></a>1.隐藏</h4><p>当同时编译多个文件时：<br>static的只在本文件中有效；<br>所有未加static前缀的全局变量和函数都具有全局可见性；</p>
+<pre><code class="cpp"><span class="comment">//file_1: a.c</span>
+<span class="keyword">char</span> a = <span class="string">'A'</span>;               <span class="comment">// global variable</span>
+<span class="function"><span class="keyword">void</span> <span class="title">msg</span><span class="params">()</span></span>
+<span class="function"></span>{
+     <span class="built_in">printf</span>(<span class="string">"Hello\n"</span>);
+}
+
+<span class="comment">//file_2: main.c</span>
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>
+<span class="function"></span>{
+     <span class="keyword">extern</span> <span class="keyword">char</span> a;       <span class="comment">// extern variable must be declared before use</span>
+     <span class="built_in">printf</span>(<span class="string">"%c "</span>, a);
+     (<span class="keyword">void</span>)msg();
+     <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<p>为什么在a.c中定义的全局变量a和函数msg能在main.c中使用？前面说过，所有未加static前缀的全局变量和函数都具有全局可见性，其它的源文件也能访问。此例中，a是全局变量，msg是函数，并且都没有加static前缀，因此对于另外的源文件main.c是可见的。<br>如果加了static，就会对其它源文件隐藏。例如在a和msg的定义前加上static，main.c就看不到它们了。利用这一特性可以在不同的文件中定义同名函数和同名变量，而不必担心命名冲突。static可以用作函数和变量的前缀，对于函数来讲，static的作用仅限于隐藏.</p>
+<h4 id="2-持久"><a href="#2-持久" class="headerlink" title="2. 持久"></a>2. 持久</h4><p>存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。共有两种变量存储在静态存储区：全局变量和static变量，只不过和全局变量比起来，static可以控制变量的可见范围，说到底static还是用来隐藏的。虽然这种用法不常见</p>
+<p>PS：如果作为static局部变量在函数内定义，它的生存期为整个源程序，但是其作用域仍与自动变量相同，只能在定义该变量的函数内使用该变量。退出该函数后， 尽管该变量还继续存在，但不能使用它。</p>
+<pre><code class="cpp">＃include &lt;stdio.h&gt;
+
+<span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">()</span></span>{
+    <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">10</span>;       <span class="comment">//在第一次进入这个函数的时候，变量a被初始化为10！并接着自减1，以后每次进入该函数</span>
+    <span class="keyword">return</span> count--;              <span class="comment">//就不会被再次初始化了，仅进行自减1的操作；在static发明前，要达到同样的功能，则只能使用全局变量：    </span>
+
+}
+
+<span class="keyword">int</span> count = <span class="number">1</span>;
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>
+<span class="function"></span>{
+     <span class="built_in">printf</span>(<span class="string">"global\t\tlocal static\n"</span>);
+     <span class="keyword">for</span>(; count &lt;= <span class="number">10</span>; ++count)
+               <span class="built_in">printf</span>(<span class="string">"%d\t\t%d\n"</span>, count, fun());
+     <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<blockquote>
+<p>输出结果：<br>1 10<br> 2 9<br> 3 8<br> 4 7<br> 5 6<br> 7 4<br> 8 3<br> 9 2<br> 10 1</p>
+</blockquote>
+<h4 id="3-默认初始化为0"><a href="#3-默认初始化为0" class="headerlink" title="3. 默认初始化为0"></a>3. 默认初始化为0</h4><p>其实全局变量也具备这一属性，因为全局变量也存储在静态数据区。在静态数据区，内存中所有的字节默认值都是0x00，某些时候这一特点可以减少程序员的工作量。比如初始化一个稀疏矩阵，我们可以一个一个地把所有元素都置0，然后把不是0的几个元素赋值。如果定义成静态的，就省去了一开始置0的操作。再比如要把一个字符数组当字符串来用，但又觉得每次在字符数组末尾加‘\0’;太麻烦。如果把字符串定义成静态的，就省去了这个麻烦，因为那里本来就是‘\0’;不妨做个小实验验证一下。</p>
+<pre><code class="cpp">＃include &lt;stdio.h&gt;
+
+<span class="keyword">int</span> a;
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>
+<span class="function"></span>{
+     <span class="keyword">int</span> i;
+     <span class="keyword">static</span> <span class="keyword">char</span> str[<span class="number">10</span>];
+     <span class="built_in">printf</span>(<span class="string">"integer: %d; string: (begin)%s(end)"</span>, a, str);
+     <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<blockquote>
+<p> 输出结果：<br> integer: 0; string: (begin) (end)</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-12T14:51:26.720Z" itemprop="dateUpdated">2018-01-12 22:51:26</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://lishangying.github.io">
+            <img src="/img/avatar.jpg" alt="Sailing">
+            Sailing
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/">cpp</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/12/STATIC的作用/&title=《STATIC的作用》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/12/STATIC的作用/&title=《STATIC的作用》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/12/STATIC的作用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《STATIC的作用》 — Sailing&url=http://lishangying.github.io/2018/01/12/STATIC的作用/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/12/STATIC的作用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/12/全局_静态_局部变量的前世今生/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">全局/静态/局部变量的前世今生</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Sailing &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lishangying.github.io/2018/01/12/STATIC的作用/&title=《STATIC的作用》 — Sailing&pic=http://lishangying.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lishangying.github.io/2018/01/12/STATIC的作用/&title=《STATIC的作用》 — Sailing&source=A blog of Sailing" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lishangying.github.io/2018/01/12/STATIC的作用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《STATIC的作用》 — Sailing&url=http://lishangying.github.io/2018/01/12/STATIC的作用/&via=http://lishangying.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lishangying.github.io/2018/01/12/STATIC的作用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3ay1bDMAwFwP7/T4c1hz6upLQl9njVAyX2sFBkSbdbvI4Ha/L9vz9PnjxaGBgYl2UcT1eyQbJxFZOfDQMDYx/G88Ml2+THfb7jo71enBkDAwPjwbGq7CRAY2BgYJwVcJNQWw2yX3hvYGBgXIpRfVy+QQ7+0F0cAwPjgoy86v75z2/pb2BgYFyKcRRXEmrzwDo5ya8nY2BgLM2YNyAnIXUScDEwMPZhJIWz/AJZLbT1QvYdKgYGxtKMfNAhaVhWxywmKWlUO8TAwFiIMRmbqF5WJwllOcPFwMBYiNEbySqXw05qVUbpJgYGxnKMXjI3L5PN8RgYGDswquWtauktifHV8HrnMwYGxjaMagk+KZ9V083q0AYGBsY+jCRZ7KWMvWGLE+qFGBgYCzHmjcazjtUcrcDAwNiMkf9ZNLtRHMvIkc0uBwYGxhKMyUxZr2taZUS/xcDAWI4x37jaMOhdmF/8uzEwMJZmVA+UjEH0AvS8PIeBgbEDo5fq5dTeEQslPAwMjM0Yk+2T9LE6uhFdpzEwMDZg9FqJvY3zxkBh2AIDA2NRxlFcvaGx5JuTNicGBsbajOqEVa+1OQnro5kRDAyMhRjvawnMRzQwMDAw8pGsvFifHGXyBngxbIGBgYEx2LiXbibPwcDAwKiSJg3L/IRveW9gYGD8e0a1WN9rJORt0eq1GQMDY21GNb3Lg2leSps3JzAwMBZl/AACsvAu/s2JwQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

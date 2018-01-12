@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lishangying.github.io/"/>
-  <updated>2018-01-10T15:31:55.377Z</updated>
+  <updated>2018-01-12T14:51:26.720Z</updated>
   <id>http://lishangying.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STATIC的作用</title>
+    <link href="http://lishangying.github.io/2018/01/12/STATIC%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>http://lishangying.github.io/2018/01/12/STATIC的作用/</id>
+    <published>2018-01-12T15:50:28.000Z</published>
+    <updated>2018-01-12T14:51:26.720Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-隐藏&quot;&gt;&lt;a href=&quot;#1-隐藏&quot; class=&quot;headerlink&quot; title=&quot;1.隐藏&quot;&gt;&lt;/a&gt;1.隐藏&lt;/h4&gt;&lt;p&gt;当同时编译多个文件时：&lt;br&gt;static的只在本文件中有效；&lt;br&gt;所有未加static前缀的全局变量和函数都具有全局可见
+      
+    
+    </summary>
+    
+    
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全局/静态/局部变量的前世今生</title>
+    <link href="http://lishangying.github.io/2018/01/12/%E5%85%A8%E5%B1%80_%E9%9D%99%E6%80%81_%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/"/>
+    <id>http://lishangying.github.io/2018/01/12/全局_静态_局部变量的前世今生/</id>
+    <published>2018-01-12T14:50:28.000Z</published>
+    <updated>2018-01-12T14:36:46.465Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt; 描述一个人的生平，大底这么形容：哪儿的人，咋出生的，活了多久，行的多远。变量也是如此：内存分布，初始化，生命周期，作用域。&lt;/p&gt;
+&lt;h4 id=&quot;1-全局变量&quot;&gt;&lt;a href=&quot;#1-全局变量&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+    
+      <category term="cpp" scheme="http://lishangying.github.io/tags/cpp/"/>
+    
+  </entry>
   
   <entry>
     <title>函数作为参数传递</title>
